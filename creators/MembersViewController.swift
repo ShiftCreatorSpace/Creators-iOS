@@ -65,8 +65,10 @@ class MembersViewController: UITableViewController, UITableViewDelegate, UITable
     }
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: nil)
+        //let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: nil)
         
+        let cell = tableView.dequeueReusableCellWithIdentifier("memberCell", forIndexPath: indexPath) as UITableViewCell
+            
         if self.membersData.count > 0 {
             let member = self.membersData.objectAtIndex(indexPath.row) as PFUser
             let firstName = String(member["firstName"] as NSString)
@@ -78,4 +80,20 @@ class MembersViewController: UITableViewController, UITableViewDelegate, UITable
         }
         return cell
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject) {
+        var memberViewController: MemberViewController = segue.destinationViewController as MemberViewController
+        var memberIndex = tableView!.indexPathForSelectedRow().row
+        var selectedMember = self.membersData.objectAtIndex(memberIndex) as PFUser
+        memberViewController.member = selectedMember
+        memberViewController.selfie = self.membersPhotos[toString(selectedMember["username"])]
+        memberViewController.selfie.image = self.membersPhotos[toString(selectedMember["username"])]!.image
+    }
+ /*
+    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+        if (segue.identifier == "Member View") {
+            // pass data to next view
+        }
+    }
+*/
 }
