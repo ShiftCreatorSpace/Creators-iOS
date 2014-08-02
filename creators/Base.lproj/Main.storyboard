@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.21" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rh8-ew-zRm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.21" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9QR-a6-QTO">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.13"/>
     </dependencies>
@@ -62,7 +62,13 @@
                             <outlet property="delegate" destination="0kP-tC-GBF" id="swK-pM-u2R"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Announcements" id="wcB-qh-GUr"/>
+                    <navigationItem key="navigationItem" title="Announcements" id="wcB-qh-GUr">
+                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="TZ9-jU-FZ8">
+                            <connections>
+                                <action selector="logout:" destination="0kP-tC-GBF" id="a1Y-BR-a69"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YvS-oB-3hn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -212,25 +218,19 @@
                                 <rect key="frame" x="0.0" y="65" width="480" height="167"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdz-fg-5ZP">
-                                <rect key="frame" x="35" y="278" width="33" height="21"/>
+                                <rect key="frame" x="35" y="278" width="200" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVU-UI-WBL">
-                                <rect key="frame" x="35" y="307" width="36" height="21"/>
+                                <rect key="frame" x="35" y="307" width="100" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Nw-d9-NTG">
-                                <rect key="frame" x="85" y="307" width="38" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFT-EK-S2t">
-                                <rect key="frame" x="135" y="307" width="67" height="21"/>
+                                <rect key="frame" x="143" y="307" width="100" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -248,16 +248,22 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFT-EK-S2t">
+                                <rect key="frame" x="251" y="307" width="100" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <connections>
-                        <outlet property="date" destination="eVU-UI-WBL" id="oxB-Ci-PE8"/>
-                        <outlet property="details" destination="zFX-8M-TEn" id="jfr-z0-kxk"/>
-                        <outlet property="location" destination="fFT-EK-S2t" id="Ner-RJ-nep"/>
-                        <outlet property="time" destination="6Nw-d9-NTG" id="hFu-Q1-8Q9"/>
-                        <outlet property="titleLabel" destination="Wdz-fg-5ZP" id="gRM-FW-HAG"/>
+                        <outlet property="date" destination="eVU-UI-WBL" id="RjF-HC-kLN"/>
+                        <outlet property="details" destination="zFX-8M-TEn" id="6Yw-27-YhO"/>
+                        <outlet property="location" destination="fFT-EK-S2t" id="TIS-7M-6Oh"/>
+                        <outlet property="time" destination="6Nw-d9-NTG" id="B0A-Va-Fbw"/>
+                        <outlet property="titleLabel" destination="Wdz-fg-5ZP" id="D74-Hy-3qw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TOC-lT-K5Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -390,10 +396,46 @@
             </objects>
             <point key="canvasLocation" x="826" y="1830"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="Lit-4v-ioF">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QHm-bu-j8e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="login" id="YLV-Cz-w89" customClass="LoginViewController" customModule="creators" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7iI-rk-Si7"/>
+                        <viewControllerLayoutGuide type="bottom" id="zLM-Wr-9An"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AOq-fb-wbv">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="UuV-iP-Aub"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="826" y="43"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tH2-HA-scS">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vTb-ZB-7hl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="9QR-a6-QTO" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1N2-Ua-unt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="YLV-Cz-w89" kind="relationship" relationship="rootViewController" id="f6E-n1-Dd9"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="134" y="43"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="b0V-oc-uJj">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="rh8-ew-zRm" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBar" automaticallyAdjustsScrollViewInsets="NO" id="rh8-ew-zRm" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="7QE-VB-w0D">

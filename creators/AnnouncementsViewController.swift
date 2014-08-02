@@ -13,6 +13,14 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, U
     var announcementsData: NSArray = []
     var announcementsPhotos = Dictionary<String, PFImageView>()
     
+    @IBAction func logout(sender: AnyObject) {
+        PFUser.logOut()
+        
+        var storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        var loginController: UIViewController = storyboard.instantiateViewControllerWithIdentifier("login") as UIViewController
+        self.navigationController.pushViewController(loginController, animated: false)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,14 +31,6 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, U
             }
             else {
                 self.announcementsData = objects
-                
-                
-                
-                /*for element : AnyObject in self.announcementsData {
-                    if let announcement = element as? PFObject  {
-                        println(element)
-                    }
-                }*/
                 
                 for element : AnyObject in self.announcementsData {
                     if let announcement = element as? PFObject  {
@@ -48,10 +48,6 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, U
                         //println(element)
                     }
                 }
-
-
-                
-                
                 self.tableView.reloadData()
             }
         })
@@ -74,20 +70,13 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, U
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         //let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: nil)
-        
-        //let cell = tableView!.dequeueReusableCellWithIdentifier("announce", forIndexPath: indexPath) as UITableViewCell
-        
         let cell = tableView.dequeueReusableCellWithIdentifier("announcementCell", forIndexPath: indexPath) as UITableViewCell
-        
         
         if self.announcementsData.count > 0 {
             let announcement = self.announcementsData.objectAtIndex(indexPath.row) as PFObject
             let title = String(announcement["title"] as NSString)
             let details = String(announcement["details"] as NSString)
             //let photo = String(announcement["objectId"] as NSString)
-            
-            println(title)
-            //println(photo)
             
             cell.textLabel.text = title
             cell.detailTextLabel.numberOfLines = 3
@@ -108,19 +97,9 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, U
 
 /*
     override func tableView(tableView: UITableView!, didSelectRowAtIndexPath: NSIndexPath!) {
-        //var messageAlert: UIAlertView = UIAlertView(title: "Row Selected", message: "You've selected at row", delegate: nil, cancelButtonTitle: "OK", otherButtonTitles: nil, String[]())
-        
-        
-        
         var alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
-        
-        
-        
-        // Display Alert Message
-        //messageAlert show];
-        
     }
 */
 }

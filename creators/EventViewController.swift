@@ -25,11 +25,12 @@ class EventViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
  
+        println(event)
         
         titleLabel.text = String(event["title"] as NSString)
         location.text = String(event["locationName"] as NSString)
-        date.text = String(event["date"] as NSString)
-        time.text = String(event["time"] as NSString)
+        date.text = toString(event["startDate"])
+        time.text = toString(event["endDate"])
         details.text = String(event["details"] as NSString)
         //if (photo) {
         //photo!.image = event["photo"] as UIImage

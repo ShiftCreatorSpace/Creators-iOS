@@ -89,11 +89,5 @@ class MembersViewController: UITableViewController, UITableViewDelegate, UITable
         memberViewController.selfie = self.membersPhotos[toString(selectedMember["username"])]
         memberViewController.selfie.image = self.membersPhotos[toString(selectedMember["username"])]!.image
     }
- /*
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        if (segue.identifier == "Member View") {
-            // pass data to next view
-        }
-    }
-*/
+    
 }

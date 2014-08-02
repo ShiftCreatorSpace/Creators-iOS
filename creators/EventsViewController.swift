@@ -26,7 +26,7 @@ class EventsTableViewCell: UITableViewCell {
 class EventsViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
     // define the class
     var eventsData: NSArray = []
-//    var eventsPhotos = Dictionary<String, PFImageView>()
+    var eventsPhotos = Dictionary<String, PFImageView>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +45,7 @@ class EventsViewController: UITableViewController, UITableViewDelegate, UITableV
                 self.eventsData = objects
 
                 println("after get objects")                
-/*
+
                 for element : AnyObject in self.eventsData {
                     if let event = element as? PFObject  {
                         var photo: PFImageView = PFImageView()
@@ -62,8 +62,6 @@ class EventsViewController: UITableViewController, UITableViewDelegate, UITableV
                         //println(element)
                     }
                 }
-*/
-                
                 
                 self.tableView.reloadData()
             }
@@ -86,12 +84,7 @@ class EventsViewController: UITableViewController, UITableViewDelegate, UITableV
     }
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        //let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: nil)
-        //let cell = EventsTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: nil)
         let cell = tableView.dequeueReusableCellWithIdentifier("eventCell", forIndexPath: indexPath) as EventsTableViewCell
-        
-        
-         println("entering load cell")
         
         if self.eventsData.count > 0 {
             let event = self.eventsData.objectAtIndex(indexPath.row) as PFObject
@@ -100,20 +93,6 @@ class EventsViewController: UITableViewController, UITableViewDelegate, UITableV
             let date = toString(event["startDate"])
             let time = toString(event["endDate"])
             let details = String(event["details"] as NSString)
-            
-        println("after parsing dictionary for event details")
-            
-/*
-            println(event)
-            println(title)
-            println(location)
-            println(date)
-            println(time)
-            println(details)
-*/
-            //cell.textLabel.text = title
-            //cell.detailTextLabel.numberOfLines = 6
-            //cell.detailTextLabel.text = deskription
 
             cell.title.text = title
             cell.location.text = location
@@ -122,14 +101,6 @@ class EventsViewController: UITableViewController, UITableViewDelegate, UITableV
             cell.details.numberOfLines = 3
             cell.details.text = details
       //      cell.rsvp
-
-/*
-            cell.title.text = "Hi"
-            cell.location.text = "hi"
-            cell.date.text = "hi"
-            cell.time.text = "hi"
-            cell.details.text = "hi"
-*/
         }
         return cell
     }
