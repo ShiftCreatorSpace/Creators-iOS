@@ -89,5 +89,9 @@ class MembersViewController: UITableViewController, UITableViewDelegate, UITable
         memberViewController.selfie = self.membersPhotos[toString(selectedMember["username"])]
         memberViewController.selfie.image = self.membersPhotos[toString(selectedMember["username"])]!.image
     }
-    
+/*
+    override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+        self.performSegueWithIdentifier("memberSegue", sender: self)
+    }
+*/
 }

@@ -27,3 +27,7 @@
 // Parse framework
 
 #import <Parse/Parse.h>
+
+// Swipeable TableViewCell framework
+
+#import <SWTableViewCell/SWTableViewCell.h>

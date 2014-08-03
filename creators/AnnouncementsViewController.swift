@@ -94,7 +94,11 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, U
         announcementViewController.photo = self.announcementsPhotos[toString(selectedAnnouncement["objectId"])]
         announcementViewController.photo!.image = self.announcementsPhotos[toString(selectedAnnouncement["objectId"])]!.image
     }
-
+/*
+    override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+        self.performSegueWithIdentifier("announcementSegue", sender: self)
+    }
+*/
 /*
     override func tableView(tableView: UITableView!, didSelectRowAtIndexPath: NSIndexPath!) {
         var alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.Alert)

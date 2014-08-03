@@ -1,0 +1,16 @@
+PODS:
+  - Bolts (1.1.1)
+  - Facebook-iOS-SDK (3.16.2):
+    - Bolts
+  - SWTableViewCell (0.3.0)
+
+DEPENDENCIES:
+  - Facebook-iOS-SDK
+  - SWTableViewCell (>= 0.3.0)
+
+SPEC CHECKSUMS:
+  Bolts: 0ca796081c3e7c139bd86d6903c27f1b83036a5d
+  Facebook-iOS-SDK: 34eef640c2cc4c8618ba0f574ad2b290e07f1b4e
+  SWTableViewCell: 1725f7607ce4c154264c18aeb78e4636b11b0b29
+
+COCOAPODS: 0.33.1

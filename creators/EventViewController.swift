@@ -17,9 +17,7 @@ class EventViewController: UIViewController {
     @IBOutlet var time : UILabel
     @IBOutlet var details: UITextView
     //@IBOutlet var photo: UIImageView
-    //    @IBOutlet var rsvp : UIButton
-    
-
+    @IBOutlet var status : UILabel
     
     override func viewDidLoad() {
         super.viewDidLoad()

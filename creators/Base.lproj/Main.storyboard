@@ -53,7 +53,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="XR2-qu-RZn" kind="show" id="mrN-1R-dRQ"/>
+                                    <segue destination="XR2-qu-RZn" kind="show" identifier="announcementSegue" id="mrN-1R-dRQ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -187,7 +187,7 @@
                                     <outlet property="location" destination="0VV-20-P2l" id="r60-dG-AhJ"/>
                                     <outlet property="time" destination="5vf-uu-rvd" id="X3A-fu-yLq"/>
                                     <outlet property="title" destination="jh5-J6-L9e" id="Vwr-ep-Czh"/>
-                                    <segue destination="J7X-bm-98G" kind="show" id="oWv-fz-Mlw"/>
+                                    <segue destination="J7X-bm-98G" kind="show" identifier="eventSegue" id="4id-4H-SgU"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -242,14 +242,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="csh-YZ-2ly">
-                                <rect key="frame" x="20" y="240" width="440" height="30"/>
-                                <state key="normal" title="RSVP">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFT-EK-S2t">
                                 <rect key="frame" x="251" y="307" width="100" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEg-aq-U9G">
+                                <rect key="frame" x="0.0" y="230" width="480" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -262,6 +262,7 @@
                         <outlet property="date" destination="eVU-UI-WBL" id="RjF-HC-kLN"/>
                         <outlet property="details" destination="zFX-8M-TEn" id="6Yw-27-YhO"/>
                         <outlet property="location" destination="fFT-EK-S2t" id="TIS-7M-6Oh"/>
+                        <outlet property="status" destination="wEg-aq-U9G" id="mnq-pa-Hgb"/>
                         <outlet property="time" destination="6Nw-d9-NTG" id="B0A-Va-Fbw"/>
                         <outlet property="titleLabel" destination="Wdz-fg-5ZP" id="D74-Hy-3qw"/>
                     </connections>
@@ -294,7 +295,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="io4-fW-OnU" kind="show" id="gUp-dj-rWa"/>
+                                    <segue destination="io4-fW-OnU" kind="show" identifier="memberSegue" id="gUp-dj-rWa"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -399,7 +400,6 @@
         <!--Login View Controller-->
         <scene sceneID="Lit-4v-ioF">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QHm-bu-j8e" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="login" id="YLV-Cz-w89" customClass="LoginViewController" customModule="creators" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7iI-rk-Si7"/>
@@ -413,13 +413,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="UuV-iP-Aub"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QHm-bu-j8e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="826" y="43"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tH2-HA-scS">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vTb-ZB-7hl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="9QR-a6-QTO" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1N2-Ua-unt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -429,6 +429,7 @@
                         <segue destination="YLV-Cz-w89" kind="relationship" relationship="rootViewController" id="f6E-n1-Dd9"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vTb-ZB-7hl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="134" y="43"/>
         </scene>
