@@ -44,7 +44,8 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, U
                                 self.tableView.reloadData()
                             }
                         })
-                        self.announcementsPhotos.updateValue(photo, forKey: toString(announcement["objectId"]))
+
+                        self.announcementsPhotos.updateValue(photo, forKey: announcement.objectId)
                         //println(element)
                     }
                 }
@@ -76,12 +77,10 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, U
             let announcement = self.announcementsData.objectAtIndex(indexPath.row) as PFObject
             let title = String(announcement["title"] as NSString)
             let details = String(announcement["details"] as NSString)
-            //let photo = String(announcement["objectId"] as NSString)
             
             cell.textLabel.text = title
             cell.detailTextLabel.numberOfLines = 3
             cell.detailTextLabel.text = details
-            //cell.image = self.announcementsPhotos[toString(announcement["objectId"])]!.image
         }
         return cell
     }
@@ -91,8 +90,9 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, U
         var announcementIndex = tableView!.indexPathForSelectedRow().row
         var selectedAnnouncement = self.announcementsData.objectAtIndex(announcementIndex) as PFObject
         announcementViewController.announcement = selectedAnnouncement
-        announcementViewController.photo = self.announcementsPhotos[toString(selectedAnnouncement["objectId"])]
-        announcementViewController.photo!.image = self.announcementsPhotos[toString(selectedAnnouncement["objectId"])]!.image
+        announcementViewController.image = self.announcementsPhotos[selectedAnnouncement.objectId]!.image
+        
+        println(announcementsPhotos)
     }
 /*
     override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {

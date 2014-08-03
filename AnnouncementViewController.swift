@@ -11,6 +11,7 @@ import UIKit
 class AnnouncementViewController: UIViewController {
 
     var announcement: PFObject = PFObject(className: "Announcement")
+    var image = UIImage()
     @IBOutlet var titleLabel: UILabel
     @IBOutlet var details: UITextView
     @IBOutlet var photo: UIImageView
@@ -18,10 +19,9 @@ class AnnouncementViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        
         titleLabel.text = String(announcement["title"] as NSString)
         details.text = String(announcement["details"] as NSString)
+        photo.image = self.image
         //if (photo) {
             //photo!.image = announcement["photo"] as UIImage
             

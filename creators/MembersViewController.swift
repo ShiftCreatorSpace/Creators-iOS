@@ -77,6 +77,9 @@ class MembersViewController: UITableViewController, UITableViewDelegate, UITable
             
             cell.textLabel.text = firstName + " " + lastName
             cell.imageView.image = selfie
+            
+            //println(firstName)
+            //println(self.membersPhotos[toString(member["username"])])
         }
         return cell
     }
@@ -86,8 +89,7 @@ class MembersViewController: UITableViewController, UITableViewDelegate, UITable
         var memberIndex = tableView!.indexPathForSelectedRow().row
         var selectedMember = self.membersData.objectAtIndex(memberIndex) as PFUser
         memberViewController.member = selectedMember
-        memberViewController.selfie = self.membersPhotos[toString(selectedMember["username"])]
-        memberViewController.selfie.image = self.membersPhotos[toString(selectedMember["username"])]!.image
+        memberViewController.image = self.membersPhotos[toString(selectedMember["username"])]!.image
     }
 /*
     override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {

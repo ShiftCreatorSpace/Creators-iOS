@@ -14,15 +14,9 @@ class EventsTableViewCell: SWTableViewCell {
     @IBOutlet var date : UILabel
     @IBOutlet var time : UILabel
     @IBOutlet var details: UILabel
-    
-    @IBAction func rsvp(sender: AnyObject) {
-        
-    }
-    
+
     init(style: UITableViewCellStyle, reuseIdentifier: String!) {
         super.init(style: UITableViewCellStyle.Value1, reuseIdentifier: reuseIdentifier)
-        
-        
     }
 }
 
@@ -30,7 +24,7 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
     // define the class
     var eventsData: NSArray = []
     var eventsPhotos = Dictionary<String, PFImageView>()
-
+    var eventsRsvps = Dictionary<String, PFObject>()
 
     func leftButtons() -> NSArray {
         var leftUtilityButtons: NSMutableArray = NSMutableArray()
@@ -71,27 +65,10 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
             default:
                 println("Wut.")
         }
-     
-        var query = PFQuery(className: "EventRsvp")
-        query.whereKey("event", equalTo: rsvpEvent)
-        query.whereKey("member", equalTo: rsvpMember)
-        query.getFirstObjectInBackgroundWithBlock({(PFObject eventRsvp, NSError error) in
-            if (error) {
-                NSLog("RSVP - Could not retrieve EventRsvp. " + error.localizedDescription)
-                
-                // if the user is rsvp'ing for the first time for this event, create new EventRsvp
-                println("RSVP - Creating new rsvp")
-                var eventRsvp = PFObject(className: "EventRsvp")
-                eventRsvp["event"] = rsvpEvent
-                eventRsvp["status"] = rsvpStatus
-                eventRsvp["member"] = rsvpMember
-            } else {
-                // if current user has already rsvp'd for selected event, update rsvp
-                println("RSVP - Current user has already rsvp'd")
-                eventRsvp["status"] = rsvpStatus
-            }
-            eventRsvp.saveEventually()
-        })
+        
+        var eventRsvp = self.eventsRsvps[rsvpEvent.objectId]!
+        eventRsvp["status"] = rsvpStatus
+        eventRsvp.saveEventually()
     }
     
     func swipeableTableViewCell(cell: SWTableViewCell!, didTriggerRightUtilityButtonWithIndex withIndex: NSInteger) {
@@ -123,6 +100,7 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
 
                 for element : AnyObject in self.eventsData {
                     if let event = element as? PFObject  {
+                        // load photo to eventsPhotos
                         var photo: PFImageView = PFImageView()
                         photo.image = UIImage(named: "square")
                         photo.file = event["photo"] as? PFFile
@@ -133,8 +111,29 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
                                 self.tableView.reloadData()
                             }
                         })
-                        self.eventsPhotos.updateValue(photo, forKey: toString(event["objectId"]))
+                        self.eventsPhotos.updateValue(photo, forKey: event.objectId)
+    
+                        // load event to eventsRsvps
+                        let rsvpEvent = event
+                        let rsvpMember = PFUser.currentUser()
+                        var query = PFQuery(className: "EventRsvp")
+                        query.whereKey("event", equalTo: rsvpEvent)
+                        query.whereKey("member", equalTo: rsvpMember)
+                        query.getFirstObjectInBackgroundWithBlock({(PFObject eventRsvp, NSError error) in
+                            if (error) {
+                                NSLog("RSVP - Could not retrieve EventRsvp. " + error.localizedDescription)
+                                // if the user has not rsvp'd for this event, set empty object
+                                var eventRsvp = PFObject(className: "EventRsvp")
+                                eventRsvp["event"] = rsvpEvent
+                                eventRsvp["member"] = rsvpMember
+                                eventRsvp["status"] = ""
+                                self.eventsRsvps.updateValue(eventRsvp, forKey: event.objectId)
+                            } else {
+                                self.eventsRsvps.updateValue(eventRsvp, forKey: event.objectId)
+                            }
+                        })
                         //println(element)
+
                     }
                 }
                 
@@ -177,9 +176,8 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
             cell.location.text = location
             cell.date.text = date
             cell.time.text = time
-            cell.details.numberOfLines = 3
+            cell.details.numberOfLines = 5
             cell.details.text = details
-      //      cell.rsvp
         }
         return cell
     }
@@ -189,8 +187,8 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
         var eventIndex = tableView!.indexPathForSelectedRow().row
         var selectedEvent = self.eventsData.objectAtIndex(eventIndex) as PFObject
         eventViewController.event = selectedEvent
-     //   eventViewController.photo = self.eventsPhotos[toString(selectedEvent["objectId"])]
-     //   eventViewController.photo!.image = self.eventsPhotos[toString(selectedEvent["objectId"])]!.image
+        eventViewController.image = self.eventsPhotos[selectedEvent.objectId]!.image
+        eventViewController.rsvp = self.eventsRsvps[selectedEvent.objectId]!
     }
     
     override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {

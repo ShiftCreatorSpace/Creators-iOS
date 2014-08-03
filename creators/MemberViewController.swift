@@ -11,6 +11,7 @@ import UIKit
 class MemberViewController: UIViewController {
 
     var member = PFUser()
+    var image = UIImage()
     @IBOutlet var firstName: UILabel
     @IBOutlet var lastName: UILabel
     @IBOutlet var major: UILabel
@@ -22,16 +23,13 @@ class MemberViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-
-        println(member)
-        
         firstName.text = String(member["firstName"] as NSString)
         lastName.text = String(member["lastName"] as NSString)
         major.text = String(member["major"] as NSString)
         phone.text = toString(member["phone"] as NSNumber)
         email.text = String(member["email"] as NSString)
         bio.text = String(member["bio"] as NSString)
-//        selfie.image =
+        selfie.image = self.image
     }
     
     override func didReceiveMemoryWarning() {
