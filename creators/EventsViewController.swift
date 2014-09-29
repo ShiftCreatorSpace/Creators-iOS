@@ -9,15 +9,20 @@
 import Foundation
 
 class EventsTableViewCell: SWTableViewCell {
-    @IBOutlet var title: UILabel
-    @IBOutlet var location : UILabel
-    @IBOutlet var date : UILabel
-    @IBOutlet var time : UILabel
-    @IBOutlet var details: UILabel
+    @IBOutlet var title: UILabel?
+    @IBOutlet var location : UILabel?
+    @IBOutlet var date : UILabel?
+    @IBOutlet var time : UILabel?
+    @IBOutlet var details: UILabel?
 
-    init(style: UITableViewCellStyle, reuseIdentifier: String!) {
+   override  init(style: UITableViewCellStyle, reuseIdentifier: String!) {
         super.init(style: UITableViewCellStyle.Value1, reuseIdentifier: reuseIdentifier)
     }
+
+   required init(coder aDecoder: NSCoder) {
+       //fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+   }
 }
 
 class EventsViewController: UITableViewController, UITableViewDelegate, SWTableViewCellDelegate, UITableViewDataSource {
@@ -48,7 +53,7 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
     
     func swipeableTableViewCell(cell: SWTableViewCell!, didTriggerLeftUtilityButtonWithIndex withIndex: NSInteger) {
         let indexPath = self.tableView.indexPathForCell(cell)
-        let rsvpEvent = self.eventsData.objectAtIndex(indexPath.row) as PFObject
+        let rsvpEvent = self.eventsData.objectAtIndex(indexPath!.row) as PFObject
         let rsvpMember = PFUser.currentUser()
         var rsvpStatus = ""
 
@@ -92,7 +97,7 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
         
         var query = PFQuery(className: "Event")
         query.findObjectsInBackgroundWithBlock({(NSMutableArray objects, NSError error) in
-            if (error) {
+            if (error != nil) {
                 NSLog("error " + error.localizedDescription)
             }
             else {
@@ -105,7 +110,7 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
                         photo.image = UIImage(named: "square")
                         photo.file = event["photo"] as? PFFile
                         photo.loadInBackground({(UIImage image, NSError error) in
-                            if (error) {
+                            if (error != nil) {
                                 NSLog("error " + error.localizedDescription)
                             } else {
                                 self.tableView.reloadData()
@@ -120,7 +125,7 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
                         query.whereKey("event", equalTo: rsvpEvent)
                         query.whereKey("member", equalTo: rsvpMember)
                         query.getFirstObjectInBackgroundWithBlock({(PFObject eventRsvp, NSError error) in
-                            if (error) {
+                            if (error != nil) {
                                 NSLog("RSVP - Could not retrieve EventRsvp. " + error.localizedDescription)
                                 // if the user has not rsvp'd for this event, set empty object
                                 var eventRsvp = PFObject(className: "EventRsvp")
@@ -153,11 +158,11 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
     return 1
     }*/
     
-    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.eventsData.count
     }
     
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("eventCell", forIndexPath: indexPath) as EventsTableViewCell
         
         if self.eventsData.count > 0 {
@@ -172,40 +177,40 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
             cell.rightUtilityButtons = self.rightButtons()
             cell.delegate = self
             
-            cell.title.text = title
-            cell.location.text = location
-            cell.date.text = date
-            cell.time.text = time
-            cell.details.numberOfLines = 5
-            cell.details.text = details
+            cell.title!.text = title
+            cell.location!.text = location
+            cell.date!.text = date
+            cell.time!.text = time
+            cell.details!.numberOfLines = 5
+            cell.details!.text = details
             
             /// clean up in cell styling
             switch event["type"] as NSInteger {
             case 0:
-                cell.imageView.image = UIImage(named: "cell_event_red")
+                cell.imageView!.image = UIImage(named: "cell_event_red")
             case 1:
-                cell.imageView.image = UIImage(named: "cell_event_orange")
+                cell.imageView!.image = UIImage(named: "cell_event_orange")
             case 2:
-                cell.imageView.image = UIImage(named: "cell_event_green")
+                cell.imageView!.image = UIImage(named: "cell_event_green")
             case 3:
-                cell.imageView.image = UIImage(named: "cell_event_blue")
+                cell.imageView!.image = UIImage(named: "cell_event_blue")
             default:
-                cell.imageView.image = UIImage(named: "square")
+                cell.imageView!.image = UIImage(named: "square")
             }
         }
         return cell
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         var eventViewController: EventViewController = segue.destinationViewController as EventViewController
-        var eventIndex = tableView!.indexPathForSelectedRow().row
+        var eventIndex = tableView.indexPathForSelectedRow()!.row
         var selectedEvent = self.eventsData.objectAtIndex(eventIndex) as PFObject
         eventViewController.event = selectedEvent
-        eventViewController.image = self.eventsPhotos[selectedEvent.objectId]!.image
+        eventViewController.image = self.eventsPhotos[selectedEvent.objectId]!.image!
         eventViewController.rsvp = self.eventsRsvps[selectedEvent.objectId]!
     }
     
-    override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.performSegueWithIdentifier("eventSegue", sender: self)
     }
     

@@ -28,7 +28,7 @@ import Foundation
 
 class MySearchBar : UISearchBar {
     
-    init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         
@@ -44,10 +44,15 @@ class MySearchBar : UISearchBar {
 class MyView: UIView {
     let tableView: UITableView!
     
-    init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
         
         tableView = UITableView()
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        //fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
     
     func configure() {
@@ -60,8 +65,13 @@ class MyView: UIView {
 
 
 class MembersTableViewCell: UITableViewCell {
-    init(style: UITableViewCellStyle, reuseIdentifier: String!) {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String!) {
         super.init(style: UITableViewCellStyle.Default, reuseIdentifier: reuseIdentifier)
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        //fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
 }
 
@@ -94,7 +104,7 @@ class MembersViewController: UITableViewController, UISearchDisplayDelegate, UIS
         
         var query = PFUser.query()
         query.findObjectsInBackgroundWithBlock({(NSMutableArray objects, NSError error) in
-            if (error) {
+            if (error != nil) {
                 NSLog("error " + error.localizedDescription)
             }
             else {
@@ -107,7 +117,7 @@ class MembersViewController: UITableViewController, UISearchDisplayDelegate, UIS
                         selfie.image = UIImage(named: "square")
                         selfie.file = member["selfie"] as? PFFile
                         selfie.loadInBackground({(UIImage image, NSError error) in
-                            if (error) {
+                            if (error != nil) {
                                 NSLog("error " + error.localizedDescription)
                             } else {
                                 self.tableView.reloadData()
@@ -137,24 +147,24 @@ class MembersViewController: UITableViewController, UISearchDisplayDelegate, UIS
         return 1
     }*/
     
-    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        if tableView == self.searchDisplayController.searchResultsTableView {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableView == self.searchDisplayController!.searchResultsTableView {
             return self.searchResults.count
         } else {
             return self.membersData.count
         }
     }
     
-    override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 80
     }
     
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: nil)
         let cell = self.tableView.dequeueReusableCellWithIdentifier("memberCell", forIndexPath: indexPath) as MembersTableViewCell
         
         var member : PFUser?
-        if (tableView == self.searchDisplayController.searchResultsTableView && self.searchResults.count > 0) {
+        if (tableView == self.searchDisplayController!.searchResultsTableView && self.searchResults.count > 0) {
             member = self.searchResults.objectAtIndex(indexPath.row) as? PFUser
             var name = member!["firstName"] as NSString
         } else {
@@ -163,32 +173,32 @@ class MembersViewController: UITableViewController, UISearchDisplayDelegate, UIS
             }
         }
         
-        if member {
+        if member != nil {
             let firstName = String(member!["firstName"] as NSString)
             let lastName = String(member!["lastName"] as NSString)
             let selfie = self.membersPhotos[member!.objectId]!.image
             
-            cell.textLabel.text = firstName + " " + lastName
-            cell.imageView.image = selfie
+            cell.textLabel!.text = firstName + " " + lastName
+            cell.imageView!.image = selfie
         }
         return cell
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         var memberViewController: MemberViewController = segue.destinationViewController as MemberViewController
         var memberIndex = NSInteger()
         var selectedMember = PFUser()
         
-        if (self.searchDisplayController.active == true) {
-            memberIndex = self.searchDisplayController.searchResultsTableView!.indexPathForSelectedRow().row
+        if (self.searchDisplayController!.active == true) {
+            memberIndex = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!.row
             selectedMember = self.searchResults.objectAtIndex(memberIndex) as PFUser
         } else {
-            memberIndex = self.tableView!.indexPathForSelectedRow().row
+            memberIndex = self.tableView.indexPathForSelectedRow()!.row
             selectedMember = self.membersData.objectAtIndex(memberIndex) as PFUser
         }
 
         memberViewController.member = selectedMember
-        memberViewController.image = self.membersPhotos[selectedMember.objectId]!.image
+        memberViewController.image = self.membersPhotos[selectedMember.objectId]!.image!
     }
     
     func filterContentForSearchText(searchText: NSString!, scope: NSString! = "All") {
@@ -233,11 +243,11 @@ class MembersViewController: UITableViewController, UISearchDisplayDelegate, UIS
         
         
         query.findObjectsInBackgroundWithBlock({(NSMutableArray objects, NSError error) in
-            if (error == nil) {
+            if (error != nil) {
                 NSLog("error " + error.localizedDescription)
             } else {
                 self.searchResults = objects
-                self.searchDisplayController.searchResultsTableView.reloadData()
+                self.searchDisplayController!.searchResultsTableView.reloadData()
             }
         })
     }
@@ -245,8 +255,8 @@ class MembersViewController: UITableViewController, UISearchDisplayDelegate, UIS
     func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: NSString!) -> Bool {
 //        self.filterContentForSearchText(searchString)
 //        return true
-        let scopes = self.searchDisplayController.searchBar.scopeButtonTitles as Array
-        let selectedScope = scopes[self.searchDisplayController.searchBar.selectedScopeButtonIndex] as String
+        let scopes = self.searchDisplayController!.searchBar.scopeButtonTitles as Array!
+        let selectedScope = scopes[self.searchDisplayController!.searchBar.selectedScopeButtonIndex] as String
         self.filterContentForSearchText(searchString, scope: selectedScope)
         return true
     }
@@ -254,12 +264,12 @@ class MembersViewController: UITableViewController, UISearchDisplayDelegate, UIS
     func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
 //        self.filterContentForSearchText(self.searchDisplayController.searchBar.text)
 //        return true
-        let scopes = self.searchDisplayController.searchBar.scopeButtonTitles as Array
-        self.filterContentForSearchText(self.searchDisplayController.searchBar.text, scope: scopes[searchOption] as NSString)
+        let scopes = self.searchDisplayController!.searchBar.scopeButtonTitles! as Array
+        self.filterContentForSearchText(self.searchDisplayController!.searchBar.text, scope: scopes[searchOption] as NSString)
         return true
     }
     
-    override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //self.performSegueWithIdentifier("memberSegue", sender: self)
         //self.searchDisplayController.setActive(false, animated: true)
     }

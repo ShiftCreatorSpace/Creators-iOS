@@ -15,7 +15,7 @@ class SettingsViewController: UIViewController {
         
         var storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         var loginController: UIViewController = storyboard.instantiateViewControllerWithIdentifier("login") as UIViewController
-        self.navigationController.pushViewController(loginController, animated: false)
+        self.navigationController!.pushViewController(loginController, animated: false)
     }
 
     override func viewDidLoad() {

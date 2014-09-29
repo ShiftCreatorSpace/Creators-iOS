@@ -15,7 +15,7 @@ class LoginViewController: UIViewController, PFLogInViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.navigationController.navigationBar.hidden = true
+        self.navigationController!.navigationBar.hidden = true
         
         self.login.fields = PFLogInFields(PFLogInFieldsUsernameAndPassword.value | PFLogInFieldsLogInButton.value)
         self.login.delegate = self
@@ -24,14 +24,14 @@ class LoginViewController: UIViewController, PFLogInViewControllerDelegate {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        if (PFUser.currentUser()) {
+        if (PFUser.currentUser() != nil) {
             var storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             var tabBarController: UITabBarController = storyboard.instantiateViewControllerWithIdentifier("tabBar") as UITabBarController
-            self.navigationController.popViewControllerAnimated(false)
-            self.navigationController.pushViewController(tabBarController, animated: false)
+            self.navigationController!.popViewControllerAnimated(false)
+            self.navigationController!.pushViewController(tabBarController, animated: false)
         } else {
        //     [logInViewController setDelegate:self];
-            self.presentModalViewController(self.login, animated: false)
+            self.presentViewController(self.login, animated: false, completion: nil)
         }
     }
     

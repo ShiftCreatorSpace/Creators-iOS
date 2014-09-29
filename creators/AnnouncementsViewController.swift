@@ -9,11 +9,16 @@
 import Foundation
 
 class AnnouncementsTableViewCell: SWTableViewCell {
-    @IBOutlet var title: UILabel
-    @IBOutlet var details: UILabel
+    @IBOutlet var title: UILabel?
+    @IBOutlet var details: UILabel?
     
-    init(style: UITableViewCellStyle, reuseIdentifier: String!) {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String!) {
         super.init(style: UITableViewCellStyle.Value1, reuseIdentifier: reuseIdentifier)
+    }
+
+    required init(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
 }
 
@@ -41,7 +46,7 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
         
         var storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         var loginController: UIViewController = storyboard.instantiateViewControllerWithIdentifier("login") as UIViewController
-        self.navigationController.pushViewController(loginController, animated: false)
+        self.navigationController!.pushViewController(loginController, animated: false)
     }
     
     @IBOutlet var announcementSegmentedControl : UISegmentedControl?
@@ -90,13 +95,13 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
         
         switch self.segment {
         case SegmentedControls.Announcements.toRaw():
-            let request = self.combinedData.objectAtIndex(indexPath.row) as PFObject
+            let request = self.combinedData.objectAtIndex(indexPath!.row) as PFObject
         case SegmentedControls.Requests.toRaw():
-            let request = self.combinedData.objectAtIndex(indexPath.row) as PFObject
+            let request = self.combinedData.objectAtIndex(indexPath!.row) as PFObject
         default:
-            let request = self.combinedData.objectAtIndex(indexPath.row) as PFObject
+            let request = self.combinedData.objectAtIndex(indexPath!.row) as PFObject
         }
-        let request = self.combinedData.objectAtIndex(indexPath.row) as PFObject
+        let request = self.combinedData.objectAtIndex(indexPath!.row) as PFObject
         //let requestMember = PFUser.currentUser()
         var requestResponse = self.requestResponses[request.objectId]!
         var requestStatus: AnyObject! = requestResponse["status"]
@@ -143,7 +148,7 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
         // Set announcementsPhotos
         var query = PFQuery(className: "Announcement")
         query.findObjectsInBackgroundWithBlock({(NSMutableArray objects, NSError error) in
-            if (error) {
+            if (error != nil) {
                 NSLog("error " + error.localizedDescription)
             }
             else {
@@ -158,7 +163,7 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
                         photo.image = UIImage(named: "square")
                         photo.file = announcement["photo"] as? PFFile
                         photo.loadInBackground({(UIImage image, NSError error) in
-                            if (error) {
+                            if (error != nil) {
                                 NSLog("error " + error.localizedDescription)
                             } else {
                                 self.tableView.reloadData()
@@ -176,7 +181,7 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
         // Set requestsData and add to combinedData
         query = PFQuery(className: "Request")
         query.findObjectsInBackgroundWithBlock({(NSMutableArray objects, NSError error) in
-            if (error) {
+            if (error != nil) {
                 NSLog("error " + error.localizedDescription)
             }
             else {
@@ -192,7 +197,7 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
                         query.whereKey("request", equalTo: request)
                         query.whereKey("member", equalTo: requestMember)
                         query.getFirstObjectInBackgroundWithBlock({(PFObject requestResponse, NSError error) in
-                            if (error) {
+                            if (error != nil) {
                                 NSLog("REQUEST - Could not retrieve RequestResponse. " + error.localizedDescription)
                                 // if the user has not responded to this request, set empty object
                                 var requestResponse = PFObject(className: "RequestResponse")
@@ -225,7 +230,7 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
     return 1
     }*/
     
-    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //return self.combinedData.count
         switch self.segment {
         case SegmentedControls.Announcements.toRaw():
@@ -237,7 +242,7 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
         }
     }
     
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: nil)
         let cell = tableView.dequeueReusableCellWithIdentifier("announcementCell", forIndexPath: indexPath) as AnnouncementsTableViewCell
 
@@ -273,41 +278,41 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
             }
             cell.delegate = self
 
-            cell.title.text = title
-            cell.details.numberOfLines = 3
-            cell.details.text = details
+            cell.title!.text = title
+            cell.details!.numberOfLines = 3
+            cell.details!.text = details
 
             /// clean up in cell styling
             switch announcement["type"] as NSInteger {
             case 0:
-                cell.imageView.image = UIImage(named: "cell_announce_red")
+                cell.imageView!.image = UIImage(named: "cell_announce_red")
             case 1:
-                cell.imageView.image = UIImage(named: "cell_announce_orange")
+                cell.imageView!.image = UIImage(named: "cell_announce_orange")
             case 2:
-                cell.imageView.image = UIImage(named: "cell_announce_green")
+                cell.imageView!.image = UIImage(named: "cell_announce_green")
             case 3:
-                cell.imageView.image = UIImage(named: "cell_announce_blue")
+                cell.imageView!.image = UIImage(named: "cell_announce_blue")
             default:
-                cell.imageView.image = UIImage(named: "square")
+                cell.imageView!.image = UIImage(named: "square")
             }
         }
         return cell
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         var announcementViewController: AnnouncementViewController = segue.destinationViewController as AnnouncementViewController
-        var announcementIndex = tableView!.indexPathForSelectedRow().row
+        var announcementIndex = tableView.indexPathForSelectedRow()!.row
         var selectedAnnouncement = self.combinedData.objectAtIndex(announcementIndex) as PFObject
         announcementViewController.announcement = selectedAnnouncement
         if selectedAnnouncement.parseClassName == "Announcement" {
-            announcementViewController.image = self.announcementsPhotos[selectedAnnouncement.objectId]!.image
+            announcementViewController.image = self.announcementsPhotos[selectedAnnouncement.objectId]!.image!
         } else {
             /// temporarily setting image to square, need to adjust AnnouncementViewController to handle Request cells
             announcementViewController.image = UIImage(named: "square")
         }
     }
     
-    override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.performSegueWithIdentifier("announcementSegue", sender: self)
     }
 /*
