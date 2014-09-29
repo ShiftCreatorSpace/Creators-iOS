@@ -4,6 +4,10 @@
 
 #import <Foundation/Foundation.h>
 
+#import <Accounts/Accounts.h>
+
+#import <MessageUI/MessageUI.h>
+
 // Parse dependencies
 
 #import <AudioToolbox/AudioToolbox.h>

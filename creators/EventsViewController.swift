@@ -169,7 +169,7 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
             let details = String(event["details"] as NSString)
 
             cell.leftUtilityButtons = self.leftButtons()
-            //cell.rightUtilityButtons = self.rightButtons()
+            cell.rightUtilityButtons = self.rightButtons()
             cell.delegate = self
             
             cell.title.text = title
@@ -178,6 +178,20 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
             cell.time.text = time
             cell.details.numberOfLines = 5
             cell.details.text = details
+            
+            /// clean up in cell styling
+            switch event["type"] as NSInteger {
+            case 0:
+                cell.imageView.image = UIImage(named: "cell_event_red")
+            case 1:
+                cell.imageView.image = UIImage(named: "cell_event_orange")
+            case 2:
+                cell.imageView.image = UIImage(named: "cell_event_green")
+            case 3:
+                cell.imageView.image = UIImage(named: "cell_event_blue")
+            default:
+                cell.imageView.image = UIImage(named: "square")
+            }
         }
         return cell
     }

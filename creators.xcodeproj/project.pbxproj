@@ -11,6 +11,7 @@
 		ED0167C0197C8CB600E60F1E /* AnnouncementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0167BF197C8CB600E60F1E /* AnnouncementsViewController.swift */; };
 		ED0167C2197F97E200E60F1E /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0167C1197F97E200E60F1E /* EventsViewController.swift */; };
 		ED2615301983C52B008A310B /* AnnouncementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED26152F1983C52B008A310B /* AnnouncementViewController.swift */; };
+		ED52DB5519AB02630073B1E6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED52DB5419AB02630073B1E6 /* SettingsViewController.swift */; };
 		ED5A452F198B5E4B00DF8D34 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED5A452E198B5E4B00DF8D34 /* Social.framework */; };
 		ED5A4531198B5E5600DF8D34 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED5A4530198B5E5600DF8D34 /* Accounts.framework */; };
 		ED5A4537198B634000DF8D34 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5A4536198B634000DF8D34 /* LoginViewController.swift */; };
@@ -33,6 +34,7 @@
 		EDE5D9131970E5BC007565A9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDE5D9121970E5BC007565A9 /* Security.framework */; };
 		EDE5D9151970E5C2007565A9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDE5D9141970E5C2007565A9 /* StoreKit.framework */; };
 		EDE5D9171970E5C9007565A9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDE5D9161970E5C9007565A9 /* SystemConfiguration.framework */; };
+		EDECC44C19AB0CD00058F1B8 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDECC44B19AB0CD00058F1B8 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,7 @@
 		ED0167BF197C8CB600E60F1E /* AnnouncementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementsViewController.swift; sourceTree = "<group>"; };
 		ED0167C1197F97E200E60F1E /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		ED26152F1983C52B008A310B /* AnnouncementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementViewController.swift; sourceTree = "<group>"; };
+		ED52DB5419AB02630073B1E6 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		ED5A452E198B5E4B00DF8D34 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		ED5A4530198B5E5600DF8D34 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		ED5A4536198B634000DF8D34 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +81,7 @@
 		EDE5D9121970E5BC007565A9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		EDE5D9141970E5C2007565A9 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		EDE5D9161970E5C9007565A9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		EDECC44B19AB0CD00058F1B8 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDECC44C19AB0CD00058F1B8 /* MessageUI.framework in Frameworks */,
 				ED5A4531198B5E5600DF8D34 /* Accounts.framework in Frameworks */,
 				ED5A452F198B5E4B00DF8D34 /* Social.framework in Frameworks */,
 				EDE5D9171970E5C9007565A9 /* SystemConfiguration.framework in Frameworks */,
@@ -115,6 +120,19 @@
 		793B6E8F9D844B069B9120C4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ED5A4530198B5E5600DF8D34 /* Accounts.framework */,
+				EDE5D9041970E571007565A9 /* AudioToolbox.framework */,
+				EDE5D9061970E57A007565A9 /* CFNetwork.framework */,
+				EDE5D9081970E584007565A9 /* CoreGraphics.framework */,
+				EDE5D90A1970E590007565A9 /* CoreLocation.framework */,
+				EDECC44B19AB0CD00058F1B8 /* MessageUI.framework */,
+				EDE5D90E1970E5AA007565A9 /* MobileCoreServices.framework */,
+				EDE5D900196E5119007565A9 /* Parse.framework */,
+				EDE5D9101970E5B3007565A9 /* QuartzCore.framework */,
+				EDE5D9121970E5BC007565A9 /* Security.framework */,
+				ED5A452E198B5E4B00DF8D34 /* Social.framework */,
+				EDE5D9141970E5C2007565A9 /* StoreKit.framework */,
+				EDE5D9161970E5C9007565A9 /* SystemConfiguration.framework */,
 				3636115FB641472D9F64AC3A /* libPods-creators.a */,
 			);
 			name = Frameworks;
@@ -123,19 +141,7 @@
 		EDE5D8D0196D021A007565A9 = {
 			isa = PBXGroup;
 			children = (
-				ED5A4530198B5E5600DF8D34 /* Accounts.framework */,
-				ED5A452E198B5E4B00DF8D34 /* Social.framework */,
-				EDE5D9161970E5C9007565A9 /* SystemConfiguration.framework */,
-				EDE5D9141970E5C2007565A9 /* StoreKit.framework */,
-				EDE5D9121970E5BC007565A9 /* Security.framework */,
-				EDE5D9101970E5B3007565A9 /* QuartzCore.framework */,
-				EDE5D90E1970E5AA007565A9 /* MobileCoreServices.framework */,
 				EDE5D90C1970E5A3007565A9 /* libz.dylib */,
-				EDE5D90A1970E590007565A9 /* CoreLocation.framework */,
-				EDE5D9081970E584007565A9 /* CoreGraphics.framework */,
-				EDE5D9061970E57A007565A9 /* CFNetwork.framework */,
-				EDE5D9041970E571007565A9 /* AudioToolbox.framework */,
-				EDE5D900196E5119007565A9 /* Parse.framework */,
 				EDE5D8DB196D021A007565A9 /* creators */,
 				EDE5D8EE196D021A007565A9 /* creatorsTests */,
 				EDE5D8DA196D021A007565A9 /* Products */,
@@ -165,6 +171,7 @@
 				ED0167C1197F97E200E60F1E /* EventsViewController.swift */,
 				ED9E96B51983CA1F004BF827 /* MemberViewController.swift */,
 				EDE5D902196FBB03007565A9 /* MembersViewController.swift */,
+				ED52DB5419AB02630073B1E6 /* SettingsViewController.swift */,
 				EDE5D8E2196D021A007565A9 /* Main.storyboard */,
 				EDE5D8E5196D021A007565A9 /* Images.xcassets */,
 				EDE5D8DC196D021A007565A9 /* Supporting Files */,
@@ -335,6 +342,7 @@
 				ED5A4537198B634000DF8D34 /* LoginViewController.swift in Sources */,
 				EDE5D8E1196D021A007565A9 /* ViewController.swift in Sources */,
 				EDE5D903196FBB03007565A9 /* MembersViewController.swift in Sources */,
+				ED52DB5519AB02630073B1E6 /* SettingsViewController.swift in Sources */,
 				ED2615301983C52B008A310B /* AnnouncementViewController.swift in Sources */,
 				ED9E96B61983CA1F004BF827 /* MemberViewController.swift in Sources */,
 				EDE5D8DF196D021A007565A9 /* AppDelegate.swift in Sources */,
@@ -485,6 +493,7 @@
 				);
 				INFOPLIST_FILE = creators/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "creators/creators-Bridging-Header.h";
 			};

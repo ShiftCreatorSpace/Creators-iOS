@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A51BCE79-464B-4456-8263-999A432BC64B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>creators</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9B02709B26C97CEA9E74C4B5B98E2216EFF8C85E</key>
+		<string>https://github.com/CreatorsCoop/Creators-iOS</string>
+		<key>C808E1B9354A45804695392E88FF102D5D5D9A73</key>
+		<string>https://github.com/andrewrauh/HAUS.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>creators.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9B02709B26C97CEA9E74C4B5B98E2216EFF8C85E</key>
+		<string>..</string>
+		<key>C808E1B9354A45804695392E88FF102D5D5D9A73</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/CreatorsCoop/Creators-iOS</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9B02709B26C97CEA9E74C4B5B98E2216EFF8C85E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C808E1B9354A45804695392E88FF102D5D5D9A73</string>
+			<key>IDESourceControlWCCName</key>
+			<string>..</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9B02709B26C97CEA9E74C4B5B98E2216EFF8C85E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>creators</string>
+		</dict>
+	</array>
+</dict>
+</plist>

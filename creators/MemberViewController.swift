@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import MessageUI
 
 class MemberViewController: UIViewController {
-
+//class MemberViewController: UIViewController, MFMessageComposeViewControllerDelegate {
+    
     var member = PFUser()
     var image = UIImage()
     @IBOutlet var firstName: UILabel
@@ -19,6 +21,12 @@ class MemberViewController: UIViewController {
     @IBOutlet var email: UILabel
     @IBOutlet var bio: UITextView
     @IBOutlet var selfie: UIImageView
+    
+//    var mc: MFMessageComposeViewController = MFMessageComposeViewController()
+//    mc.messageComposeDelegate = self
+    //mc.setSubject(emailTitle)
+    //mc.setMessageBody(messageBody, isHTML: false)
+    //mc.setToRecipients(toRecipents)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,5 +44,44 @@ class MemberViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-}
+    
+/*
+    func mailComposeController(controller:MFMailComposeViewController, didFinishWithResult result:MFMailComposeResult, error:NSError) {
+        switch result.value {
+        case MFMailComposeResultCancelled.value:
+            NSLog("Mail cancelled")
+        case MFMailComposeResultSaved.value:
+            NSLog("Mail saved")
+        case MFMailComposeResultSent.value:
+            NSLog("Mail sent")
+        case MFMailComposeResultFailed.value:
+            NSLog("Mail sent failure: %@", [error.localizedDescription])
+        default:
+            break
+        }
+        self.dismissViewControllerAnimated(false, completion: nil)
+    }
+*/
+    
+    func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult, error: NSError) {
+        
+        switch result.value {
+        case MessageComposeResultCancelled.value:
+            NSLog("Message cancelled")
+//        case MessageComposeResultSaved.value:
+//            NSLog("Mail saved")
+        case MessageComposeResultSent.value:
+            NSLog("Message sent")
+        case MessageComposeResultFailed.value:
+            NSLog("Message sent failure: %@", error.localizedDescription)
+        default:
+            break
+        }
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+ /*   func showSMS(file: NSString!) {
+    
+    }
+*/
+  }
