@@ -22,7 +22,7 @@
 		<key>9B02709B26C97CEA9E74C4B5B98E2216EFF8C85E</key>
 		<string>..</string>
 		<key>C808E1B9354A45804695392E88FF102D5D5D9A73</key>
-		<string>../../../..</string>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/CreatorsCoop/Creators-iOS</string>
@@ -38,7 +38,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>C808E1B9354A45804695392E88FF102D5D5D9A73</string>
 			<key>IDESourceControlWCCName</key>
-			<string>..</string>
+			<string></string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>

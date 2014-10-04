@@ -4,6 +4,14 @@
       "idiom" : "universal",
       "scale" : "1x",
       "filename" : "type_blue_announce.png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

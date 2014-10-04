@@ -17,6 +17,21 @@
 		ED5A4537198B634000DF8D34 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5A4536198B634000DF8D34 /* LoginViewController.swift */; };
 		ED9E96B61983CA1F004BF827 /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9E96B51983CA1F004BF827 /* MemberViewController.swift */; };
 		EDACBF7A1988B6F200080FBB /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDACBF791988B6F100080FBB /* EventViewController.swift */; };
+		EDBAC00C19E08922005C2CD7 /* ShiftLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBAC00B19E08922005C2CD7 /* ShiftLabel.swift */; };
+		EDCE35B119DF34A300D3CD67 /* gotham-rounded-book.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDCE35A719DF34A300D3CD67 /* gotham-rounded-book.otf */; };
+		EDCE35B219DF34A300D3CD67 /* gotham-rounded-light.css in Resources */ = {isa = PBXBuildFile; fileRef = EDCE35A919DF34A300D3CD67 /* gotham-rounded-light.css */; };
+		EDCE35B319DF34A300D3CD67 /* gotham-rounded-light.eot in Resources */ = {isa = PBXBuildFile; fileRef = EDCE35AA19DF34A300D3CD67 /* gotham-rounded-light.eot */; };
+		EDCE35B419DF34A300D3CD67 /* gotham-rounded-light.svg in Resources */ = {isa = PBXBuildFile; fileRef = EDCE35AB19DF34A300D3CD67 /* gotham-rounded-light.svg */; };
+		EDCE35B519DF34A300D3CD67 /* gotham-rounded-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EDCE35AC19DF34A300D3CD67 /* gotham-rounded-light.ttf */; };
+		EDCE35B619DF34A300D3CD67 /* gotham-rounded-light.woff in Resources */ = {isa = PBXBuildFile; fileRef = EDCE35AD19DF34A300D3CD67 /* gotham-rounded-light.woff */; };
+		EDCE35B719DF34A300D3CD67 /* gotham-rounded-light.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = EDCE35AE19DF34A300D3CD67 /* gotham-rounded-light.woff2 */; };
+		EDCE35B819DF34A300D3CD67 /* gotham-rounded-medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDCE35B019DF34A300D3CD67 /* gotham-rounded-medium.otf */; };
+		EDCE35C019DF359C00D3CD67 /* canter-bold-3D.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDCE35BA19DF359C00D3CD67 /* canter-bold-3D.otf */; };
+		EDCE35C119DF359C00D3CD67 /* canter-bold-shadow.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDCE35BB19DF359C00D3CD67 /* canter-bold-shadow.otf */; };
+		EDCE35C219DF359C00D3CD67 /* canter-bold-strips.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDCE35BC19DF359C00D3CD67 /* canter-bold-strips.otf */; };
+		EDCE35C319DF359C00D3CD67 /* canter-bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDCE35BD19DF359C00D3CD67 /* canter-bold.otf */; };
+		EDCE35C419DF359C00D3CD67 /* canter-light.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDCE35BE19DF359C00D3CD67 /* canter-light.otf */; };
+		EDCE35C519DF359C00D3CD67 /* canter-outline.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDCE35BF19DF359C00D3CD67 /* canter-outline.otf */; };
 		EDE5D8DF196D021A007565A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE5D8DE196D021A007565A9 /* AppDelegate.swift */; };
 		EDE5D8E1196D021A007565A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE5D8E0196D021A007565A9 /* ViewController.swift */; };
 		EDE5D8E4196D021A007565A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDE5D8E2196D021A007565A9 /* Main.storyboard */; };
@@ -59,6 +74,21 @@
 		ED5A4536198B634000DF8D34 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		ED9E96B51983CA1F004BF827 /* MemberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
 		EDACBF791988B6F100080FBB /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		EDBAC00B19E08922005C2CD7 /* ShiftLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftLabel.swift; sourceTree = "<group>"; };
+		EDCE35A719DF34A300D3CD67 /* gotham-rounded-book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gotham-rounded-book.otf"; sourceTree = "<group>"; };
+		EDCE35A919DF34A300D3CD67 /* gotham-rounded-light.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "gotham-rounded-light.css"; sourceTree = "<group>"; };
+		EDCE35AA19DF34A300D3CD67 /* gotham-rounded-light.eot */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gotham-rounded-light.eot"; sourceTree = "<group>"; };
+		EDCE35AB19DF34A300D3CD67 /* gotham-rounded-light.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "gotham-rounded-light.svg"; sourceTree = "<group>"; };
+		EDCE35AC19DF34A300D3CD67 /* gotham-rounded-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gotham-rounded-light.ttf"; sourceTree = "<group>"; };
+		EDCE35AD19DF34A300D3CD67 /* gotham-rounded-light.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gotham-rounded-light.woff"; sourceTree = "<group>"; };
+		EDCE35AE19DF34A300D3CD67 /* gotham-rounded-light.woff2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gotham-rounded-light.woff2"; sourceTree = "<group>"; };
+		EDCE35B019DF34A300D3CD67 /* gotham-rounded-medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gotham-rounded-medium.otf"; sourceTree = "<group>"; };
+		EDCE35BA19DF359C00D3CD67 /* canter-bold-3D.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "canter-bold-3D.otf"; sourceTree = "<group>"; };
+		EDCE35BB19DF359C00D3CD67 /* canter-bold-shadow.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "canter-bold-shadow.otf"; sourceTree = "<group>"; };
+		EDCE35BC19DF359C00D3CD67 /* canter-bold-strips.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "canter-bold-strips.otf"; sourceTree = "<group>"; };
+		EDCE35BD19DF359C00D3CD67 /* canter-bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "canter-bold.otf"; sourceTree = "<group>"; };
+		EDCE35BE19DF359C00D3CD67 /* canter-light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "canter-light.otf"; sourceTree = "<group>"; };
+		EDCE35BF19DF359C00D3CD67 /* canter-outline.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "canter-outline.otf"; sourceTree = "<group>"; };
 		EDE5D8D9196D021A007565A9 /* creators.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = creators.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDE5D8DD196D021A007565A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDE5D8DE196D021A007565A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +168,77 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EDCE358519DF33FF00D3CD67 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EDCE358619DF341600D3CD67 /* Fonts */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		EDCE358619DF341600D3CD67 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EDCE35B919DF359C00D3CD67 /* canter */,
+				EDCE35A519DF34A300D3CD67 /* gotham-rounded */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		EDCE35A519DF34A300D3CD67 /* gotham-rounded */ = {
+			isa = PBXGroup;
+			children = (
+				EDCE35A619DF34A300D3CD67 /* book */,
+				EDCE35A819DF34A300D3CD67 /* light */,
+				EDCE35AF19DF34A300D3CD67 /* medium */,
+			);
+			name = "gotham-rounded";
+			path = "../../../../fonts/gotham-rounded";
+			sourceTree = "<group>";
+		};
+		EDCE35A619DF34A300D3CD67 /* book */ = {
+			isa = PBXGroup;
+			children = (
+				EDCE35A719DF34A300D3CD67 /* gotham-rounded-book.otf */,
+			);
+			path = book;
+			sourceTree = "<group>";
+		};
+		EDCE35A819DF34A300D3CD67 /* light */ = {
+			isa = PBXGroup;
+			children = (
+				EDCE35A919DF34A300D3CD67 /* gotham-rounded-light.css */,
+				EDCE35AA19DF34A300D3CD67 /* gotham-rounded-light.eot */,
+				EDCE35AB19DF34A300D3CD67 /* gotham-rounded-light.svg */,
+				EDCE35AC19DF34A300D3CD67 /* gotham-rounded-light.ttf */,
+				EDCE35AD19DF34A300D3CD67 /* gotham-rounded-light.woff */,
+				EDCE35AE19DF34A300D3CD67 /* gotham-rounded-light.woff2 */,
+			);
+			path = light;
+			sourceTree = "<group>";
+		};
+		EDCE35AF19DF34A300D3CD67 /* medium */ = {
+			isa = PBXGroup;
+			children = (
+				EDCE35B019DF34A300D3CD67 /* gotham-rounded-medium.otf */,
+			);
+			path = medium;
+			sourceTree = "<group>";
+		};
+		EDCE35B919DF359C00D3CD67 /* canter */ = {
+			isa = PBXGroup;
+			children = (
+				EDCE35BA19DF359C00D3CD67 /* canter-bold-3D.otf */,
+				EDCE35BB19DF359C00D3CD67 /* canter-bold-shadow.otf */,
+				EDCE35BC19DF359C00D3CD67 /* canter-bold-strips.otf */,
+				EDCE35BD19DF359C00D3CD67 /* canter-bold.otf */,
+				EDCE35BE19DF359C00D3CD67 /* canter-light.otf */,
+				EDCE35BF19DF359C00D3CD67 /* canter-outline.otf */,
+			);
+			name = canter;
+			path = ../../../../fonts/canter;
+			sourceTree = "<group>";
+		};
 		EDE5D8D0196D021A007565A9 = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +263,7 @@
 		EDE5D8DB196D021A007565A9 /* creators */ = {
 			isa = PBXGroup;
 			children = (
+				EDCE358519DF33FF00D3CD67 /* Resources */,
 				EDE5D8DE196D021A007565A9 /* AppDelegate.swift */,
 				EDE5D8E0196D021A007565A9 /* ViewController.swift */,
 				ED5A4536198B634000DF8D34 /* LoginViewController.swift */,
@@ -173,6 +275,7 @@
 				EDE5D902196FBB03007565A9 /* MembersViewController.swift */,
 				ED52DB5419AB02630073B1E6 /* SettingsViewController.swift */,
 				EDE5D8E2196D021A007565A9 /* Main.storyboard */,
+				EDBAC00B19E08922005C2CD7 /* ShiftLabel.swift */,
 				EDE5D8E5196D021A007565A9 /* Images.xcassets */,
 				EDE5D8DC196D021A007565A9 /* Supporting Files */,
 				EDE5D8FB196E4F14007565A9 /* creators-Bridging-Header.h */,
@@ -287,8 +390,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDCE35B819DF34A300D3CD67 /* gotham-rounded-medium.otf in Resources */,
+				EDCE35B519DF34A300D3CD67 /* gotham-rounded-light.ttf in Resources */,
+				EDCE35B319DF34A300D3CD67 /* gotham-rounded-light.eot in Resources */,
+				EDCE35C519DF359C00D3CD67 /* canter-outline.otf in Resources */,
+				EDCE35B419DF34A300D3CD67 /* gotham-rounded-light.svg in Resources */,
+				EDCE35C019DF359C00D3CD67 /* canter-bold-3D.otf in Resources */,
+				EDCE35C419DF359C00D3CD67 /* canter-light.otf in Resources */,
+				EDCE35B219DF34A300D3CD67 /* gotham-rounded-light.css in Resources */,
+				EDCE35B119DF34A300D3CD67 /* gotham-rounded-book.otf in Resources */,
 				EDE5D8E4196D021A007565A9 /* Main.storyboard in Resources */,
 				EDE5D8E6196D021A007565A9 /* Images.xcassets in Resources */,
+				EDCE35B619DF34A300D3CD67 /* gotham-rounded-light.woff in Resources */,
+				EDCE35C219DF359C00D3CD67 /* canter-bold-strips.otf in Resources */,
+				EDCE35B719DF34A300D3CD67 /* gotham-rounded-light.woff2 in Resources */,
+				EDCE35C119DF359C00D3CD67 /* canter-bold-shadow.otf in Resources */,
+				EDCE35C319DF359C00D3CD67 /* canter-bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +461,7 @@
 				EDE5D903196FBB03007565A9 /* MembersViewController.swift in Sources */,
 				ED52DB5519AB02630073B1E6 /* SettingsViewController.swift in Sources */,
 				ED2615301983C52B008A310B /* AnnouncementViewController.swift in Sources */,
+				EDBAC00C19E08922005C2CD7 /* ShiftLabel.swift in Sources */,
 				ED9E96B61983CA1F004BF827 /* MemberViewController.swift in Sources */,
 				EDE5D8DF196D021A007565A9 /* AppDelegate.swift in Sources */,
 				EDACBF7A1988B6F200080FBB /* EventViewController.swift in Sources */,

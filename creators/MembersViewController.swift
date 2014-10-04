@@ -8,40 +8,8 @@
 
 import Foundation
 
-/*class MembersSearchBar: UISearchBar {
-    init(coder aDecoder: NSCoder!)  {
-        super.init(frame: CGRect(x: 10, y: 5, width: 300, height: 45))
-        self.showsScopeBar = true
-    }
-    
-    /*func setShowsScopeBar() {
-        self.invalidateIntrinsicContentSize()
-    }*/
-    /*
-    - (void)setShowsScopeBar:(BOOL)showsScopeBar {
-    if ([self showsScopeBar] != showsScopeBar) {
-    [self invalidateIntrinsicContentSize];
-    }
-    [super setShowsScopeBar:showsScopeBar];
-    }*/
-}*/
 
-class MySearchBar : UISearchBar {
-    
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-        
-    }
-    
-//    func setShowsScopeBar(show: Boolean) {
-//        super.setShowsScopeBar(true)
-//        super.showsScopeBar = true
-//    }
-
-}
-
-class MyView: UIView {
+/*class MyView: UIView {
     let tableView: UITableView!
     
     override init(frame: CGRect) {
@@ -59,7 +27,7 @@ class MyView: UIView {
         tableView.frame = self.bounds
         self.addSubview(tableView)
     }
-}
+}*/
 
 
 
@@ -81,13 +49,53 @@ class MembersViewController: UITableViewController, UISearchDisplayDelegate, UIS
     var membersPhotos = Dictionary<String, PFImageView>()
     var searchResults: NSArray = []
     var atHouseResults: NSArray = []
+    var scopeAtHouse = "All"
 //    var scopes: NSArray = ["All", "At Home"]
     
     var lastDescriptor: NSSortDescriptor = NSSortDescriptor(key: "lastName", ascending: true, selector: "caseInsensitiveCompare:")
     var firstDescriptor: NSSortDescriptor = NSSortDescriptor(key: "firstName", ascending: true, selector: "caseInsensitiveCompare:")
     
+    //@IBOutlet var atHouse: UIBarButtonItem!
+    @IBAction func atHouse(sender: AnyObject) {
+         //func filterContentForSearchText(searchText: NSString!, scope: NSString! = "All")
+        
+        println("atHouse called")
+        
+        if (scopeAtHouse == "At House") {
+            scopeAtHouse = "All"
+///            println("  scopeAtHouse is: At House")
+            println("  setting to: All")
+        } else {
+            scopeAtHouse = "At House"
+///            println("  scopeAtHouse is: All")
+            println("  setting to: At House")
+        }
+        
+        self.filterContentForSearchText(nil)
+        
+        /*PFUser.logOut()
+        
+        var storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        var loginController: UIViewController = storyboard.instantiateViewControllerWithIdentifier("login") as UIViewController
+        self.navigationController!.pushViewController(loginController, animated: false)*/
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        /* ---------------- NEW SEARCH CONTROLLER ----------------  */
+        /*self.memberSearchController = ({
+            let controller = UISearchController(searchResultsController: nil)
+            controller.searchResultsUpdater = self
+            controller.searchBar.frame = CGRectMake(0.0, 0.0, CGRectGetWidth(self.countryTable.frame), 44.0)
+            self.memberTable.tableHeaderView = controller.searchBar
+            
+            return controller
+        })()*/
+        
+        /* ------------------------------------------------------- */
+        
         /*
         // Don't show the scope bar or cancel button until editing begins
         [candySearchBar setShowsScopeBar:NO];
@@ -134,6 +142,8 @@ class MembersViewController: UITableViewController, UISearchDisplayDelegate, UIS
         self.searchDisplayController.searchResultsDataSource = self
         self.searchDisplayController.searchResultsDelegate = self
 */
+        
+     //   self.searchDisplayController.hidesNavigationBarDuringPresentation = false
     }
     
     override func didReceiveMemoryWarning() {
@@ -201,29 +211,31 @@ class MembersViewController: UITableViewController, UISearchDisplayDelegate, UIS
         memberViewController.image = self.membersPhotos[selectedMember.objectId]!.image!
     }
     
-    func filterContentForSearchText(searchText: NSString!, scope: NSString! = "All") {
-    //func filterContentForSearchText(searchText: NSString!) {
+    //func filterContentForSearchText(searchText: NSString!, scope: NSString! = "All") {
+    func filterContentForSearchText(searchText: NSString!) {
         //  Use NSPredicate after move to Core Data
         //let resultPredicate = NSPredicate(format: "name contains[c] %@", searchText)
         //searchResults = membersData.filteredArrayUsingPredicate(resultPredicate)
         
         //self.searchResults.removeAllObjects()
         
-        
-        println("Search is happening")
+        println("Search happening")
 
         
         var queryFirst: PFQuery = PFUser.query()
         var queryLast: PFQuery = PFUser.query()
-        queryFirst.whereKey("firstName", matchesRegex: NSString(format: "(?i:^.*%@.*$)", searchText))
-        queryLast.whereKey("lastName", matchesRegex: NSString(format: "(?i:^.*%@.*$)", searchText))
+        if (searchText != nil) {
+            queryFirst.whereKey("firstName", matchesRegex: NSString(format: "(?i:^.*%@.*$)", searchText))
+            queryLast.whereKey("lastName", matchesRegex: NSString(format: "(?i:^.*%@.*$)", searchText))
+        }
         var queries: NSMutableArray = [queryFirst, queryLast]
         
         var query: PFQuery = PFQuery.orQueryWithSubqueries(queries)
         
-        if scope.isEqualToString("At House") {
+        //if scope.isEqualToString("At House") {
+        if (scopeAtHouse == "At House") {
             
-            println("Scope is: At House")
+            println("SCOPE IS: At House")
             
             //var queryScope: PFQuery = PFUser.query()
             let house: PFGeoPoint = PFGeoPoint(latitude: 42.273898, longitude: -83.725722)
@@ -231,6 +243,8 @@ class MembersViewController: UITableViewController, UISearchDisplayDelegate, UIS
             
             query.whereKey("location", nearGeoPoint: house, withinMiles: 0.1)
             //queries.addObject(queryScope)
+        } else {
+            println("SCOPE IS: All")
         }
         /*
         if (![scope isEqualToString:@"All"]) {
@@ -248,27 +262,44 @@ class MembersViewController: UITableViewController, UISearchDisplayDelegate, UIS
             } else {
                 self.searchResults = objects
                 self.searchDisplayController!.searchResultsTableView.reloadData()
+                
+                println("OBJECTS: ")
+                
+                for element: AnyObject in self.searchResults {
+                    println(element["firstName"])
+                }
             }
         })
     }
 
     func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: NSString!) -> Bool {
-//        self.filterContentForSearchText(searchString)
-//        return true
-        let scopes = self.searchDisplayController!.searchBar.scopeButtonTitles as Array!
-        let selectedScope = scopes[self.searchDisplayController!.searchBar.selectedScopeButtonIndex] as String
-        self.filterContentForSearchText(searchString, scope: selectedScope)
+        //let scopes = self.searchDisplayController!.searchBar.scopeButtonTitles as Array!
+        //let selectedScope = scopes[self.searchDisplayController!.searchBar.selectedScopeButtonIndex] as String
+        //self.filterContentForSearchText(searchString, scope: selectedScope)
+//        self.searchController.setNavigationBarHidden(false, animated: false)
+        
+        //self.setNavigationBarHidden(false, animation: false)
+        self.filterContentForSearchText(searchString)
         return true
     }
     
-    func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
-//        self.filterContentForSearchText(self.searchDisplayController.searchBar.text)
-//        return true
-        let scopes = self.searchDisplayController!.searchBar.scopeButtonTitles! as Array
-        self.filterContentForSearchText(self.searchDisplayController!.searchBar.text, scope: scopes[searchOption] as NSString)
+    func searchDisplayController(controller: UISearchDisplayController!, setNavigationBarHidden searchString: NSString!) -> Bool {
+        //let scopes = self.searchDisplayController!.searchBar.scopeButtonTitles as Array!
+        //let selectedScope = scopes[self.searchDisplayController!.searchBar.selectedScopeButtonIndex] as String
+        //self.filterContentForSearchText(searchString, scope: selectedScope)
+        //        self.searchController.setNavigationBarHidden(false, animated: false)
+        self.filterContentForSearchText(searchString)
         return true
     }
     
+    
+/*    func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
+        //let scopes = self.searchDisplayController!.searchBar.scopeButtonTitles! as Array
+        //self.filterContentForSearchText(self.searchDisplayController!.searchBar.text, scope: scopes[searchOption] as NSString)
+        self.filterContentForSearchText(self.searchDisplayController!.searchBar.text)
+        return true
+    }
+*/
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //self.performSegueWithIdentifier("memberSegue", sender: self)
         //self.searchDisplayController.setActive(false, animated: true)

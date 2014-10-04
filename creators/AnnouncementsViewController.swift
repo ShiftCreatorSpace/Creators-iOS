@@ -52,20 +52,6 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
     @IBOutlet var announcementSegmentedControl : UISegmentedControl?
     
     @IBAction func indexChanged(sender: UISegmentedControl) {
-        
-        /*println("# of Segments = \(sender.numberOfSegments)")
-        
-        switch sender.selectedSegmentIndex {
-        case 0:
-            println("segment clicked: 1")
-        case 1:
-            println("segment clicked: 2")
-        case 2:
-            println("segment clicked: 3")
-        default:
-            break;
-        }*/
-        
         self.segment = sender.selectedSegmentIndex
         self.tableView.reloadData()
     }
@@ -142,6 +128,14 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        /// Find font names
+        /*for family in UIFont.familyNames() {
+        NSLog(family as String)
+        for name in UIFont.fontNamesForFamilyName(family as String) {
+        NSLog(name as String)
+        }
+        }*/
         
         // Query for Announcements
         // Set announcementsData and add to combinedData
