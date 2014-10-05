@@ -14,8 +14,7 @@ class MemberViewController: UIViewController {
     
     var member = PFUser()
     var image = UIImage()
-    @IBOutlet var firstName: UILabel?
-    @IBOutlet var lastName: UILabel?
+    @IBOutlet var name: UILabel?
     @IBOutlet var major: UILabel?
     @IBOutlet var phone: UILabel?
     @IBOutlet var email: UILabel?
@@ -34,13 +33,17 @@ class MemberViewController: UIViewController {
         self.navigationController!.navigationBar.barTintColor = ShiftColor.Orange.color()
         
         // Do any additional setup after loading the view, typically from a nib.
-        firstName!.text = String(member["firstName"] as NSString)
-        lastName!.text = String(member["lastName"] as NSString)
+        let firstName = String(member["firstName"] as NSString)
+        let lastName = String(member["lastName"] as NSString)
+        name!.text = firstName + " " + lastName
         major!.text = String(member["major"] as NSString)
         phone!.text = toString(member["phone"] as NSNumber)
         email!.text = String(member["email"] as NSString)
         bio!.text = String(member["bio"] as NSString)
         selfie!.image = self.image
+        
+        selfie!.layer.cornerRadius = selfie!.frame.size.width / 2;
+        selfie!.clipsToBounds = true
     }
     
     override func didReceiveMemoryWarning() {

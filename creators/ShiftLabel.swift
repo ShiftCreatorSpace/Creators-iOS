@@ -109,7 +109,7 @@ class ShiftLabel: UILabel {
 class ShiftTextView: UITextView {
     required init(coder: NSCoder) {
         super.init(coder: coder)
-        self.font = UIFont(name: ShiftFont.GRLight.font(), size: 18)
+        self.font = UIFont(name: ShiftFont.GRLight.font(), size: 12)
         self.textColor = ShiftColor.Gray.color() 
     }
 }
@@ -133,5 +133,14 @@ class DescriptionTextView: ShiftTextView {
         super.init(coder: coder)
         self.font = UIFont(name: ShiftFont.GRLight.font(), size: 15)
     }
+}
+
+class ShiftImageView: UIImageView {
+    required init(coder: NSCoder) {
+        super.init(coder: coder)
+        self.layer.cornerRadius = self.frame.size.width / 2
+        self.clipsToBounds = true
+    }
+
 }
 

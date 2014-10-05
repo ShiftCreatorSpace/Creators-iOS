@@ -191,6 +191,9 @@ class MembersViewController: UITableViewController, UISearchDisplayDelegate, UIS
             
             cell.textLabel!.text = firstName + " " + lastName
             cell.imageView!.image = selfie
+            
+            cell.imageView!.layer.cornerRadius = 40
+            cell.imageView!.clipsToBounds = true
         }
         return cell
     }

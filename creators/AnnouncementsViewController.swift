@@ -54,7 +54,7 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
         self.tableView.reloadData()
     }
     
-    func leftButtonsJoin() -> NSArray {
+/*    func leftButtonsJoin() -> NSArray {
         var leftUtilityButtons: NSMutableArray = NSMutableArray()
         leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor(red: 0.298, green: 0.851, blue: 0.392, alpha: 1.0), title: "Join")
         return leftUtilityButtons
@@ -65,14 +65,14 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
         leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor(red: 1.0, green: 0.231, blue: 0.188, alpha: 1.0), title: "Leave")
         return leftUtilityButtons
     }
-/*
+
     func rightButtons() -> NSArray {
         var rightUtilityButtons: NSMutableArray = NSMutableArray()
         rightUtilityButtons.sw_addUtilityButtonWithColor(UIColor(red: 0.78, green: 0.78, blue: 0.8, alpha: 1.0), title: "R_One")
         
         return rightUtilityButtons
     }
-*/
+
     
     func swipeableTableViewCell(cell: SWTableViewCell!, didTriggerLeftUtilityButtonWithIndex withIndex: NSInteger) {
         let indexPath = self.tableView.indexPathForCell(cell)
@@ -123,6 +123,7 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
             println("Right Wut.")
         }
     }
+*/
     
 //    @IBOutlet var announcementsSegmentedControl: HMSegmentedControl!
     @IBOutlet var announcementsSegmentedControl: UISegmentedControl!
@@ -284,13 +285,13 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
                 let requestResponse = self.requestResponses[announcement.objectId]!
                 let requestStatus: AnyObject! = requestResponse["status"]
                 if requestStatus as NSObject == true {
-                    cell.leftUtilityButtons = self.leftButtonsLeave()
+                    //cell.leftUtilityButtons = self.leftButtonsLeave()
                 } else {
-                    cell.leftUtilityButtons = self.leftButtonsJoin()
+                    //cell.leftUtilityButtons = self.leftButtonsJoin()
                 }
                 //cell.rightUtilityButtons = self.rightButtons()
             } else {
-                cell.leftUtilityButtons = NSArray()
+                //cell.leftUtilityButtons = NSArray()
                 //cell.rightUtilityButtons = NSArrary()
             }
             cell.delegate = self
@@ -298,20 +299,6 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
             cell.title!.text = title
             cell.details!.numberOfLines = 3
             cell.details!.text = details
-
-            /// clean up in cell styling
-            switch announcement["type"] as NSInteger {
-            case 0:
-                cell.imageView!.image = UIImage(named: "cell_announce_red")
-            case 1:
-                cell.imageView!.image = UIImage(named: "cell_announce_orange")
-            case 2:
-                cell.imageView!.image = UIImage(named: "cell_announce_green")
-            case 3:
-                cell.imageView!.image = UIImage(named: "cell_announce_blue")
-            default:
-                cell.imageView!.image = UIImage(named: "square")
-            }
         }
         return cell
     }

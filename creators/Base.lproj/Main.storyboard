@@ -3,6 +3,11 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="gotham-rounded-light.ttf">
+            <string>GothamRoundedLight</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="IXZ-ac-Pfg">
@@ -25,7 +30,7 @@
             </objects>
             <point key="canvasLocation" x="826" y="677"/>
         </scene>
-        <!--SHIFT-->
+        <!--Announcements View Controller-->
         <scene sceneID="5Kj-Ly-beI">
             <objects>
                 <tableViewController id="0kP-tC-GBF" customClass="AnnouncementsViewController" customModule="creators" customModuleProvider="target" sceneMemberID="viewController">
@@ -88,7 +93,7 @@
                             <outlet property="delegate" destination="0kP-tC-GBF" id="swK-pM-u2R"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="SHIFT" id="wcB-qh-GUr"/>
+                    <navigationItem key="navigationItem" id="wcB-qh-GUr"/>
                     <connections>
                         <outlet property="announcementsSegmentedControl" destination="DOH-XZ-DL9" id="mX7-mg-BuI"/>
                     </connections>
@@ -106,11 +111,17 @@
                         <viewControllerLayoutGuide type="bottom" id="5E4-gr-Roa"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kQA-Va-pcx">
-                        <rect key="frame" x="0.0" y="44" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a7E-wY-QPl" customClass="ShiftImageView" customModule="creators" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="59" width="375" height="160"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="-1" y="332" width="321" height="308"/>
+                                </variation>
+                            </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2a-hJ-pgM" customClass="TitleLabel" customModule="creators" customModuleProvider="target">
-                                <rect key="frame" x="35" y="124" width="411" height="21"/>
+                                <rect key="frame" x="31" y="278" width="312" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -118,14 +129,8 @@
                                     <rect key="frame" x="10" y="124" width="298" height="21"/>
                                 </variation>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a7E-wY-QPl">
-                                <rect key="frame" x="0.0" y="332" width="480" height="148"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="-1" y="332" width="321" height="308"/>
-                                </variation>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Llg-tI-uCI" customClass="DescriptionTextView" customModule="creators" customModuleProvider="target">
-                                <rect key="frame" x="35" y="176" width="411" height="128"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Llg-tI-uCI" customClass="DescriptionTextView" customModule="creators" customModuleProvider="target">
+                                <rect key="frame" x="31" y="307" width="312" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
@@ -149,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JHf-W4-edS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2343" y="675"/>
+            <point key="canvasLocation" x="2342" y="674"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0cF-yZ-86n">
@@ -170,7 +175,7 @@
             </objects>
             <point key="canvasLocation" x="826" y="1256"/>
         </scene>
-        <!--SHIFT-->
+        <!--Events View Controller-->
         <scene sceneID="FPS-Vn-MnJ">
             <objects>
                 <tableViewController id="gSo-ld-rdl" customClass="EventsViewController" customModule="creators" customModuleProvider="target" sceneMemberID="viewController">
@@ -240,7 +245,7 @@
                             <outlet property="delegate" destination="gSo-ld-rdl" id="bkY-FL-9lN"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="SHIFT" id="t0g-FU-c73"/>
+                    <navigationItem key="navigationItem" id="t0g-FU-c73"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KRP-6x-xjs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -255,17 +260,17 @@
                         <viewControllerLayoutGuide type="bottom" id="bqI-Be-4Ua"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="SO6-BF-CIS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eG7-ox-Q9V">
-                                <rect key="frame" x="0.0" y="65" width="480" height="167"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="0.0" y="65" width="320" height="167"/>
                                 </variation>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdz-fg-5ZP" customClass="TitleLabel" customModule="creators" customModuleProvider="target">
-                                <rect key="frame" x="35" y="278" width="425" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdz-fg-5ZP" customClass="TitleLabel" customModule="creators" customModuleProvider="target">
+                                <rect key="frame" x="31" y="248" width="312" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -273,18 +278,18 @@
                                     <rect key="frame" x="20" y="278" width="280" height="21"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVU-UI-WBL">
-                                <rect key="frame" x="35" y="307" width="200" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVU-UI-WBL" customClass="DescriptionLabel" customModule="creators" customModuleProvider="target">
+                                <rect key="frame" x="31" y="277" width="312" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="20" y="307" width="160" height="21"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFT-EK-S2t">
-                                <rect key="frame" x="35" y="336" width="425" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFT-EK-S2t" customClass="DescriptionLabel" customModule="creators" customModuleProvider="target">
+                                <rect key="frame" x="-25" y="306" width="425" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
@@ -292,7 +297,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEg-aq-U9G">
-                                <rect key="frame" x="0.0" y="230" width="480" height="40"/>
+                                <rect key="frame" x="31" y="353" width="312" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -300,8 +305,8 @@
                                     <rect key="frame" x="0.0" y="230" width="320" height="40"/>
                                 </variation>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zFX-8M-TEn" customClass="DescriptionTextView" customModule="creators" customModuleProvider="target">
-                                <rect key="frame" x="35" y="365" width="411" height="115"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFX-8M-TEn" customClass="DescriptionTextView" customModule="creators" customModuleProvider="target">
+                                <rect key="frame" x="31" y="401" width="312" height="115"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
@@ -313,9 +318,9 @@
                                     <rect key="frame" x="20" y="365" width="280" height="275"/>
                                 </variation>
                             </textView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Nw-d9-NTG" customClass="TitleLabel" customModule="creators" customModuleProvider="target">
-                                <rect key="frame" x="243" y="307" width="100" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Nw-d9-NTG" customClass="DescriptionLabel" customModule="creators" customModuleProvider="target">
+                                <rect key="frame" x="31" y="293" width="312" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
@@ -337,9 +342,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TOC-lT-K5Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2343" y="1254"/>
+            <point key="canvasLocation" x="2342" y="1253"/>
         </scene>
-        <!--SHIFT-->
+        <!--Members View Controller-->
         <scene sceneID="xae-Hj-TyW">
             <objects>
                 <tableViewController id="eLb-Yz-1TH" customClass="MembersViewController" customModule="creators" customModuleProvider="target" sceneMemberID="viewController">
@@ -365,7 +370,7 @@
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1U7-zT-vSz">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <fontDescription key="fontDescription" name="GothamRoundedLight" family="Gotham Rounded" pointSize="21"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -390,7 +395,7 @@
                             <outlet property="delegate" destination="eLb-Yz-1TH" id="TYy-4p-cTp"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="SHIFT" id="ZgP-ks-TFy">
+                    <navigationItem key="navigationItem" id="ZgP-ks-TFy">
                         <barButtonItem key="leftBarButtonItem" image="haus" id="hro-QK-qTA">
                             <connections>
                                 <action selector="atHouse:" destination="eLb-Yz-1TH" id="Hrc-4e-t6S"/>
@@ -423,44 +428,26 @@
                         <viewControllerLayoutGuide type="bottom" id="6g5-7h-WZ6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ITf-ye-xM3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MiS-pB-eBW">
-                                <rect key="frame" x="35" y="102" width="150" height="150"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MiS-pB-eBW" customClass="ShiftImageView">
+                                <rect key="frame" x="112" y="58" width="150" height="150"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="0.0" y="64" width="150" height="150"/>
                                 </variation>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rXw-cs-X5e" customClass="TitleLabel" customModule="creators" customModuleProvider="target">
-                                <rect key="frame" x="239" y="134" width="207" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Xs-mk-gZw" customClass="DescriptionLabel" customModule="creators" customModuleProvider="target">
+                                <rect key="frame" x="31" y="325" width="312" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="168" y="99" width="132" height="21"/>
+                                    <rect key="frame" x="168" y="193" width="132" height="21"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Last Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQF-wD-iwH" customClass="TitleLabel" customModule="creators" customModuleProvider="target">
-                                <rect key="frame" x="239" y="166" width="207" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="168" y="128" width="132" height="21"/>
-                                </variation>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Major" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="411" translatesAutoresizingMaskIntoConstraints="NO" id="30D-gl-6LH">
-                                <rect key="frame" x="35" y="271" width="411" height="40"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="20" y="232" width="280" height="21"/>
-                                </variation>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cg-9g-deN">
-                                <rect key="frame" x="239" y="202" width="207" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cg-9g-deN" customClass="DescriptionLabel" customModule="creators" customModuleProvider="target">
+                                <rect key="frame" x="31" y="296" width="312" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -468,8 +455,17 @@
                                     <rect key="frame" x="168" y="164" width="132" height="21"/>
                                 </variation>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y6m-6K-hhm">
-                                <rect key="frame" x="35" y="320" width="411" height="128"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Major" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="411" translatesAutoresizingMaskIntoConstraints="NO" id="30D-gl-6LH" customClass="DescriptionLabel" customModule="creators" customModuleProvider="target">
+                                <rect key="frame" x="31" y="248" width="312" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="20" y="232" width="280" height="21"/>
+                                </variation>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6m-6K-hhm" customClass="DescriptionTextView" customModule="creators" customModuleProvider="target">
+                                <rect key="frame" x="31" y="354" width="312" height="174"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
@@ -481,13 +477,13 @@
                                     <rect key="frame" x="20" y="261" width="280" height="350"/>
                                 </variation>
                             </textView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Xs-mk-gZw">
-                                <rect key="frame" x="239" y="231" width="207" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rXw-cs-X5e" customClass="TitleLabel" customModule="creators" customModuleProvider="target">
+                                <rect key="frame" x="31" y="216" width="312" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="168" y="193" width="132" height="21"/>
+                                    <rect key="frame" x="168" y="99" width="132" height="21"/>
                                 </variation>
                             </label>
                         </subviews>
@@ -496,16 +492,15 @@
                     <connections>
                         <outlet property="bio" destination="y6m-6K-hhm" id="Y1d-oR-An4"/>
                         <outlet property="email" destination="8Xs-mk-gZw" id="vhe-PB-2gf"/>
-                        <outlet property="firstName" destination="rXw-cs-X5e" id="eOM-l1-QDg"/>
-                        <outlet property="lastName" destination="tQF-wD-iwH" id="qDr-IT-Eh0"/>
-                        <outlet property="major" destination="30D-gl-6LH" id="lgy-Xb-Ijg"/>
+                        <outlet property="major" destination="30D-gl-6LH" id="QHL-fP-Aer"/>
+                        <outlet property="name" destination="rXw-cs-X5e" id="XC9-Oh-enW"/>
                         <outlet property="phone" destination="4cg-9g-deN" id="6UX-f9-HdF"/>
                         <outlet property="selfie" destination="MiS-pB-eBW" id="EHF-uc-RPU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Qy-kX-AjA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2343" y="1830"/>
+            <point key="canvasLocation" x="2342.5" y="1829.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0bC-Ij-pSx">
@@ -545,7 +540,7 @@
             </objects>
             <point key="canvasLocation" x="826" y="2546"/>
         </scene>
-        <!--SHIFT-->
+        <!--Settings View Controller-->
         <scene sceneID="UEU-2k-1rP">
             <objects>
                 <viewController id="e4f-rd-ck2" customClass="SettingsViewController" customModule="creators" customModuleProvider="target" sceneMemberID="viewController">
@@ -558,7 +553,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="SHIFT" id="uAi-xd-PYI">
+                    <navigationItem key="navigationItem" id="uAi-xd-PYI">
                         <barButtonItem key="rightBarButtonItem" title="Log Out" id="dWL-vS-9Y6">
                             <connections>
                                 <action selector="logout:" destination="e4f-rd-ck2" id="tEM-S2-vhX"/>

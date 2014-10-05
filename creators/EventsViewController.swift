@@ -32,7 +32,7 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
     var eventsData: NSArray = []
     var eventsPhotos = Dictionary<String, PFImageView>()
     var eventsRsvps = Dictionary<String, PFObject>()
-
+/*
     func leftButtons() -> NSArray {
         var leftUtilityButtons: NSMutableArray = NSMutableArray()
         leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor(red: 0.298, green: 0.851, blue: 0.392, alpha: 1.0), title: "Going")
@@ -51,7 +51,6 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
         
         return rightUtilityButtons
     }
-    
     
     func swipeableTableViewCell(cell: SWTableViewCell!, didTriggerLeftUtilityButtonWithIndex withIndex: NSInteger) {
         let indexPath = self.tableView.indexPathForCell(cell)
@@ -90,7 +89,7 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
                 println("Right Wut.")
         }
     }
-    
+*/
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -184,14 +183,8 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
             var monthVal = month.toInt()
             month = Months.fromRaw(monthVal!)!.month()
 
-            NSLog("dateString: ")
-            NSLog(dateString)
-            NSLog(month)
-            NSLog(date)
-            NSLog(day)
-
-            cell.leftUtilityButtons = self.leftButtons()
-            cell.rightUtilityButtons = self.rightButtons()
+            //cell.leftUtilityButtons = self.leftButtons()
+            //cell.rightUtilityButtons = self.rightButtons()
             cell.delegate = self
             
             cell.title!.text = title
@@ -200,20 +193,6 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
             cell.day!.text = day
             cell.date!.text = date
             cell.month!.text = month
-            
-            /// clean up in cell styling
-            switch event["type"] as NSInteger {
-            case 0:
-                cell.imageView!.image = UIImage(named: "cell_event_red")
-            case 1:
-                cell.imageView!.image = UIImage(named: "cell_event_orange")
-            case 2:
-                cell.imageView!.image = UIImage(named: "cell_event_green")
-            case 3:
-                cell.imageView!.image = UIImage(named: "cell_event_blue")
-            default:
-                cell.imageView!.image = UIImage(named: "square")
-            }
         }
         return cell
     }
