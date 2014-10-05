@@ -10,12 +10,14 @@ import Foundation
 
 class EventsTableViewCell: SWTableViewCell {
     @IBOutlet var title: UILabel?
-    @IBOutlet var location : UILabel?
-    @IBOutlet var date : UILabel?
-    @IBOutlet var time : UILabel?
     @IBOutlet var details: UILabel?
+    @IBOutlet var day: UILabel?
+    @IBOutlet var date: UILabel?
+    @IBOutlet var month: UILabel?
 
-   override  init(style: UITableViewCellStyle, reuseIdentifier: String!) {
+
+
+    override  init(style: UITableViewCellStyle, reuseIdentifier: String!) {
         super.init(style: UITableViewCellStyle.Value1, reuseIdentifier: reuseIdentifier)
     }
 
@@ -169,21 +171,35 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
         if self.eventsData.count > 0 {
             let event = self.eventsData.objectAtIndex(indexPath.row) as PFObject
             let title = String(event["title"] as NSString)
-            let location = String(event["locationName"] as NSString)
-            let date = toString(event["startDate"])
-            let time = toString(event["endDate"])
             let details = String(event["details"] as NSString)
+            
+            var df = NSDateFormatter()
+            df.dateFormat = "yyyy-MM-dd-EEEE"
+            var dateString: NSString = df.stringFromDate(event["startDate"] as NSDate)
+            
+            var month = dateString.substringWithRange(NSRange(location: 5, length: 2))
+            var date = dateString.substringWithRange(NSRange(location: 8, length: 2))
+            var day = dateString.substringWithRange(NSRange(location: 11, length: 3))
+            
+            var monthVal = month.toInt()
+            month = Months.fromRaw(monthVal!)!.month()
+
+            NSLog("dateString: ")
+            NSLog(dateString)
+            NSLog(month)
+            NSLog(date)
+            NSLog(day)
 
             cell.leftUtilityButtons = self.leftButtons()
             cell.rightUtilityButtons = self.rightButtons()
             cell.delegate = self
             
             cell.title!.text = title
-            cell.location!.text = location
-            cell.date!.text = date
-            cell.time!.text = time
-            cell.details!.numberOfLines = 5
+            cell.details!.numberOfLines = 3
             cell.details!.text = details
+            cell.day!.text = day
+            cell.date!.text = date
+            cell.month!.text = month
             
             /// clean up in cell styling
             switch event["type"] as NSInteger {

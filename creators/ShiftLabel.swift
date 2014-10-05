@@ -53,6 +53,51 @@ enum ShiftFont: Int {
     }
 }
 
+enum Months: Int {
+    case Jan = 1
+    case Feb
+    case Mar
+    case Apr
+    case May
+    case Jun
+    case Jul
+    case Aug
+    case Sep
+    case Oct
+    case Nov
+    case Dec
+    func month() -> String {
+        switch self {
+        case .Jan:
+            return "Jan"
+        case .Feb:
+            return "Feb"
+        case .Mar:
+            return "Mar"
+        case .Apr:
+            return "Apr"
+        case .May:
+            return "May"
+        case .Jun:
+            return "Jun"
+        case .Jul:
+            return "Jul"
+        case .Aug:
+            return "Aug"
+        case .Sep:
+            return "Sep"
+        case .Oct:
+            return "Oct"
+        case .Nov:
+            return "Nov"
+        case .Dec:
+            return "Dec"
+        default:
+            return ""
+        }
+    }
+}
+
 class ShiftLabel: UILabel {
     required init(coder: NSCoder) {
         super.init(coder: coder)

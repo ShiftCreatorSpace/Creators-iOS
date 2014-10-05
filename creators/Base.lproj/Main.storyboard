@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="826" y="677"/>
         </scene>
-        <!--Announcements View Controller-->
+        <!--SHIFT-->
         <scene sceneID="5Kj-Ly-beI">
             <objects>
                 <tableViewController id="0kP-tC-GBF" customClass="AnnouncementsViewController" customModule="creators" customModuleProvider="target" sceneMemberID="viewController">
@@ -88,7 +88,7 @@
                             <outlet property="delegate" destination="0kP-tC-GBF" id="swK-pM-u2R"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="wcB-qh-GUr"/>
+                    <navigationItem key="navigationItem" title="SHIFT" id="wcB-qh-GUr"/>
                     <connections>
                         <outlet property="announcementsSegmentedControl" destination="DOH-XZ-DL9" id="mX7-mg-BuI"/>
                     </connections>
@@ -170,7 +170,7 @@
             </objects>
             <point key="canvasLocation" x="826" y="1256"/>
         </scene>
-        <!--Events View Controller-->
+        <!--SHIFT-->
         <scene sceneID="FPS-Vn-MnJ">
             <objects>
                 <tableViewController id="gSo-ld-rdl" customClass="EventsViewController" customModule="creators" customModuleProvider="target" sceneMemberID="viewController">
@@ -184,8 +184,8 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YvU-zt-dAc" id="VVS-5Q-Ies">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hK-gK-yFm">
-                                            <rect key="frame" x="48" y="49" width="120" height="21"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hK-gK-yFm" customClass="DescriptionLabel" customModule="creators" customModuleProvider="target">
+                                            <rect key="frame" x="8" y="39" width="32" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -196,20 +196,20 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0VV-20-P2l">
-                                            <rect key="frame" x="48" y="70" width="100" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0KZ-yY-tXt" customClass="DescriptionLabel" customModule="creators" customModuleProvider="target">
+                                            <rect key="frame" x="8" y="20" width="32" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vf-uu-rvd">
-                                            <rect key="frame" x="176" y="49" width="119" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Month" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvf-co-CqI" customClass="DescriptionLabel" customModule="creators" customModuleProvider="target">
+                                            <rect key="frame" x="8" y="57" width="32" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YrV-UZ-J9F" customClass="DescriptionLabel" customModule="creators" customModuleProvider="target">
-                                            <rect key="frame" x="48" y="36" width="270" height="116"/>
+                                            <rect key="frame" x="48" y="0.0" width="270" height="116"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -217,10 +217,10 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="date" destination="6hK-gK-yFm" id="Z8P-rt-80q"/>
-                                    <outlet property="details" destination="YrV-UZ-J9F" id="yTs-jt-D3m"/>
-                                    <outlet property="location" destination="0VV-20-P2l" id="r60-dG-AhJ"/>
-                                    <outlet property="time" destination="5vf-uu-rvd" id="X3A-fu-yLq"/>
+                                    <outlet property="date" destination="6hK-gK-yFm" id="M7Q-mW-bKc"/>
+                                    <outlet property="day" destination="0KZ-yY-tXt" id="YAh-r6-mdV"/>
+                                    <outlet property="details" destination="YrV-UZ-J9F" id="c9x-ju-rFX"/>
+                                    <outlet property="month" destination="cvf-co-CqI" id="aaB-iA-zNc"/>
                                     <outlet property="title" destination="jh5-J6-L9e" id="Vwr-ep-Czh"/>
                                     <segue destination="J7X-bm-98G" kind="show" identifier="eventSegue" id="4id-4H-SgU"/>
                                 </connections>
@@ -240,11 +240,11 @@
                             <outlet property="delegate" destination="gSo-ld-rdl" id="bkY-FL-9lN"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="t0g-FU-c73"/>
+                    <navigationItem key="navigationItem" title="SHIFT" id="t0g-FU-c73"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KRP-6x-xjs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1587" y="1247"/>
+            <point key="canvasLocation" x="1587" y="1244"/>
         </scene>
         <!--Event View Controller-->
         <scene sceneID="bNY-JA-Mym">
@@ -339,7 +339,7 @@
             </objects>
             <point key="canvasLocation" x="2343" y="1254"/>
         </scene>
-        <!--Members View Controller-->
+        <!--SHIFT-->
         <scene sceneID="xae-Hj-TyW">
             <objects>
                 <tableViewController id="eLb-Yz-1TH" customClass="MembersViewController" customModule="creators" customModuleProvider="target" sceneMemberID="viewController">
@@ -390,7 +390,7 @@
                             <outlet property="delegate" destination="eLb-Yz-1TH" id="TYy-4p-cTp"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ZgP-ks-TFy">
+                    <navigationItem key="navigationItem" title="SHIFT" id="ZgP-ks-TFy">
                         <barButtonItem key="leftBarButtonItem" image="haus" id="hro-QK-qTA">
                             <connections>
                                 <action selector="atHouse:" destination="eLb-Yz-1TH" id="Hrc-4e-t6S"/>
@@ -545,7 +545,7 @@
             </objects>
             <point key="canvasLocation" x="826" y="2546"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--SHIFT-->
         <scene sceneID="UEU-2k-1rP">
             <objects>
                 <viewController id="e4f-rd-ck2" customClass="SettingsViewController" customModule="creators" customModuleProvider="target" sceneMemberID="viewController">
@@ -558,7 +558,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="uAi-xd-PYI">
+                    <navigationItem key="navigationItem" title="SHIFT" id="uAi-xd-PYI">
                         <barButtonItem key="rightBarButtonItem" title="Log Out" id="dWL-vS-9Y6">
                             <connections>
                                 <action selector="logout:" destination="e4f-rd-ck2" id="tEM-S2-vhX"/>
