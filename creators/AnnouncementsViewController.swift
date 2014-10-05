@@ -49,8 +49,6 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
         self.navigationController!.pushViewController(loginController, animated: false)
     }
     
-    @IBOutlet var announcementSegmentedControl : UISegmentedControl?
-    
     @IBAction func indexChanged(sender: UISegmentedControl) {
         self.segment = sender.selectedSegmentIndex
         self.tableView.reloadData()
@@ -126,8 +124,32 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
         }
     }
     
+//    @IBOutlet var announcementsSegmentedControl: HMSegmentedControl!
+    @IBOutlet var announcementsSegmentedControl: UISegmentedControl!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController!.navigationBar.barTintColor = ShiftColor.Red.color()
+        
+//        
+//        self.announcementsSegmentedControl!.autoresizingMask = UIViewAutoresizing.FlexibleRightMargin | UIViewAutoresizing.FlexibleWidth
+//
+//        self.announcementsSegmentedControl!.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe
+//        self.announcementsSegmentedControl!.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown
+
+        
+/*        HMSegmentedControl *segmentedControl1 = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"One", @"Two", @"Three", @"Four", @"Five", @"Six", @"Seven", @"Eight"]];
+        segmentedControl1.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
+        segmentedControl1.frame = CGRectMake(0, 40 + yDelta, 320, 40);
+        segmentedControl1.segmentEdgeInset = UIEdgeInsetsMake(0, 10, 0, 10);
+        segmentedControl1.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe;
+        segmentedControl1.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
+        [segmentedControl1 addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
+        [self.view addSubview:segmentedControl1];
+*/
+        
         
         /// Find font names
         /*for family in UIFont.familyNames() {
@@ -211,6 +233,8 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
                 self.tableView.reloadData()
             }
         })
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -257,7 +281,6 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
             let details = String(announcement["details"] as NSString)
 
             if announcement.parseClassName == "Request" && self.requestResponses.count > 0 {
-                println(announcement.objectId)
                 let requestResponse = self.requestResponses[announcement.objectId]!
                 let requestStatus: AnyObject! = requestResponse["status"]
                 if requestStatus as NSObject == true {

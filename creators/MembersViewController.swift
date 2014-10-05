@@ -83,6 +83,7 @@ class MembersViewController: UITableViewController, UISearchDisplayDelegate, UIS
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController!.navigationBar.barTintColor = ShiftColor.Orange.color()
         
         /* ---------------- NEW SEARCH CONTROLLER ----------------  */
         /*self.memberSearchController = ({

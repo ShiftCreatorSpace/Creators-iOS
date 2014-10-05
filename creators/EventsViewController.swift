@@ -92,8 +92,9 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "EventsCell")
+        self.navigationController!.navigationBar.barTintColor = ShiftColor.Blue.color()
         
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "EventsCell")
         
         var query = PFQuery(className: "Event")
         query.findObjectsInBackgroundWithBlock({(NSMutableArray objects, NSError error) in

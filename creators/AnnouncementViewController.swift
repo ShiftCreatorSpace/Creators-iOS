@@ -24,6 +24,9 @@ class AnnouncementViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController!.navigationBar.barTintColor = ShiftColor.Red.color()
+//        self.tabBarController!.tabBar.tintColor = UIColor.yellowColor()
+        
         // Do any additional setup after loading the view, typically from a nib.
         titleLabel!.text = String(announcement["title"] as NSString)
         details!.text = String(announcement["details"] as NSString)

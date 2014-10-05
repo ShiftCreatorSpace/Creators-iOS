@@ -27,6 +27,9 @@ class EventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController!.navigationBar.barTintColor = ShiftColor.Blue.color()
+        
         // Do any additional setup after loading the view, typically from a nib.
         titleLabel!.text = String(event["title"] as NSString)
         location!.text = String(event["locationName"] as NSString)

@@ -18,6 +18,9 @@
 #import "BFAppLink.h"
 #import "BFAppLinkTarget.h"
 #import "BFURL.h"
+#import "BFMeasurementEvent.h"
+#import "BFAppLinkReturnToRefererController.h"
+#import "BFAppLinkReturnToRefererView.h"
 #endif
 
 /*! @abstract 80175001: There were multiple errors. */
@@ -27,6 +30,7 @@ extern NSInteger const kBFMultipleErrorsError;
 
 /*!
  Returns the version of the Bolts Framework as an NSString.
+ @returns The NSString representation of the current version.
  */
 + (NSString *)version;
 

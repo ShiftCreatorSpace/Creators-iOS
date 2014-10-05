@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-creators-HMSegmentedControl.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-creators-SWTableViewCell.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2D29D1EE5287490590056202</key>
+		<key>2262F2B7615643F2B0E6B763</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3B92BDC86AF94AC7BD03690C</key>
+		<key>A493E573ABF44F258B8B4CEE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B023676FB92C47658A0ACD32</key>
+		<key>B5E35538D79B43C48E0B1BC9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B9D7EB8612E445EB96AB3AA3</key>
+		<key>CA17D97E83314A18A995EF7E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DE66CB8216884F69AAEED9D5</key>
 		<dict>
 			<key>primary</key>
 			<true/>

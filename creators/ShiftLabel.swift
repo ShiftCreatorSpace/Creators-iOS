@@ -65,6 +65,7 @@ class ShiftTextView: UITextView {
     required init(coder: NSCoder) {
         super.init(coder: coder)
         self.font = UIFont(name: ShiftFont.GRLight.font(), size: 18)
+        self.textColor = ShiftColor.Gray.color() 
     }
 }
 
@@ -82,10 +83,10 @@ class DescriptionLabel: ShiftLabel {
     }
 }
 
-class DescriptionTextView: UITextView {
+class DescriptionTextView: ShiftTextView {
     required init(coder: NSCoder) {
         super.init(coder: coder)
-        //self.font = UIFont(name: ShiftFont.GRLight.font(), size: 18)
+        self.font = UIFont(name: ShiftFont.GRLight.font(), size: 15)
     }
 }
 

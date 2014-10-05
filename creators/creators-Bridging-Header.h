@@ -32,6 +32,10 @@
 
 #import <Parse/Parse.h>
 
-// Swipeable TableViewCell framework
+// SWTableViewCell framework
 
 #import <SWTableViewCell/SWTableViewCell.h>
+
+// HMSegmentedControl framework
+
+#import <HMSegmentedControl/HMSegmentedControl.h>

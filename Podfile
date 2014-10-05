@@ -3,6 +3,7 @@
 
 target "creators" do
     pod 'SWTableViewCell', '>= 0.3.0'
+    pod 'HMSegmentedControl','~> 1.3.0'
     pod 'Facebook-iOS-SDK'
 end
 

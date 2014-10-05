@@ -30,6 +30,9 @@ class MemberViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController!.navigationBar.barTintColor = ShiftColor.Orange.color()
+        
         // Do any additional setup after loading the view, typically from a nib.
         firstName!.text = String(member["firstName"] as NSString)
         lastName!.text = String(member["lastName"] as NSString)

@@ -18,6 +18,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         Parse.setApplicationId("cdkgRRKluqtoS2IVhBZyuJ0RugYyTdTzPjl0BYz2", clientKey: "BpzjCqpWEgOlPRSevRcZzbXkYhuLzKNNogjJKxRe")
         
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
+        
+        /*let titleDict: NSDictionary = [NSFontAttributeName: ShiftFont.Canter]
+        UINavigationBar.appearance().titleTextAttributes = titleDict
+        
+        NSForegroundColorAttributeName: [UIColor greenColor],
+        NSFontAttributeName: [UIFont fontWithName:@"Helvetica" size:20.0f],
+        NSShadowAttributeName: shadow
+        */
+        
+        self.window!.tintColor = UIColor.whiteColor()
+
+        //UIBarButtonItem.appearance().tintColor = UIColor.whiteColor()
+
         return true
     }
 
