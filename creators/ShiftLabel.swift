@@ -144,10 +144,16 @@ class ShiftImageView: UIImageView {
 }
 
 class ShiftButton: UIButton {
-
+    /*override init(frame: CGRect) {
+        super.init(frame: frame)
+    }*/
 }
 
 class RsvpButton: ShiftButton {
+    required override init(coder: NSCoder) {
+        super.init(coder: coder)
+        self.layer.cornerRadius = 5
+    }
     func setBackground(status: String) {
         switch status {
             case "GOING":
@@ -162,13 +168,31 @@ class RsvpButton: ShiftButton {
     }
 }
 
+class RsvpCircleButton: RsvpButton {
+    required init(coder: NSCoder) {
+        super.init(coder: coder)
+        self.layer.cornerRadius = 0.5 * self.bounds.size.width
+    }
+}
+
 class RequestButton: ShiftButton {
+    required override init(coder: NSCoder) {
+        super.init(coder: coder)
+        self.layer.cornerRadius = 5
+    }
     func setBackground(status: String) {
         if status == "true" {
             self.backgroundColor = ShiftColor.Green.color()
+            //self.setImage(UIImage(named:"square.png"), forState: .Normal)
         } else {
             self.backgroundColor = ShiftColor.Gray.color()
         }
     }
 }
 
+class RequestCircleButton: RequestButton {
+    required init(coder: NSCoder) {
+        super.init(coder: coder)
+        self.layer.cornerRadius = 0.5 * self.bounds.size.width
+    }
+}
