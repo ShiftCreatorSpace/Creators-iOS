@@ -8,30 +8,6 @@
 
 import Foundation
 
-
-/*class MyView: UIView {
-    let tableView: UITableView!
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        tableView = UITableView()
-    }
-
-    required init(coder aDecoder: NSCoder) {
-        //fatalError("init(coder:) has not been implemented")
-        super.init(coder: aDecoder)
-    }
-    
-    func configure() {
-        tableView.frame = self.bounds
-        self.addSubview(tableView)
-    }
-}*/
-
-
-
-
 class MembersTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String!) {
         super.init(style: UITableViewCellStyle.Default, reuseIdentifier: reuseIdentifier)

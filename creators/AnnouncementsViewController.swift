@@ -61,10 +61,12 @@ var requestResponses = Dictionary<String, PFObject>()
 
 class AnnouncementsViewController: UITableViewController, UITableViewDelegate, SWTableViewCellDelegate, AnnouncementViewControllerDelegate, UITableViewDataSource {
     // define the class
+    var membersData: NSArray = []
     var combinedData: NSMutableArray = []
     var requestsData: NSArray = []
     var announcementsData: NSArray = []
     var announcementsPhotos = Dictionary<String, PFImageView>()
+    var requestsPhotos = Dictionary<String, PFImageView>()
     
     enum SegmentedControls: Int {
         case Combined
@@ -88,77 +90,6 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
         self.segment = sender.selectedSegmentIndex
         self.tableView.reloadData()
     }
-    
-/*    func leftButtonsJoin() -> NSArray {
-        var leftUtilityButtons: NSMutableArray = NSMutableArray()
-        leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor(red: 0.298, green: 0.851, blue: 0.392, alpha: 1.0), title: "Join")
-        return leftUtilityButtons
-    }
-    
-    func leftButtonsLeave() -> NSArray {
-        var leftUtilityButtons: NSMutableArray = NSMutableArray()
-        leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor(red: 1.0, green: 0.231, blue: 0.188, alpha: 1.0), title: "Leave")
-        return leftUtilityButtons
-    }
-
-    func rightButtons() -> NSArray {
-        var rightUtilityButtons: NSMutableArray = NSMutableArray()
-        rightUtilityButtons.sw_addUtilityButtonWithColor(UIColor(red: 0.78, green: 0.78, blue: 0.8, alpha: 1.0), title: "R_One")
-        
-        return rightUtilityButtons
-    }
-
-    
-    func swipeableTableViewCell(cell: SWTableViewCell!, didTriggerLeftUtilityButtonWithIndex withIndex: NSInteger) {
-        let indexPath = self.tableView.indexPathForCell(cell)
-        
-        switch self.segment {
-        case SegmentedControls.Announcements.toRaw():
-            let request = self.combinedData.objectAtIndex(indexPath!.row) as PFObject
-        case SegmentedControls.Requests.toRaw():
-            let request = self.combinedData.objectAtIndex(indexPath!.row) as PFObject
-        default:
-            let request = self.combinedData.objectAtIndex(indexPath!.row) as PFObject
-        }
-        let request = self.combinedData.objectAtIndex(indexPath!.row) as PFObject
-        //let requestMember = PFUser.currentUser()
-        var requestResponse = self.requestResponses[request.objectId]!
-        var requestStatus: AnyObject! = requestResponse["status"]
-        
-        if requestStatus as NSObject == true {
-            println("Setting response to 'No'")
-            requestStatus = false
-        } else {
-            println("Setting response to 'Yes'")
-            requestStatus = true
-        }
-        
-        /*switch requestStatus {
-        case 0 as NSObject:
-            println("Setting response to 'Yes'")
-            requestStatus = true
-        case 1 as NSObject:
-            println("Setting response to 'No'")
-            requestStatus = false
-        default:
-            println("Left Wut.")
-        }*/
-        
-        requestResponse["status"] = requestStatus
-        requestResponse.saveEventually()
-
-        self.tableView.reloadData()
-    }
-    
-    func swipeableTableViewCell(cell: SWTableViewCell!, didTriggerRightUtilityButtonWithIndex withIndex: NSInteger) {
-        switch withIndex {
-        case 0:
-            println("Right One")
-        default:
-            println("Right Wut.")
-        }
-    }
-*/
     
 //    @IBOutlet var announcementsSegmentedControl: HMSegmentedControl!
     @IBOutlet var announcementsSegmentedControl: UISegmentedControl!
@@ -232,6 +163,7 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
         // Query for Requests
         // Set requestsData and add to combinedData
         query = PFQuery(className: "Request")
+        query.includeKey("requester")
         query.findObjectsInBackgroundWithBlock({(NSMutableArray objects, NSError error) in
             if (error != nil) {
                 NSLog("error " + error.localizedDescription)
@@ -239,11 +171,26 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
             else {
                 self.requestsData = objects
                 
+                // Iterate through each Request
                 for element : AnyObject in self.requestsData {
                     if let request = element as? PFObject  {
                         self.combinedData.addObject(request)
                         
+                        var photo: PFImageView = PFImageView()
+                        photo.image = UIImage(named: "square")
+                        let requester: AnyObject! = request["requester"]
+                        photo.file = requester["selfie"] as? PFFile
+                        photo.loadInBackground({(UIImage image, NSError error) in
+                            if (error != nil) {
+                                NSLog("error " + error.localizedDescription)
+                            } else {
+                                self.tableView.reloadData()
+                            }
+                        })
+                        self.requestsPhotos.updateValue(photo, forKey: requester.objectId)
+                        
                         // load request to requestResponses
+                        /// can be optimized -- do not need to run query for each request, just query.whereKey("member", equalTo: PFUser.currentUser()) once for all RequestResponses for a user. don't forget to create empty RequestResponses when populating dictionary
                         let requestMember = PFUser.currentUser()
                         var query = PFQuery(className: "RequestResponse")
                         query.whereKey("request", equalTo: request)
@@ -327,21 +274,25 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
             let details = String(announcement["details"] as NSString)
 
             if announcement.parseClassName == "Announcement" {
-                NSLog("inside announcement setup")
-                //cell = tableView.dequeueReusableCellWithIdentifier("announcementCell", forIndexPath: indexPath) as AnnouncementsTableViewCell
+                
+                
             } else if announcement.parseClassName == "Request" && requestResponses.count > 0 {
-                NSLog("inside request setup")
                 cell.requestId = announcement.objectId
                 
                 let requestResponse = requestResponses[announcement.objectId]
                 if requestResponse != nil {
                     if requestResponse!["status"] != nil {
-                        NSLog("status is not nil")
-                        NSLog(announcement.objectId)
-                        NSLog(requestResponse!["status"] as String)
                         cell.status = requestResponse!["status"] as NSString
                     }
                     cell.requestButton!.setBackground(cell.status)
+                }
+                
+                let requester: AnyObject! = announcement["requester"]
+                if self.requestsPhotos[requester.objectId] != nil {
+                    let selfie = self.requestsPhotos[requester.objectId]!.image
+                    cell.requester!.image = selfie
+                    cell.requester!.layer.cornerRadius = 40
+                    cell.requester!.clipsToBounds = true
                 }
             }
             
@@ -349,7 +300,6 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
             cell.title!.text = title
             cell.details!.numberOfLines = 3
             cell.details!.text = details
-                NSLog("after cell stuff")            
         }
         return cell
     }
@@ -367,12 +317,12 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
         var selectedAnnouncement: PFObject
         
         switch self.segment {
-        case SegmentedControls.Announcements.toRaw():
-            selectedAnnouncement = self.announcementsData.objectAtIndex(announcementIndex) as PFObject
-        case SegmentedControls.Requests.toRaw():
-            selectedAnnouncement = self.requestsData.objectAtIndex(announcementIndex) as PFObject
-        default:
-            selectedAnnouncement = self.combinedData.objectAtIndex(announcementIndex) as PFObject
+            case SegmentedControls.Announcements.toRaw():
+                selectedAnnouncement = self.announcementsData.objectAtIndex(announcementIndex) as PFObject
+            case SegmentedControls.Requests.toRaw():
+                selectedAnnouncement = self.requestsData.objectAtIndex(announcementIndex) as PFObject
+            default:
+                selectedAnnouncement = self.combinedData.objectAtIndex(announcementIndex) as PFObject
         }
         
         announcementViewController.announcement = selectedAnnouncement
@@ -380,7 +330,13 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
             announcementViewController.image = self.announcementsPhotos[selectedAnnouncement.objectId]!.image!
         } else {
             /// temporarily setting image to square, need to adjust AnnouncementViewController to handle Request cells
-            announcementViewController.image = UIImage(named: "square")
+            let requester: AnyObject! = selectedAnnouncement["requester"]
+            if self.requestsPhotos[requester.objectId] != nil {
+                let selfie = self.requestsPhotos[requester.objectId]!.image
+                announcementViewController.image = selfie!
+            } else {
+                announcementViewController.image = UIImage(named: "square")
+            }
             announcementViewController.response = requestResponses[selectedAnnouncement.objectId]!
         }
         

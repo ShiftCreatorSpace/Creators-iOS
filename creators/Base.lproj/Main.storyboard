@@ -85,13 +85,13 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="he3-T7-aab" customClass="TitleLabel" customModule="creators" customModuleProvider="target">
-                                            <rect key="frame" x="104" y="25" width="152" height="21"/>
+                                            <rect key="frame" x="104" y="19" width="152" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aS9-mw-uIP" customClass="DescriptionLabel" customModule="creators" customModuleProvider="target">
-                                            <rect key="frame" x="104" y="14" width="152" height="116"/>
+                                            <rect key="frame" x="104" y="8" width="152" height="116"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -105,11 +105,15 @@
                                                 <action selector="requestAction:" destination="RRD-8g-7Bb" eventType="touchUpInside" id="OQl-xF-9Y5"/>
                                             </connections>
                                         </button>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xux-ib-mzU">
+                                            <rect key="frame" x="16" y="10" width="80" height="80"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="details" destination="aS9-mw-uIP" id="Bry-wH-fD2"/>
                                     <outlet property="requestButton" destination="Gb9-xx-ZMe" id="YzS-k1-Lpb"/>
+                                    <outlet property="requester" destination="xux-ib-mzU" id="VQA-Rg-YJ5"/>
                                     <outlet property="title" destination="he3-T7-aab" id="4uv-H4-Axg"/>
                                 </connections>
                             </tableViewCell>
@@ -135,7 +139,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YvS-oB-3hn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1587" y="654"/>
+            <point key="canvasLocation" x="1587" y="647"/>
         </scene>
         <!--Announcement View Controller-->
         <scene sceneID="nN4-EK-P71">
@@ -149,12 +153,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a7E-wY-QPl" customClass="ShiftImageView" customModule="creators" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="59" width="375" height="160"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="-1" y="332" width="321" height="308"/>
-                                </variation>
-                            </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2a-hJ-pgM" customClass="TitleLabel" customModule="creators" customModuleProvider="target">
                                 <rect key="frame" x="31" y="305" width="312" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -186,6 +184,12 @@
                                     <action selector="requestAction:" destination="XR2-qu-RZn" eventType="touchUpInside" id="2fj-Og-pdu"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a7E-wY-QPl" customClass="ShiftImageView" customModule="creators" customModuleProvider="target">
+                                <rect key="frame" x="107" y="59" width="160" height="160"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="-1" y="332" width="321" height="308"/>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
