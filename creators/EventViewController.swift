@@ -25,7 +25,6 @@ class EventViewController: UIViewController {
     @IBOutlet var time : UILabel?
     @IBOutlet var details: UITextView?
     @IBOutlet var photo: UIImageView?
-//    @IBOutlet var status : UILabel?
     @IBOutlet var rsvpButton : RsvpButton?
     
     @IBAction func rsvpAction(sender: AnyObject) {
@@ -73,11 +72,6 @@ class EventViewController: UIViewController {
         details!.text = String(event["details"] as NSString)
         photo!.image = self.image
         
-        //var rsvp = eventsRsvps[rsvpId]
-        if rsvp["status"] != nil {
-            status = String(rsvp["status"] as NSString)
-        }
-        
         var df = NSDateFormatter()
         df.dateFormat = "yyyy-MM-dd-EEEE"
         var dateString: NSString = df.stringFromDate(event["startDate"] as NSDate)
@@ -92,6 +86,9 @@ class EventViewController: UIViewController {
         date!.text = dateString
         time!.text = startTime + " - " + endTime
         
+        if rsvp["status"] != nil {
+            status = String(rsvp["status"] as NSString)
+        }
         self.rsvpButton!.setBackground(status)
     }
     

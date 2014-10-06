@@ -9,7 +9,6 @@
 import Foundation
 
 class EventsTableViewCell: SWTableViewCell {
-    var index = Int()
     var status = String()
     var eventId = String()
     
@@ -144,9 +143,6 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
         if self.eventsData.count > 0 {
             let event = self.eventsData.objectAtIndex(indexPath.row) as PFObject
             cell.eventId = event.objectId
-            
-            NSLog("before setting status")
-            NSLog("    count is: \(eventsRsvps.count)")
             
             let eventRsvp = eventsRsvps[event.objectId]
             if eventRsvp != nil {

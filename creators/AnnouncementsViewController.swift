@@ -9,10 +9,29 @@
 import Foundation
 
 class AnnouncementsTableViewCell: SWTableViewCell {
+    var status = String()
+    var requestId = String()
+    
     @IBOutlet var title: UILabel?
     @IBOutlet var details: UILabel?
     @IBOutlet var requester: UIImageView?
-    @IBOutlet var rsvp: UIButton?
+    @IBOutlet var requestButton: RequestButton?
+
+    @IBAction func requestAction(sender: AnyObject) {
+        if status == "true" {
+            status = "false"
+        } else {
+            status = "true"
+        }
+        
+        requestButton!.setBackground(status)
+        
+        var requestResponse = requestResponses[requestId]
+        if requestResponse != nil {
+            requestResponse!["status"] = status
+            requestResponse!.saveEventually()
+        }
+    }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String!) {
         super.init(style: UITableViewCellStyle.Value1, reuseIdentifier: reuseIdentifier)
@@ -38,19 +57,19 @@ class RequestsTableViewCell: AnnouncementsTableViewCell {
     }
 }
 
-class AnnouncementsViewController: UITableViewController, UITableViewDelegate, SWTableViewCellDelegate, UITableViewDataSource {
+var requestResponses = Dictionary<String, PFObject>()
+
+class AnnouncementsViewController: UITableViewController, UITableViewDelegate, SWTableViewCellDelegate, AnnouncementViewControllerDelegate, UITableViewDataSource {
     // define the class
     var combinedData: NSMutableArray = []
     var requestsData: NSArray = []
     var announcementsData: NSArray = []
     var announcementsPhotos = Dictionary<String, PFImageView>()
-    var requestResponses = Dictionary<String, PFObject>()
-
     
-    enum SegmentedControls: NSInteger {
-        case Combined = 0
-        case Announcements = 1
-        case Requests = 2
+    enum SegmentedControls: Int {
+        case Combined
+        case Announcements
+        case Requests
     }
     var segment = SegmentedControls.Combined.toRaw()
     
@@ -237,9 +256,9 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
                                 requestResponse["request"] = request
                                 requestResponse["member"] = requestMember
                                 requestResponse["status"] = false
-                                self.requestResponses.updateValue(requestResponse, forKey: request.objectId)
+                                requestResponses.updateValue(requestResponse, forKey: request.objectId)
                             } else {
-                                self.requestResponses.updateValue(requestResponse, forKey: request.objectId)
+                                requestResponses.updateValue(requestResponse, forKey: request.objectId)
                             }
                             self.tableView.reloadData()
                         })
@@ -250,8 +269,6 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
                 self.tableView.reloadData()
             }
         })
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -279,7 +296,19 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: nil)
-        let cell = tableView.dequeueReusableCellWithIdentifier("announcementCell", forIndexPath: indexPath) as AnnouncementsTableViewCell
+        
+        var cellIdentifier = "announcementCell"
+        if self.segment == SegmentedControls.Requests.toRaw() {
+            cellIdentifier = "requestCell"
+        } else if self.segment == SegmentedControls.Combined.toRaw()
+                && self.combinedData.count > indexPath.row
+                && self.combinedData[indexPath.row].parseClassName == "Request" {
+            cellIdentifier = "requestCell"
+        }
+        
+        
+        //var cell = AnnouncementsTableViewCell()
+        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as AnnouncementsTableViewCell
 
         if self.combinedData.count > 0 {
             
@@ -297,45 +326,69 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
             let title = String(announcement["title"] as NSString)
             let details = String(announcement["details"] as NSString)
 
-            if announcement.parseClassName == "Request" && self.requestResponses.count > 0 {
-                //cell = tableView.dequeueReusableCellWithIdentifier("announcementCell", forIndexPath: indexPath) as RequestsTableViewCell
+            if announcement.parseClassName == "Announcement" {
+                NSLog("inside announcement setup")
+                //cell = tableView.dequeueReusableCellWithIdentifier("announcementCell", forIndexPath: indexPath) as AnnouncementsTableViewCell
+            } else if announcement.parseClassName == "Request" && requestResponses.count > 0 {
+                NSLog("inside request setup")
+                cell.requestId = announcement.objectId
                 
-                let requestResponse = self.requestResponses[announcement.objectId]!
-                let requestStatus: AnyObject! = requestResponse["status"]
-                if requestStatus as NSObject == true {
-                    //cell.leftUtilityButtons = self.leftButtonsLeave()
-                } else {
-                    //cell.leftUtilityButtons = self.leftButtonsJoin()
+                let requestResponse = requestResponses[announcement.objectId]
+                if requestResponse != nil {
+                    if requestResponse!["status"] != nil {
+                        NSLog("status is not nil")
+                        NSLog(announcement.objectId)
+                        NSLog(requestResponse!["status"] as String)
+                        cell.status = requestResponse!["status"] as NSString
+                    }
+                    cell.requestButton!.setBackground(cell.status)
                 }
-                //cell.rightUtilityButtons = self.rightButtons()
-            } else {
-                //cell.leftUtilityButtons = NSArray()
-                //cell.rightUtilityButtons = NSArrary()
             }
+            
             cell.delegate = self
-
             cell.title!.text = title
             cell.details!.numberOfLines = 3
             cell.details!.text = details
+                NSLog("after cell stuff")            
         }
         return cell
+    }
+    
+    func didFinish(controller: AnnouncementViewController, requestResponse: PFObject) {
+        NSLog(requestResponse.objectId)
+        requestResponses[requestResponse.objectId] = requestResponse
+        self.tableView.reloadData()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         var announcementViewController: AnnouncementViewController = segue.destinationViewController as AnnouncementViewController
         var announcementIndex = tableView.indexPathForSelectedRow()!.row
-        var selectedAnnouncement = self.combinedData.objectAtIndex(announcementIndex) as PFObject
+        
+        var selectedAnnouncement: PFObject
+        
+        switch self.segment {
+        case SegmentedControls.Announcements.toRaw():
+            selectedAnnouncement = self.announcementsData.objectAtIndex(announcementIndex) as PFObject
+        case SegmentedControls.Requests.toRaw():
+            selectedAnnouncement = self.requestsData.objectAtIndex(announcementIndex) as PFObject
+        default:
+            selectedAnnouncement = self.combinedData.objectAtIndex(announcementIndex) as PFObject
+        }
+        
         announcementViewController.announcement = selectedAnnouncement
         if selectedAnnouncement.parseClassName == "Announcement" {
             announcementViewController.image = self.announcementsPhotos[selectedAnnouncement.objectId]!.image!
         } else {
             /// temporarily setting image to square, need to adjust AnnouncementViewController to handle Request cells
             announcementViewController.image = UIImage(named: "square")
+            announcementViewController.response = requestResponses[selectedAnnouncement.objectId]!
         }
+        
+        announcementViewController.delegate = self
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier("announcementSegue", sender: self)
+            self.performSegueWithIdentifier("announcementSegue", sender: self)
     }
 /*
     override func tableView(tableView: UITableView!, didSelectRowAtIndexPath: NSIndexPath!) {

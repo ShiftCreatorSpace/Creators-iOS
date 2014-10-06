@@ -162,4 +162,16 @@ class RsvpButton: ShiftButton {
     }
 }
 
+class RequestButton: ShiftButton {
+    func setBackground(status: String) {
+        NSLog("inside setBackground for RequestButton")
+        if status == "true" {
+            NSLog("setting color to true")
+            self.backgroundColor = ShiftColor.Green.color()
+        } else {
+            NSLog("setting color to false")            
+            self.backgroundColor = ShiftColor.Gray.color()
+        }
+    }
+}
 
