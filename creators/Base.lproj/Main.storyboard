@@ -3,6 +3,11 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="canter-outline.otf">
+            <string>CanterOutline</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="IXZ-ac-Pfg">
@@ -618,14 +623,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Su6-0x-gIe" customClass="LogoutButton" customModule="creators" customModuleProvider="target">
-                                <rect key="frame" x="31" y="287" width="312" height="30"/>
-                                <state key="normal" title="Log Out">
+                                <rect key="frame" x="31" y="287" width="312" height="60"/>
+                                <fontDescription key="fontDescription" name="CanterOutline" family="Canter" pointSize="32"/>
+                                <state key="normal" title="LOG OUT">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="logout:" destination="e4f-rd-ck2" eventType="touchUpInside" id="a2Y-Eq-1yc"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TDh-Lt-I3j" customClass="ShiftButton" customModule="creators" customModuleProvider="target">
+                                <rect key="frame" x="31" y="335" width="312" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Forgot password?">
+                                    <color key="titleColor" red="0.96078431369999995" green="0.56470588239999997" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="passwordReset:" destination="e4f-rd-ck2" eventType="touchUpInside" id="gdK-Lf-q6X"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lem-ef-kbl">
+                                <rect key="frame" x="163" y="218" width="51" height="31"/>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -633,7 +653,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ydw-az-EOX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1586.5" y="2545.5"/>
+            <point key="canvasLocation" x="1586" y="2545"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="Lit-4v-ioF">

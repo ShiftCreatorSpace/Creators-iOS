@@ -215,6 +215,7 @@ class LogoutButton: ShiftButton {
     required override init(coder: NSCoder) {
         super.init(coder: coder)
         self.backgroundColor = ShiftColor.Gray.color()
+        self.layer.borderColor = ShiftColor.Gray.color().CGColor
         self.layer.cornerRadius = cornerRadius
         self.layer.borderWidth = borderWidth
     }
