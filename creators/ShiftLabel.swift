@@ -138,9 +138,28 @@ class DescriptionTextView: ShiftTextView {
 class ShiftImageView: UIImageView {
     required init(coder: NSCoder) {
         super.init(coder: coder)
-        self.layer.cornerRadius = self.frame.size.width / 2
+        self.layer.cornerRadius = 40
         self.clipsToBounds = true
     }
+}
+
+class ShiftButton: UIButton {
 
 }
+
+class RsvpButton: ShiftButton {
+    func setBackground(status: String) {
+        switch status {
+            case "GOING":
+                self.backgroundColor = ShiftColor.Green.color()
+            case "MAYBE":
+                self.backgroundColor = ShiftColor.Blue.color()
+            case "NOT":
+                self.backgroundColor = ShiftColor.Red.color()
+            default:
+                self.backgroundColor = ShiftColor.Gray.color()
+        }
+    }
+}
+
 

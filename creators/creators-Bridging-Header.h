@@ -32,6 +32,8 @@
 
 #import <Parse/Parse.h>
 
+#import <Parse/PFObject+Subclass.h>
+
 // SWTableViewCell framework
 
 #import <SWTableViewCell/SWTableViewCell.h>

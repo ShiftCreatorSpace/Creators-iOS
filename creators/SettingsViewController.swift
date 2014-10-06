@@ -21,7 +21,7 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.navigationController!.navigationBar.barTintColor = ShiftColor.Orange.color()
     }
 
     override func didReceiveMemoryWarning() {

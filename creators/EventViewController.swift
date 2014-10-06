@@ -8,18 +8,55 @@
 
 import UIKit
 
+protocol EventViewControllerDelegate{
+    func didFinish(controller: EventViewController, eventRsvp: PFObject)
+}
+
 class EventViewController: UIViewController {
-    
+    var delegate: EventViewControllerDelegate? = nil
     var event: PFObject = PFObject(className: "Event")
     var rsvp = PFObject(className: "EventRsvp")
+    //var rsvpId = String()
     var image = UIImage()
+    var status = String()
     @IBOutlet var titleLabel: UILabel?
     @IBOutlet var location : UILabel?
     @IBOutlet var date : UILabel?
     @IBOutlet var time : UILabel?
     @IBOutlet var details: UITextView?
     @IBOutlet var photo: UIImageView?
-    @IBOutlet var status : UILabel?
+//    @IBOutlet var status : UILabel?
+    @IBOutlet var rsvpButton : RsvpButton?
+    
+    @IBAction func rsvpAction(sender: AnyObject) {
+        switch status {
+            case "GOING":
+                status = "MAYBE"
+            case "MAYBE":
+                status = "NOT"
+            case "NOT":
+                status = "GOING"
+            default:
+                status = "GOING"
+        }
+        
+        rsvpButton?.setBackground(status)
+        
+        //var rsvp = eventsRsvps[rsvpId]
+        
+        rsvp["status"] = status
+        rsvp.saveEventually()
+        
+        if (delegate != nil) {
+            delegate!.didFinish(self, eventRsvp: rsvp)
+        }
+        
+        // Set status for rsvp in full list of user's rsvp's as well
+//        var eventRsvp = eventsRsvps[rsvp.objectId]
+  //      if eventRsvp != nil {
+    //        eventRsvp!["status"] = status
+      //  }
+    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -33,26 +70,27 @@ class EventViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         titleLabel!.text = String(event["title"] as NSString)
         location!.text = String(event["locationName"] as NSString)
-        date!.text = toString(event["startDate"])
-        time!.text = toString(event["endDate"])
         details!.text = String(event["details"] as NSString)
         photo!.image = self.image
         
-        self.status!.text = String(rsvp["status"] as NSString)
+        //var rsvp = eventsRsvps[rsvpId]
+        status = String(rsvp["status"] as NSString)
         
-        switch self.status!.text! {
-            case "GOING":
-                self.status!.text = "Going"
-                self.status!.backgroundColor = UIColor(red: 0.298, green: 0.851, blue: 0.392, alpha: 1.0)
-            case "MAYBE_GOING":
-                self.status!.text = "Maybe"
-                self.status!.backgroundColor = UIColor(red: 0.203, green: 0.667, blue: 0.863, alpha: 1.0)
-            case "NOT_GOING":
-                self.status!.text = "Not Going"
-                self.status!.backgroundColor = UIColor(red: 1.0, green: 0.231, blue: 0.188, alpha: 1.0)
-            default:
-                println("Invalid status/no status set for EventRsvp")
-        }
+        var df = NSDateFormatter()
+        df.dateFormat = "yyyy-MM-dd-EEEE"
+        var dateString: NSString = df.stringFromDate(event["startDate"] as NSDate)
+        df.dateFormat = "HH:mm"
+        var startTime: NSString = df.stringFromDate(event["startDate"] as NSDate)
+        var endTime: NSString = df.stringFromDate(event["endDate"] as NSDate)
+        
+        //var month = dateString.substringWithRange(NSRange(location: 5, length: 2))
+        //var date = dateString.substringWithRange(NSRange(location: 8, length: 2))
+        //var day = dateString.substringWithRange(NSRange(location: 11, length: 3))
+        
+        date!.text = dateString
+        time!.text = startTime + " - " + endTime
+        
+        self.rsvpButton!.setBackground(status)
     }
     
     override func didReceiveMemoryWarning() {

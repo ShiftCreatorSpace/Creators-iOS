@@ -9,14 +9,42 @@
 import Foundation
 
 class EventsTableViewCell: SWTableViewCell {
+    var index = Int()
+    var status = String()
+    var eventId = String()
+    
     @IBOutlet var title: UILabel?
     @IBOutlet var details: UILabel?
     @IBOutlet var day: UILabel?
     @IBOutlet var date: UILabel?
     @IBOutlet var month: UILabel?
-
-
-
+    @IBOutlet var rsvpButton: RsvpButton?
+    
+    @IBAction func rsvpAction(sender: AnyObject) {
+        switch status {
+        case "GOING":
+            status = "MAYBE"
+        case "MAYBE":
+            status = "NOT"
+        case "NOT":
+            status = "GOING"
+        default:
+            status = "GOING"
+        }
+        
+        rsvpButton!.setBackground(status)
+        
+        /*var eventRsvp = eventsRsvps[eventRsvpId]
+        if (eventRsvp != nil) {
+            eventRsvp!["status"] = status
+            eventRsvp!.saveEventually()
+        }*/
+        
+        var eventRsvp = eventsRsvps[eventId]
+        eventRsvp!["status"] = status
+        eventRsvp!.saveEventually()
+    }
+    
     override  init(style: UITableViewCellStyle, reuseIdentifier: String!) {
         super.init(style: UITableViewCellStyle.Value1, reuseIdentifier: reuseIdentifier)
     }
@@ -27,69 +55,13 @@ class EventsTableViewCell: SWTableViewCell {
    }
 }
 
-class EventsViewController: UITableViewController, UITableViewDelegate, SWTableViewCellDelegate, UITableViewDataSource {
+var eventsRsvps = Dictionary<String, PFObject>()
+
+class EventsViewController: UITableViewController, UITableViewDelegate, SWTableViewCellDelegate, EventViewControllerDelegate, UITableViewDataSource {
     // define the class
     var eventsData: NSArray = []
     var eventsPhotos = Dictionary<String, PFImageView>()
-    var eventsRsvps = Dictionary<String, PFObject>()
-/*
-    func leftButtons() -> NSArray {
-        var leftUtilityButtons: NSMutableArray = NSMutableArray()
-        leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor(red: 0.298, green: 0.851, blue: 0.392, alpha: 1.0), title: "Going")
-        leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor(red: 0.203, green: 0.667, blue: 0.863, alpha: 1.0), title: "Maybe")
-        leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor(red: 1.0, green: 0.231, blue: 0.188, alpha: 1.0), title: "Not")
-        
-        return leftUtilityButtons
-    }
 
-    
-    func rightButtons() -> NSArray {
-        var rightUtilityButtons: NSMutableArray = NSMutableArray()
-        rightUtilityButtons.sw_addUtilityButtonWithColor(UIColor(red: 0.78, green: 0.78, blue: 0.8, alpha: 1.0), title: "R_One")
-        rightUtilityButtons.sw_addUtilityButtonWithColor(UIColor(red: 0.07, green: 0.75, blue: 0.16, alpha: 1.0), title: "R_Two")
-        rightUtilityButtons.sw_addUtilityButtonWithColor(UIColor(red: 1.0, green: 0.231, blue: 0.188, alpha: 1.0), title: "R_Three")
-        
-        return rightUtilityButtons
-    }
-    
-    func swipeableTableViewCell(cell: SWTableViewCell!, didTriggerLeftUtilityButtonWithIndex withIndex: NSInteger) {
-        let indexPath = self.tableView.indexPathForCell(cell)
-        let rsvpEvent = self.eventsData.objectAtIndex(indexPath!.row) as PFObject
-        let rsvpMember = PFUser.currentUser()
-        var rsvpStatus = ""
-
-        switch withIndex {
-            case 0:
-                println("Left One")
-                rsvpStatus = "GOING"
-            case 1:
-                println("Left Two ")
-                rsvpStatus = "MAYBE_GOING"
-            case 2:
-                println("Left Three ")
-                rsvpStatus = "NOT_GOING"
-            default:
-                println("Wut.")
-        }
-        
-        var eventRsvp = self.eventsRsvps[rsvpEvent.objectId]!
-        eventRsvp["status"] = rsvpStatus
-        eventRsvp.saveEventually()
-    }
-    
-    func swipeableTableViewCell(cell: SWTableViewCell!, didTriggerRightUtilityButtonWithIndex withIndex: NSInteger) {
-        switch withIndex {
-            case 0:
-                println("Right One")
-            case 1:
-                println("Right Two ")
-            case 2:
-                println("Right Three ")
-            default:
-                println("Right Wut.")
-        }
-    }
-*/
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -134,13 +106,13 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
                                 eventRsvp["event"] = rsvpEvent
                                 eventRsvp["member"] = rsvpMember
                                 eventRsvp["status"] = ""
-                                self.eventsRsvps.updateValue(eventRsvp, forKey: event.objectId)
+                                eventsRsvps.updateValue(eventRsvp, forKey: event.objectId)
                             } else {
-                                self.eventsRsvps.updateValue(eventRsvp, forKey: event.objectId)
+                                eventsRsvps.updateValue(eventRsvp, forKey: event.objectId)
                             }
+                            
+                            self.tableView.reloadData()
                         })
-                        //println(element)
-
                     }
                 }
                 
@@ -169,6 +141,18 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
         
         if self.eventsData.count > 0 {
             let event = self.eventsData.objectAtIndex(indexPath.row) as PFObject
+            cell.eventId = event.objectId
+            
+            NSLog("before setting status")
+            NSLog("    count is: \(eventsRsvps.count)")
+            
+            let eventRsvp = eventsRsvps[event.objectId]
+            if eventRsvp != nil {
+                cell.status = eventRsvp!["status"] as String
+                NSLog("setting status \(cell.status)")
+                cell.rsvpButton!.setBackground(cell.status)
+            } 
+            
             let title = String(event["title"] as NSString)
             let details = String(event["details"] as NSString)
             
@@ -182,7 +166,7 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
             
             var monthVal = month.toInt()
             month = Months.fromRaw(monthVal!)!.month()
-
+            
             //cell.leftUtilityButtons = self.leftButtons()
             //cell.rightUtilityButtons = self.rightButtons()
             cell.delegate = self
@@ -196,6 +180,13 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
         }
         return cell
     }
+    
+    func didFinish(controller: EventViewController, eventRsvp: PFObject) {
+//        colorLabel.text = "The Color is " +  text
+//        controller.navigationController?.popViewControllerAnimated(true)
+        eventsRsvps[eventRsvp.objectId] = eventRsvp
+        self.tableView.reloadData()
+    }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         var eventViewController: EventViewController = segue.destinationViewController as EventViewController
@@ -203,7 +194,9 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
         var selectedEvent = self.eventsData.objectAtIndex(eventIndex) as PFObject
         eventViewController.event = selectedEvent
         eventViewController.image = self.eventsPhotos[selectedEvent.objectId]!.image!
-        eventViewController.rsvp = self.eventsRsvps[selectedEvent.objectId]!
+        eventViewController.rsvp = eventsRsvps[selectedEvent.objectId]!
+        //eventViewController.rsvpId = selectedEvent.objectId
+        eventViewController.delegate = self
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

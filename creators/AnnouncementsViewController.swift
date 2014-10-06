@@ -11,6 +11,8 @@ import Foundation
 class AnnouncementsTableViewCell: SWTableViewCell {
     @IBOutlet var title: UILabel?
     @IBOutlet var details: UILabel?
+    @IBOutlet var requester: UIImageView?
+    @IBOutlet var rsvp: UIButton?
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String!) {
         super.init(style: UITableViewCellStyle.Value1, reuseIdentifier: reuseIdentifier)
@@ -18,6 +20,20 @@ class AnnouncementsTableViewCell: SWTableViewCell {
 
     required init(coder aDecoder: NSCoder) {
 //        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+    }
+}
+
+class RequestsTableViewCell: AnnouncementsTableViewCell {
+    //@IBOutlet var requester: UIImageView?
+    //@IBOutlet var rsvp: UIButton?
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String!) {
+        super.init(style: UITableViewCellStyle.Value1, reuseIdentifier: reuseIdentifier)
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        //        fatalError("init(coder:) has not been implemented")
         super.init(coder: aDecoder)
     }
 }
@@ -282,6 +298,8 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
             let details = String(announcement["details"] as NSString)
 
             if announcement.parseClassName == "Request" && self.requestResponses.count > 0 {
+                //cell = tableView.dequeueReusableCellWithIdentifier("announcementCell", forIndexPath: indexPath) as RequestsTableViewCell
+                
                 let requestResponse = self.requestResponses[announcement.objectId]!
                 let requestStatus: AnyObject! = requestResponse["status"]
                 if requestStatus as NSObject == true {

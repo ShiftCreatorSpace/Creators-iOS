@@ -273,6 +273,7 @@ class MembersViewController: UITableViewController, UISearchDisplayDelegate, UIS
                     println(element["firstName"])
                 }
             }
+            self.tableView.reloadData()
         })
     }
 

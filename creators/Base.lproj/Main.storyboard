@@ -59,13 +59,13 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kaQ-aT-B1B" customClass="TitleLabel" customModule="creators" customModuleProvider="target">
-                                            <rect key="frame" x="48" y="20" width="247" height="21"/>
+                                            <rect key="frame" x="22" y="16" width="247" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Uv-ty-Upt" customClass="DescriptionLabel" customModule="creators" customModuleProvider="target">
-                                            <rect key="frame" x="48" y="4" width="270" height="116"/>
+                                            <rect key="frame" x="22" y="0.0" width="270" height="116"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -100,7 +100,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YvS-oB-3hn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1587" y="669"/>
+            <point key="canvasLocation" x="1587" y="664"/>
         </scene>
         <!--Announcement View Controller-->
         <scene sceneID="nN4-EK-P71">
@@ -180,7 +180,7 @@
             <objects>
                 <tableViewController id="gSo-ld-rdl" customClass="EventsViewController" customModule="creators" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" id="YWj-xv-2ln">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -192,12 +192,6 @@
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hK-gK-yFm" customClass="DescriptionLabel" customModule="creators" customModuleProvider="target">
                                             <rect key="frame" x="8" y="39" width="32" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jh5-J6-L9e" customClass="TitleLabel" customModule="creators" customModuleProvider="target">
-                                            <rect key="frame" x="48" y="20" width="247" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -213,12 +207,27 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jh5-J6-L9e" customClass="TitleLabel" customModule="creators" customModuleProvider="target">
+                                            <rect key="frame" x="48" y="22" width="210" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YrV-UZ-J9F" customClass="DescriptionLabel" customModule="creators" customModuleProvider="target">
-                                            <rect key="frame" x="48" y="0.0" width="270" height="116"/>
+                                            <rect key="frame" x="48" y="3" width="210" height="116"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FXS-WC-lSP" customClass="RsvpButton" customModule="creators" customModuleProvider="target">
+                                            <rect key="frame" x="288" y="35" width="30" height="30"/>
+                                            <state key="normal">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="rsvpAction:" destination="YvU-zt-dAc" eventType="touchUpInside" id="hdy-OL-T4m"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -226,6 +235,7 @@
                                     <outlet property="day" destination="0KZ-yY-tXt" id="YAh-r6-mdV"/>
                                     <outlet property="details" destination="YrV-UZ-J9F" id="c9x-ju-rFX"/>
                                     <outlet property="month" destination="cvf-co-CqI" id="aaB-iA-zNc"/>
+                                    <outlet property="rsvpButton" destination="FXS-WC-lSP" id="cLP-Oq-X2G"/>
                                     <outlet property="title" destination="jh5-J6-L9e" id="Vwr-ep-Czh"/>
                                     <segue destination="J7X-bm-98G" kind="show" identifier="eventSegue" id="4id-4H-SgU"/>
                                 </connections>
@@ -249,7 +259,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KRP-6x-xjs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1587" y="1244"/>
+            <point key="canvasLocation" x="1586.5" y="1238.5"/>
         </scene>
         <!--Event View Controller-->
         <scene sceneID="bNY-JA-Mym">
@@ -297,7 +307,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEg-aq-U9G">
-                                <rect key="frame" x="31" y="353" width="312" height="40"/>
+                                <rect key="frame" x="31" y="192" width="312" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -327,6 +337,15 @@
                                     <rect key="frame" x="188" y="307" width="112" height="21"/>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kr0-P0-koX" customClass="RsvpButton" customModule="creators" customModuleProvider="target">
+                                <rect key="frame" x="31" y="363" width="312" height="30"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="rsvpAction:" destination="J7X-bm-98G" eventType="touchUpInside" id="iUy-JH-Mzi"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -335,7 +354,7 @@
                         <outlet property="details" destination="zFX-8M-TEn" id="6Yw-27-YhO"/>
                         <outlet property="location" destination="fFT-EK-S2t" id="TIS-7M-6Oh"/>
                         <outlet property="photo" destination="eG7-ox-Q9V" id="AWR-f0-xEb"/>
-                        <outlet property="status" destination="wEg-aq-U9G" id="mnq-pa-Hgb"/>
+                        <outlet property="rsvpButton" destination="Kr0-P0-koX" id="Qwd-6e-1H1"/>
                         <outlet property="time" destination="6Nw-d9-NTG" id="B0A-Va-Fbw"/>
                         <outlet property="titleLabel" destination="Wdz-fg-5ZP" id="D74-Hy-3qw"/>
                     </connections>
