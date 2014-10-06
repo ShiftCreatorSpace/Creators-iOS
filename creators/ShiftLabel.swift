@@ -221,6 +221,16 @@ class LogoutButton: ShiftButton {
     }
 }
 
+class DismissButton: ShiftButton {
+    required override init(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    func dismiss(vc: UIViewController) {
+        //vc.navigationController!.pushViewController(settingsController, animated: false)
+        vc.dismissViewControllerAnimated(false, completion: nil)
+    }
+}
+
 class ShiftSegmentedControl: UISegmentedControl {
     required init(coder: NSCoder) {
         super.init(coder: coder)
@@ -243,17 +253,24 @@ class ShiftBarButtonItem: UIBarButtonItem {
 
 }
 
+
+
 class SettingsBarButtonItem: ShiftBarButtonItem {
     var settingsController : UIViewController
     required override init(coder: NSCoder) {
         var storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         self.settingsController = storyboard.instantiateViewControllerWithIdentifier("settings") as SettingsViewController
+//        self.settingsController.view.backgroundColor = UIColor.clearColor()
+        self.settingsController.view.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.8)
+        //self.settingsController.transitioningDelegate = TransitionDelegate()
+        self.settingsController.modalPresentationStyle = .Custom
         
         super.init(coder: coder)
     }
     func displaySettings(vc: UIViewController) {
-        vc.navigationController!.pushViewController(settingsController, animated: false)
-        //vc.presentViewController(self.settingsController, animated: false, completion: nil)
+        //vc.navigationController!.pushViewController(settingsController, animated: false)
+        vc.navigationController?.modalPresentationStyle = .Custom
+        vc.presentViewController(self.settingsController, animated: false, completion: nil)
     }
 }
 

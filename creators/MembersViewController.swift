@@ -34,7 +34,10 @@ class MembersViewController: UITableViewController, UISearchDisplayDelegate, UIS
     var lastDescriptor: NSSortDescriptor = NSSortDescriptor(key: "lastName", ascending: true, selector: "caseInsensitiveCompare:")
     var firstDescriptor: NSSortDescriptor = NSSortDescriptor(key: "firstName", ascending: true, selector: "caseInsensitiveCompare:")
     
-    //@IBOutlet var atHouse: UIBarButtonItem!
+    @IBAction func settings(sender: SettingsBarButtonItem) {
+        sender.displaySettings(self)
+    }
+    
     @IBAction func atHouse(sender: AnyObject) {
          //func filterContentForSearchText(searchText: NSString!, scope: NSString! = "All")
         

@@ -9,6 +9,9 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
+    @IBAction func dismiss(sender: DismissButton) {
+        sender.dismiss(self)
+    }
     
     @IBOutlet var checkin: ShiftSegmentedControl?
     
@@ -63,7 +66,7 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController!.navigationBar.barTintColor = ShiftColor.Orange.color()
+        //self.navigationController!.navigationBar.barTintColor = ShiftColor.Orange.color()
     }
 
     override func didReceiveMemoryWarning() {
