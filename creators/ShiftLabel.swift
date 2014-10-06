@@ -220,3 +220,40 @@ class LogoutButton: ShiftButton {
         self.layer.borderWidth = borderWidth
     }
 }
+
+class ShiftSegmentedControl: UISegmentedControl {
+    required init(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    func setState(state: Int) {
+        if state == 0 {
+            print("setting state 0 \n")
+            //self.setImage(UIImage(named: "cell_announce_green"), forSegmentAtIndex: 0)
+            //self.setImage(UIImage(named: "cell_announce_red"), forSegmentAtIndex: 1)
+        }
+        else {
+            print("setting state 1 \n")            
+            //self.setImage(UIImage(named: "cell_announce_orange"), forSegmentAtIndex: 0)
+            //self.setImage(UIImage(named: "cell_announce_blue"), forSegmentAtIndex: 1)
+        }
+    }
+}
+
+class ShiftBarButtonItem: UIBarButtonItem {
+
+}
+
+class SettingsBarButtonItem: ShiftBarButtonItem {
+    var settingsController : UIViewController
+    required override init(coder: NSCoder) {
+        var storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        self.settingsController = storyboard.instantiateViewControllerWithIdentifier("settings") as SettingsViewController
+        
+        super.init(coder: coder)
+    }
+    func displaySettings(vc: UIViewController) {
+        vc.navigationController!.pushViewController(settingsController, animated: false)
+        //vc.presentViewController(self.settingsController, animated: false, completion: nil)
+    }
+}
+

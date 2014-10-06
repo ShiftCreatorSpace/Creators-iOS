@@ -9,6 +9,19 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
+    
+    @IBOutlet var checkin: ShiftSegmentedControl?
+    
+    @IBAction func setCheckin(sender: ShiftSegmentedControl) {
+        NSLog("setCheckin called")
+        
+        self.checkin!.setState(sender.selectedSegmentIndex)
+
+        let currentUser = PFUser.currentUser()
+        print(currentUser["checkin"])
+        currentUser["checkin"] = sender.selectedSegmentIndex
+        currentUser.save()
+    }
 
     @IBAction func logout(sender: AnyObject) {
         let alertController = UIAlertController(title: nil, message: "Are you sure you want to log out?", preferredStyle: .ActionSheet)

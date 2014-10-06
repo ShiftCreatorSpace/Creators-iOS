@@ -78,12 +78,9 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
     var pinnedDescriptor: NSSortDescriptor = NSSortDescriptor(key: "pinned", ascending: false)
     var createDateDescriptor: NSSortDescriptor = NSSortDescriptor(key: "createdAt", ascending: false)
     
-    @IBAction func logout(sender: AnyObject) {
-        PFUser.logOut()
-        
-        var storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        var loginController: UIViewController = storyboard.instantiateViewControllerWithIdentifier("login") as UIViewController
-        self.navigationController!.pushViewController(loginController, animated: false)
+    
+    @IBAction func settings(sender: SettingsBarButtonItem) {
+        sender.displaySettings(self)
     }
     
     @IBAction func indexChanged(sender: UISegmentedControl) {
@@ -93,8 +90,7 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
     
 //    @IBOutlet var announcementsSegmentedControl: HMSegmentedControl!
     @IBOutlet var announcementsSegmentedControl: UISegmentedControl!
-
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         

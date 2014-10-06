@@ -132,7 +132,13 @@
                             <outlet property="delegate" destination="0kP-tC-GBF" id="swK-pM-u2R"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="wcB-qh-GUr"/>
+                    <navigationItem key="navigationItem" id="wcB-qh-GUr">
+                        <barButtonItem key="rightBarButtonItem" title="..." id="r9a-yc-7rb" customClass="SettingsBarButtonItem" customModule="creators" customModuleProvider="target">
+                            <connections>
+                                <action selector="settings:" destination="0kP-tC-GBF" id="bBB-eq-UWx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="announcementsSegmentedControl" destination="DOH-XZ-DL9" id="mX7-mg-BuI"/>
                     </connections>
@@ -613,7 +619,7 @@
         <!--Settings View Controller-->
         <scene sceneID="UEU-2k-1rP">
             <objects>
-                <viewController id="e4f-rd-ck2" customClass="SettingsViewController" customModule="creators" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="settings" id="e4f-rd-ck2" customClass="SettingsViewController" customModule="creators" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PdH-0I-qWH"/>
                         <viewControllerLayoutGuide type="bottom" id="MEG-Rj-67L"/>
@@ -623,7 +629,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Su6-0x-gIe" customClass="LogoutButton" customModule="creators" customModuleProvider="target">
-                                <rect key="frame" x="31" y="287" width="312" height="60"/>
+                                <rect key="frame" x="31" y="259" width="312" height="60"/>
                                 <fontDescription key="fontDescription" name="CanterOutline" family="Canter" pointSize="32"/>
                                 <state key="normal" title="LOG OUT">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -633,7 +639,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TDh-Lt-I3j" customClass="ShiftButton" customModule="creators" customModuleProvider="target">
-                                <rect key="frame" x="31" y="335" width="312" height="30"/>
+                                <rect key="frame" x="31" y="327" width="312" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Forgot password?">
                                     <color key="titleColor" red="0.96078431369999995" green="0.56470588239999997" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -643,13 +649,24 @@
                                     <action selector="passwordReset:" destination="e4f-rd-ck2" eventType="touchUpInside" id="gdK-Lf-q6X"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lem-ef-kbl">
-                                <rect key="frame" x="163" y="218" width="51" height="31"/>
-                            </switch>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="SLN-0s-9PW" customClass="ShiftSegmentedControl" customModule="creators" customModuleProvider="target">
+                                <rect key="frame" x="126" y="193" width="123" height="29"/>
+                                <segments>
+                                    <segment title="On"/>
+                                    <segment title="Off"/>
+                                </segments>
+                                <color key="tintColor" red="0.96078431369999995" green="0.56470588239999997" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="setCheckin:" destination="e4f-rd-ck2" eventType="valueChanged" id="vo0-hC-sLc"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="uAi-xd-PYI"/>
+                    <connections>
+                        <outlet property="checkin" destination="SLN-0s-9PW" id="OhM-NC-bfv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ydw-az-EOX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
