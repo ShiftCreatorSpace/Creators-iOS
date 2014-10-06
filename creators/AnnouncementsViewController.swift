@@ -291,7 +291,7 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
                 if self.requestsPhotos[requester.objectId] != nil {
                     let selfie = self.requestsPhotos[requester.objectId]!.image
                     cell.requester!.image = selfie
-                    cell.requester!.layer.cornerRadius = 40
+                    cell.requester!.layer.cornerRadius = cell.requester!.frame.size.width / 2
                     cell.requester!.clipsToBounds = true
                 }
             }

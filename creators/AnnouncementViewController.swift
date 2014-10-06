@@ -73,7 +73,7 @@ class AnnouncementViewController: UIViewController {
         //photo!.contentMode = UIViewContentMode.ScaleAspectFit
         //        photo.frame.size.height = image.size.height
         photo!.image = self.image
-        photo!.layer.cornerRadius = 80
+        photo!.layer.cornerRadius = photo!.frame.size.width / 2
         photo!.clipsToBounds = true
         
         if response["status"] != nil {

@@ -15,6 +15,7 @@ enum ShiftColor: Int {
     case Blue
     case Cream
     case Gray
+    case LightGray
     func color() -> UIColor {
         switch self {
         case .Red:
@@ -29,6 +30,8 @@ enum ShiftColor: Int {
             return UIColor(red: 249.0/255, green: 249.0/255, blue: 242.0/255, alpha: 1)
         case .Gray:
             return UIColor(red: 71.0/255, green: 71.0/255, blue: 71.0/255, alpha: 1)
+        case .LightGray:
+            return UIColor(red: 71.0/255, green: 71.0/255, blue: 71.0/255, alpha: 0.2)
         default:
             return UIColor(red: 71.0/255, green: 71.0/255, blue: 71.0/255, alpha: 1)
         }
@@ -153,17 +156,22 @@ class RsvpButton: ShiftButton {
     required override init(coder: NSCoder) {
         super.init(coder: coder)
         self.layer.cornerRadius = 5
+        self.layer.borderWidth = 4
     }
     func setBackground(status: String) {
         switch status {
             case "GOING":
                 self.backgroundColor = ShiftColor.Green.color()
+                self.layer.borderColor = UIColor.clearColor().CGColor
             case "MAYBE":
                 self.backgroundColor = ShiftColor.Blue.color()
+                self.layer.borderColor = UIColor.clearColor().CGColor
             case "NOT":
                 self.backgroundColor = ShiftColor.Red.color()
+                self.layer.borderColor = UIColor.clearColor().CGColor
             default:
-                self.backgroundColor = ShiftColor.Gray.color()
+                self.backgroundColor = UIColor.clearColor()
+                self.layer.borderColor = ShiftColor.LightGray.color().CGColor
         }
     }
 }
@@ -171,7 +179,7 @@ class RsvpButton: ShiftButton {
 class RsvpCircleButton: RsvpButton {
     required init(coder: NSCoder) {
         super.init(coder: coder)
-        self.layer.cornerRadius = 0.5 * self.bounds.size.width
+        self.layer.cornerRadius = self.bounds.size.width / 2
     }
 }
 
@@ -179,13 +187,16 @@ class RequestButton: ShiftButton {
     required override init(coder: NSCoder) {
         super.init(coder: coder)
         self.layer.cornerRadius = 5
+        self.layer.borderWidth = 4
     }
     func setBackground(status: String) {
         if status == "true" {
             self.backgroundColor = ShiftColor.Green.color()
+            self.layer.borderColor = UIColor.clearColor().CGColor
             //self.setImage(UIImage(named:"square.png"), forState: .Normal)
         } else {
-            self.backgroundColor = ShiftColor.Gray.color()
+            self.backgroundColor = UIColor.clearColor()
+            self.layer.borderColor = ShiftColor.LightGray.color().CGColor
         }
     }
 }
@@ -193,6 +204,6 @@ class RequestButton: ShiftButton {
 class RequestCircleButton: RequestButton {
     required init(coder: NSCoder) {
         super.init(coder: coder)
-        self.layer.cornerRadius = 0.5 * self.bounds.size.width
+        self.layer.cornerRadius = self.bounds.size.width / 2
     }
 }
