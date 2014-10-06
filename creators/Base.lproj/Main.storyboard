@@ -3,11 +3,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <mutableArray key="gotham-rounded-light.ttf">
-            <string>GothamRoundedLight</string>
-        </mutableArray>
-    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="IXZ-ac-Pfg">
@@ -105,7 +100,7 @@
                                                 <action selector="requestAction:" destination="RRD-8g-7Bb" eventType="touchUpInside" id="OQl-xF-9Y5"/>
                                             </connections>
                                         </button>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xux-ib-mzU">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xux-ib-mzU" customClass="ShiftImageView" customModule="creators" customModuleProvider="target">
                                             <rect key="frame" x="15" y="14" width="72" height="72"/>
                                         </imageView>
                                     </subviews>
@@ -139,7 +134,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YvS-oB-3hn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1587" y="640"/>
+            <point key="canvasLocation" x="1587" y="638"/>
         </scene>
         <!--Announcement View Controller-->
         <scene sceneID="nN4-EK-P71">
@@ -431,20 +426,25 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="memberCell" textLabel="1U7-zT-vSz" rowHeight="80" style="IBUITableViewCellStyleDefault" id="H6n-D8-mQ6" customClass="MembersTableViewCell" customModule="creators" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="memberCell" rowHeight="80" id="H6n-D8-mQ6" customClass="MembersTableViewCell" customModule="creators" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H6n-D8-mQ6" id="TPj-ol-gXU">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1U7-zT-vSz">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="GothamRoundedLight" family="Gotham Rounded" pointSize="21"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYt-zX-7Rj" customClass="TitleLabel" customModule="creators" customModuleProvider="target">
+                                            <rect key="frame" x="95" y="24" width="600" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KVp-NM-HYt" customClass="ShiftImageView" customModule="creators" customModuleProvider="target">
+                                            <rect key="frame" x="15" y="4" width="72" height="72"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="name" destination="BYt-zX-7Rj" id="G5f-vy-ltM"/>
+                                    <outlet property="selfie" destination="KVp-NM-HYt" id="HS3-Sa-EGg"/>
                                     <segue destination="io4-fW-OnU" kind="show" identifier="memberSegue" id="gUp-dj-rWa"/>
                                 </connections>
                             </tableViewCell>
@@ -499,12 +499,6 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MiS-pB-eBW" customClass="ShiftImageView">
-                                <rect key="frame" x="112" y="58" width="150" height="150"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="64" width="150" height="150"/>
-                                </variation>
-                            </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Xs-mk-gZw" customClass="DescriptionLabel" customModule="creators" customModuleProvider="target">
                                 <rect key="frame" x="31" y="325" width="312" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -554,6 +548,9 @@
                                     <rect key="frame" x="168" y="99" width="132" height="21"/>
                                 </variation>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="187-Z5-Bp6" customClass="ShiftImageView" customModule="creators" customModuleProvider="target">
+                                <rect key="frame" x="112" y="37" width="150" height="150"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -563,12 +560,12 @@
                         <outlet property="major" destination="30D-gl-6LH" id="QHL-fP-Aer"/>
                         <outlet property="name" destination="rXw-cs-X5e" id="XC9-Oh-enW"/>
                         <outlet property="phone" destination="4cg-9g-deN" id="6UX-f9-HdF"/>
-                        <outlet property="selfie" destination="MiS-pB-eBW" id="EHF-uc-RPU"/>
+                        <outlet property="selfie" destination="187-Z5-Bp6" id="kHN-az-gLp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Qy-kX-AjA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2342.5" y="1829.5"/>
+            <point key="canvasLocation" x="2342" y="1829"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0bC-Ij-pSx">

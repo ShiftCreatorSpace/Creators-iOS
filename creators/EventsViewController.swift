@@ -193,7 +193,9 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
         var selectedEvent = self.eventsData.objectAtIndex(eventIndex) as PFObject
         eventViewController.event = selectedEvent
         eventViewController.image = self.eventsPhotos[selectedEvent.objectId]!.image!
-        eventViewController.rsvp = eventsRsvps[selectedEvent.objectId]!
+        if eventsRsvps[selectedEvent.objectId] != nil {
+            eventViewController.rsvp = eventsRsvps[selectedEvent.objectId]!
+        }
         //eventViewController.rsvpId = selectedEvent.objectId
         eventViewController.delegate = self
     }

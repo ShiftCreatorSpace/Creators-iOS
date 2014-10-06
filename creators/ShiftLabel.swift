@@ -141,7 +141,7 @@ class DescriptionTextView: ShiftTextView {
 class ShiftImageView: UIImageView {
     required init(coder: NSCoder) {
         super.init(coder: coder)
-        self.layer.cornerRadius = 40
+        self.layer.cornerRadius = self.frame.size.width / 2
         self.clipsToBounds = true
     }
 }

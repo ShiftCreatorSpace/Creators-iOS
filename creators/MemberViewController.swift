@@ -19,7 +19,7 @@ class MemberViewController: UIViewController {
     @IBOutlet var phone: UILabel?
     @IBOutlet var email: UILabel?
     @IBOutlet var bio: UITextView?
-    @IBOutlet var selfie: UIImageView?
+    @IBOutlet var selfie: ShiftImageView?
     
 //    var mc: MFMessageComposeViewController = MFMessageComposeViewController()
 //    mc.messageComposeDelegate = self
@@ -42,8 +42,8 @@ class MemberViewController: UIViewController {
         bio!.text = String(member["bio"] as NSString)
         selfie!.image = self.image
         
-        selfie!.layer.cornerRadius = selfie!.frame.size.width / 2;
-        selfie!.clipsToBounds = true
+        //selfie!.layer.cornerRadius = selfie!.frame.size.width / 2
+        //selfie!.clipsToBounds = true
     }
     
     override func didReceiveMemoryWarning() {

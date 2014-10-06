@@ -14,7 +14,7 @@ class AnnouncementsTableViewCell: SWTableViewCell {
     
     @IBOutlet var title: UILabel?
     @IBOutlet var details: UILabel?
-    @IBOutlet var requester: UIImageView?
+    @IBOutlet var requester: ShiftImageView?
     @IBOutlet var requestButton: RequestButton?
 
     @IBAction func requestAction(sender: AnyObject) {
@@ -291,8 +291,8 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
                 if self.requestsPhotos[requester.objectId] != nil {
                     let selfie = self.requestsPhotos[requester.objectId]!.image
                     cell.requester!.image = selfie
-                    cell.requester!.layer.cornerRadius = cell.requester!.frame.size.width / 2
-                    cell.requester!.clipsToBounds = true
+                    //cell.requester!.layer.cornerRadius = cell.requester!.frame.size.width / 2
+                    //cell.requester!.clipsToBounds = true
                 }
             }
             

@@ -26,7 +26,7 @@ class AnnouncementViewController: UIViewController {
     var status = String()
     @IBOutlet var titleLabel: UILabel?
     @IBOutlet var details: UITextView?
-    @IBOutlet var photo: UIImageView?
+    @IBOutlet var photo: ShiftImageView?
     
     @IBOutlet var requestButton: RequestButton?
     
@@ -73,8 +73,8 @@ class AnnouncementViewController: UIViewController {
         //photo!.contentMode = UIViewContentMode.ScaleAspectFit
         //        photo.frame.size.height = image.size.height
         photo!.image = self.image
-        photo!.layer.cornerRadius = photo!.frame.size.width / 2
-        photo!.clipsToBounds = true
+        //photo!.layer.cornerRadius = photo!.frame.size.width / 2
+        //photo!.clipsToBounds = true
         
         if response["status"] != nil {
             status = String(response["status"] as NSString)

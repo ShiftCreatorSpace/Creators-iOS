@@ -9,6 +9,9 @@
 import Foundation
 
 class MembersTableViewCell: UITableViewCell {
+    @IBOutlet var name: TitleLabel?
+    @IBOutlet var selfie: ShiftImageView?
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String!) {
         super.init(style: UITableViewCellStyle.Default, reuseIdentifier: reuseIdentifier)
     }
@@ -25,7 +28,7 @@ class MembersViewController: UITableViewController, UISearchDisplayDelegate, UIS
     var membersPhotos = Dictionary<String, PFImageView>()
     var searchResults: NSArray = []
     var atHouseResults: NSArray = []
-    var scopeAtHouse = "All"
+    var scopeAtHouse = false
 //    var scopes: NSArray = ["All", "At Home"]
     
     var lastDescriptor: NSSortDescriptor = NSSortDescriptor(key: "lastName", ascending: true, selector: "caseInsensitiveCompare:")
@@ -37,13 +40,11 @@ class MembersViewController: UITableViewController, UISearchDisplayDelegate, UIS
         
         println("atHouse called")
         
-        if (scopeAtHouse == "At House") {
-            scopeAtHouse = "All"
-///            println("  scopeAtHouse is: At House")
+        if scopeAtHouse {
+            scopeAtHouse = false
             println("  setting to: All")
         } else {
-            scopeAtHouse = "At House"
-///            println("  scopeAtHouse is: All")
+            scopeAtHouse = true
             println("  setting to: At House")
         }
         
@@ -135,7 +136,7 @@ class MembersViewController: UITableViewController, UISearchDisplayDelegate, UIS
     }*/
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == self.searchDisplayController!.searchResultsTableView {
+        if self.scopeAtHouse || tableView == self.searchDisplayController!.searchResultsTableView {
             return self.searchResults.count
         } else {
             return self.membersData.count
@@ -151,7 +152,8 @@ class MembersViewController: UITableViewController, UISearchDisplayDelegate, UIS
         let cell = self.tableView.dequeueReusableCellWithIdentifier("memberCell", forIndexPath: indexPath) as MembersTableViewCell
         
         var member : PFUser?
-        if (tableView == self.searchDisplayController!.searchResultsTableView && self.searchResults.count > 0) {
+        if  self.scopeAtHouse || (tableView == self.searchDisplayController!.searchResultsTableView && self.searchResults.count > 0) {
+            print("row is: \(indexPath.row)")
             member = self.searchResults.objectAtIndex(indexPath.row) as? PFUser
             var name = member!["firstName"] as NSString
         } else {
@@ -165,11 +167,11 @@ class MembersViewController: UITableViewController, UISearchDisplayDelegate, UIS
             let lastName = String(member!["lastName"] as NSString)
             let selfie = self.membersPhotos[member!.objectId]!.image
             
-            cell.textLabel!.text = firstName + " " + lastName
-            cell.imageView!.image = selfie
+            cell.name!.text = firstName + " " + lastName
+            cell.selfie!.image = selfie
             
-            cell.imageView!.layer.cornerRadius = 40
-            cell.imageView!.clipsToBounds = true
+            //cell.selfie!.layer.cornerRadius = cell.selfie!.frame.size.width / 2
+            //cell.selfie!.clipsToBounds = true
         }
         return cell
     }
@@ -213,16 +215,11 @@ class MembersViewController: UITableViewController, UISearchDisplayDelegate, UIS
         var query: PFQuery = PFQuery.orQueryWithSubqueries(queries)
         
         //if scope.isEqualToString("At House") {
-        if (scopeAtHouse == "At House") {
-            
+        if self.scopeAtHouse {
             println("SCOPE IS: At House")
-            
-            //var queryScope: PFQuery = PFUser.query()
+
             let house: PFGeoPoint = PFGeoPoint(latitude: 42.273898, longitude: -83.725722)
-            //queryScope.whereKey("location", nearGeoPoint: house, withinMiles: 0.1)
-            
             query.whereKey("location", nearGeoPoint: house, withinMiles: 0.1)
-            //queries.addObject(queryScope)
         } else {
             println("SCOPE IS: All")
         }
@@ -249,7 +246,9 @@ class MembersViewController: UITableViewController, UISearchDisplayDelegate, UIS
                     println(element["firstName"])
                 }
             }
+
             self.tableView.reloadData()
+            print("just reloaded table after search")
         })
     }
 
