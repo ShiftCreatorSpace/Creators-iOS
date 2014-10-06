@@ -101,7 +101,7 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
                         query.whereKey("member", equalTo: rsvpMember)
                         query.getFirstObjectInBackgroundWithBlock({(PFObject eventRsvp, NSError error) in
                             if (error != nil) {
-                                NSLog("RSVP - Could not retrieve EventRsvp. " + error.localizedDescription)
+                                NSLog("RSVP - Could not retrieve EventRsvp. ")
                                 // if the user has not rsvp'd for this event, set empty object
                                 var eventRsvp = PFObject(className: "EventRsvp")
                                 eventRsvp["event"] = rsvpEvent

@@ -197,12 +197,12 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
                         query.whereKey("member", equalTo: requestMember)
                         query.getFirstObjectInBackgroundWithBlock({(PFObject requestResponse, NSError error) in
                             if (error != nil) {
-                                NSLog("REQUEST - Could not retrieve RequestResponse. " + error.localizedDescription)
+                                NSLog("REQUEST - Could not retrieve RequestResponse. ")
                                 // if the user has not responded to this request, set empty object
                                 var requestResponse = PFObject(className: "RequestResponse")
                                 requestResponse["request"] = request
                                 requestResponse["member"] = requestMember
-                                requestResponse["status"] = false
+                                requestResponse["status"] = "false"
                                 requestResponses.updateValue(requestResponse, forKey: request.objectId)
                             } else {
                                 requestResponses.updateValue(requestResponse, forKey: request.objectId)
@@ -253,12 +253,9 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
             cellIdentifier = "requestCell"
         }
         
-        
-        //var cell = AnnouncementsTableViewCell()
         var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as AnnouncementsTableViewCell
 
         if self.combinedData.count > 0 {
-            
             var announcement: PFObject
             
             switch self.segment {
@@ -275,7 +272,6 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
 
             if announcement.parseClassName == "Announcement" {
                 
-                
             } else if announcement.parseClassName == "Request" && requestResponses.count > 0 {
                 cell.requestId = announcement.objectId
                 
@@ -286,13 +282,11 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
                     }
                     cell.requestButton!.setBackground(cell.status)
                 }
-                
                 let requester: AnyObject! = announcement["requester"]
+
                 if self.requestsPhotos[requester.objectId] != nil {
                     let selfie = self.requestsPhotos[requester.objectId]!.image
                     cell.requester!.image = selfie
-                    //cell.requester!.layer.cornerRadius = cell.requester!.frame.size.width / 2
-                    //cell.requester!.clipsToBounds = true
                 }
             }
             

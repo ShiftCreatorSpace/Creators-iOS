@@ -14,11 +14,7 @@ class LoginViewController: UIViewController, PFLogInViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         self.navigationController!.navigationBar.hidden = true
-        
-        self.login.fields = PFLogInFields(PFLogInFieldsUsernameAndPassword.value | PFLogInFieldsLogInButton.value)
-        self.login.delegate = self
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -27,10 +23,13 @@ class LoginViewController: UIViewController, PFLogInViewControllerDelegate {
         if (PFUser.currentUser() != nil) {
             var storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             var tabBarController: UITabBarController = storyboard.instantiateViewControllerWithIdentifier("tabBar") as UITabBarController
-            self.navigationController!.popViewControllerAnimated(false)
-            self.navigationController!.pushViewController(tabBarController, animated: false)
+            //self.navigationController!.popViewControllerAnimated(false)
+            //self.navigationController!.pushViewController(tabBarController, animated: false)
+            self.presentViewController(tabBarController, animated: false, completion: nil)
         } else {
-       //     [logInViewController setDelegate:self];
+            self.login.fields = PFLogInFields(PFLogInFieldsUsernameAndPassword.value | PFLogInFieldsLogInButton.value)
+            self.login.delegate = self
+            
             self.presentViewController(self.login, animated: false, completion: nil)
         }
     }
@@ -38,6 +37,11 @@ class LoginViewController: UIViewController, PFLogInViewControllerDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func logInViewController(logInController: PFLogInViewController!, didLogInUser user: PFUser!) {
+        self.dismissViewControllerAnimated(false, completion: nil)
+        //self.presentViewController(self.login, animated: false, completion: nil)
     }
     
 }
