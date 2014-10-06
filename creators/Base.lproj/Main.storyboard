@@ -614,21 +614,26 @@
                         <viewControllerLayoutGuide type="bottom" id="MEG-Rj-67L"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bTN-U8-Clr">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Su6-0x-gIe" customClass="LogoutButton" customModule="creators" customModuleProvider="target">
+                                <rect key="frame" x="31" y="287" width="312" height="30"/>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logout:" destination="e4f-rd-ck2" eventType="touchUpInside" id="a2Y-Eq-1yc"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="uAi-xd-PYI">
-                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="dWL-vS-9Y6">
-                            <connections>
-                                <action selector="logout:" destination="e4f-rd-ck2" id="tEM-S2-vhX"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="uAi-xd-PYI"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ydw-az-EOX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1587" y="2546"/>
+            <point key="canvasLocation" x="1586.5" y="2545.5"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="Lit-4v-ioF">

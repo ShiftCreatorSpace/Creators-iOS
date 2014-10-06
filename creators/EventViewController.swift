@@ -9,7 +9,7 @@
 import UIKit
 
 protocol EventViewControllerDelegate{
-    func didFinish(controller: EventViewController, eventRsvp: PFObject)
+    func didFinish(controller: EventViewController, eventRsvp: PFObject, eventId: String)
 }
 
 class EventViewController: UIViewController {
@@ -38,23 +38,15 @@ class EventViewController: UIViewController {
             default:
                 status = "GOING"
         }
-        
+    
         rsvpButton!.setBackground(status)
-        
-        //var rsvp = eventsRsvps[rsvpId]
         
         rsvp["status"] = status
         rsvp.saveEventually()
         
         if delegate != nil {
-            delegate!.didFinish(self, eventRsvp: rsvp)
+            delegate!.didFinish(self, eventRsvp: rsvp, eventId: event.objectId)
         }
-        
-        // Set status for rsvp in full list of user's rsvp's as well
-//        var eventRsvp = eventsRsvps[rsvp.objectId]
-  //      if eventRsvp != nil {
-    //        eventRsvp!["status"] = status
-      //  }
     }
     
     override func viewWillAppear(animated: Bool) {

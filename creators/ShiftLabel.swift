@@ -152,11 +152,14 @@ class ShiftButton: UIButton {
     }*/
 }
 
+let cornerRadius = 5 as CGFloat
+let borderWidth = 4 as CGFloat
+
 class RsvpButton: ShiftButton {
     required override init(coder: NSCoder) {
         super.init(coder: coder)
-        self.layer.cornerRadius = 5
-        self.layer.borderWidth = 4
+        self.layer.cornerRadius = cornerRadius
+        self.layer.borderWidth = borderWidth
     }
     func setBackground(status: String) {
         switch status {
@@ -186,8 +189,8 @@ class RsvpCircleButton: RsvpButton {
 class RequestButton: ShiftButton {
     required override init(coder: NSCoder) {
         super.init(coder: coder)
-        self.layer.cornerRadius = 5
-        self.layer.borderWidth = 4
+        self.layer.cornerRadius = cornerRadius
+        self.layer.borderWidth = borderWidth
     }
     func setBackground(status: String) {
         if status == "true" {
@@ -205,5 +208,14 @@ class RequestCircleButton: RequestButton {
     required init(coder: NSCoder) {
         super.init(coder: coder)
         self.layer.cornerRadius = self.bounds.size.width / 2
+    }
+}
+
+class LogoutButton: ShiftButton {
+    required override init(coder: NSCoder) {
+        super.init(coder: coder)
+        self.backgroundColor = ShiftColor.Gray.color()
+        self.layer.cornerRadius = cornerRadius
+        self.layer.borderWidth = borderWidth
     }
 }

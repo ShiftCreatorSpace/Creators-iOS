@@ -33,12 +33,6 @@ class EventsTableViewCell: SWTableViewCell {
         
         rsvpButton!.setBackground(status)
         
-        /*var eventRsvp = eventsRsvps[eventRsvpId]
-        if (eventRsvp != nil) {
-            eventRsvp!["status"] = status
-            eventRsvp!.saveEventually()
-        }*/
-        
         var eventRsvp = eventsRsvps[eventId]
         if eventRsvp != nil {
             eventRsvp!["status"] = status
@@ -101,12 +95,10 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
                         query.whereKey("member", equalTo: rsvpMember)
                         query.getFirstObjectInBackgroundWithBlock({(PFObject eventRsvp, NSError error) in
                             if (error != nil) {
-                                NSLog("RSVP - Could not retrieve EventRsvp. ")
+                                NSLog("RSVP - Could not retrieve EventRsvp. Creating new one.")
                                 // if the user has not rsvp'd for this event, set empty object
-                                var eventRsvp = PFObject(className: "EventRsvp")
-                                eventRsvp["event"] = rsvpEvent
-                                eventRsvp["member"] = rsvpMember
-                                eventRsvp["status"] = ""
+                                //var eventRsvp = PFObject(className: "EventRsvp")
+                                var eventRsvp = PFObject(className: "EventRsvp", dictionary: ["event": rsvpEvent,"member": rsvpMember,"status": ""])
                                 eventsRsvps.updateValue(eventRsvp, forKey: event.objectId)
                             } else {
                                 eventsRsvps.updateValue(eventRsvp, forKey: event.objectId)
@@ -180,10 +172,8 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
         return cell
     }
     
-    func didFinish(controller: EventViewController, eventRsvp: PFObject) {
-//        colorLabel.text = "The Color is " +  text
-//        controller.navigationController?.popViewControllerAnimated(true)
-        eventsRsvps[eventRsvp.objectId] = eventRsvp
+    func didFinish(controller: EventViewController, eventRsvp: PFObject, eventId: String) {
+        eventsRsvps[eventId] = eventRsvp
         self.tableView.reloadData()
     }
 

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AnnouncementViewControllerDelegate{
-    func didFinish(controller: AnnouncementViewController, requestResponse: PFObject)
+    func didFinish(controller: AnnouncementViewController, requestResponse: PFObject, requestId: String)
 }
 
 class AnnouncementViewController: UIViewController {
@@ -42,11 +42,8 @@ class AnnouncementViewController: UIViewController {
         response["status"] = status
         response.saveEventually()
         
-        NSLog("response is: \(response.objectId)")
-        NSLog("status is: \(status)")
-        
         if delegate != nil {
-            delegate!.didFinish(self, requestResponse: response)
+            delegate!.didFinish(self, requestResponse: response, requestId: announcement.objectId)
         }
     }
     
@@ -54,7 +51,6 @@ class AnnouncementViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationController!.navigationBar.barTintColor = ShiftColor.Red.color()
-//        self.tabBarController!.tabBar.tintColor = UIColor.yellowColor()
         
         if announcement.parseClassName == "Announcement" {
             self.requestButton!.hidden = true

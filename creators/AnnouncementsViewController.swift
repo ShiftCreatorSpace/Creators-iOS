@@ -197,12 +197,16 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
                         query.whereKey("member", equalTo: requestMember)
                         query.getFirstObjectInBackgroundWithBlock({(PFObject requestResponse, NSError error) in
                             if (error != nil) {
-                                NSLog("REQUEST - Could not retrieve RequestResponse. ")
+                                NSLog("REQUEST - Could not retrieve RequestResponse. Creating new one.")
                                 // if the user has not responded to this request, set empty object
-                                var requestResponse = PFObject(className: "RequestResponse")
-                                requestResponse["request"] = request
-                                requestResponse["member"] = requestMember
-                                requestResponse["status"] = "false"
+                                //var requestResponse = PFObject(className: "RequestResponse")
+                                
+                                var requestResponse = PFObject(className: "RequestResponse", dictionary: ["request": request,"member": requestMember,"status": "false"])
+                            
+                                //requestResponse["request"] = request
+                                //requestResponse["member"] = requestMember
+                                //requestResponse["status"] = "false"
+                                
                                 requestResponses.updateValue(requestResponse, forKey: request.objectId)
                             } else {
                                 requestResponses.updateValue(requestResponse, forKey: request.objectId)
@@ -298,9 +302,8 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
         return cell
     }
     
-    func didFinish(controller: AnnouncementViewController, requestResponse: PFObject) {
-        NSLog(requestResponse.objectId)
-        requestResponses[requestResponse.objectId] = requestResponse
+    func didFinish(controller: AnnouncementViewController, requestResponse: PFObject, requestId: String) {
+        requestResponses[requestId] = requestResponse
         self.tableView.reloadData()
     }
     
@@ -332,6 +335,8 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
                 announcementViewController.image = UIImage(named: "square")
             }
             announcementViewController.response = requestResponses[selectedAnnouncement.objectId]!
+            print("setting response: ")
+            print(announcementViewController.response)
         }
         
         announcementViewController.delegate = self
