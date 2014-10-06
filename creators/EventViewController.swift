@@ -40,14 +40,14 @@ class EventViewController: UIViewController {
                 status = "GOING"
         }
         
-        rsvpButton?.setBackground(status)
+        rsvpButton!.setBackground(status)
         
         //var rsvp = eventsRsvps[rsvpId]
         
         rsvp["status"] = status
         rsvp.saveEventually()
         
-        if (delegate != nil) {
+        if delegate != nil {
             delegate!.didFinish(self, eventRsvp: rsvp)
         }
         
@@ -74,7 +74,9 @@ class EventViewController: UIViewController {
         photo!.image = self.image
         
         //var rsvp = eventsRsvps[rsvpId]
-        status = String(rsvp["status"] as NSString)
+        if rsvp["status"] != nil {
+            status = String(rsvp["status"] as NSString)
+        }
         
         var df = NSDateFormatter()
         df.dateFormat = "yyyy-MM-dd-EEEE"

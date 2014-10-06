@@ -41,8 +41,10 @@ class EventsTableViewCell: SWTableViewCell {
         }*/
         
         var eventRsvp = eventsRsvps[eventId]
-        eventRsvp!["status"] = status
-        eventRsvp!.saveEventually()
+        if eventRsvp != nil {
+            eventRsvp!["status"] = status
+            eventRsvp!.saveEventually()
+        }
     }
     
     override  init(style: UITableViewCellStyle, reuseIdentifier: String!) {
@@ -148,8 +150,9 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
             
             let eventRsvp = eventsRsvps[event.objectId]
             if eventRsvp != nil {
-                cell.status = eventRsvp!["status"] as String
-                NSLog("setting status \(cell.status)")
+                if eventRsvp!["status"] != nil {
+                    cell.status = eventRsvp!["status"] as NSString
+                }
                 cell.rsvpButton!.setBackground(cell.status)
             } 
             
