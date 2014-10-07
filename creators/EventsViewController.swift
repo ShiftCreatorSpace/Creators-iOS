@@ -58,7 +58,7 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
     var eventsPhotos = Dictionary<String, PFImageView>()
 
     @IBAction func settings(sender: SettingsBarButtonItem) {
-        sender.displaySettings(self)
+        //sender.displaySettings(self)
     }
     
     override func viewDidLoad() {

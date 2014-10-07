@@ -13,6 +13,10 @@ class SettingsViewController: UIViewController {
         sender.dismiss(self)
     }
     
+    @IBOutlet var selfie: ShiftImageView?
+    
+    @IBOutlet var name: TitleLabel?
+    
     @IBOutlet var checkin: ShiftSegmentedControl?
     
     @IBAction func setCheckin(sender: ShiftSegmentedControl) {
@@ -66,7 +70,22 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.navigationController!.navigationBar.barTintColor = ShiftColor.Orange.color()
+        //self.navigationController!.navigationBar.barTintColor = ShiftColor.Gray.color()
+        
+        let currentUser = PFUser.currentUser()
+        name!.text = String(currentUser["firstName"] as NSString) + " " + String(currentUser["lastName"] as NSString)
+
+        selfie!.image = UIImage(named: "square")
+        
+        var pfImageView = PFImageView()
+        pfImageView.file = currentUser["selfie"] as? PFFile
+        pfImageView.loadInBackground({(UIImage image, NSError error) in
+            if (error != nil) {
+                NSLog("error " + error.localizedDescription)
+            } else {
+                self.selfie!.image = image
+            }
+        })
     }
 
     override func didReceiveMemoryWarning() {

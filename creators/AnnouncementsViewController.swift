@@ -80,7 +80,7 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
     
     
     @IBAction func settings(sender: SettingsBarButtonItem) {
-        sender.displaySettings(self)
+        //sender.displaySettings(self)
     }
     
     @IBAction func indexChanged(sender: UISegmentedControl) {
