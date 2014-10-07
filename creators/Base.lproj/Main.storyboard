@@ -13,7 +13,7 @@
         <scene sceneID="IXZ-ac-Pfg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gfb-yo-ZnD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="icon_creators" id="8q9-0a-wPi"/>
+                    <tabBarItem key="tabBarItem" title="" image="circle_red" id="8q9-0a-wPi"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
@@ -215,7 +215,7 @@
         <scene sceneID="0cF-yZ-86n">
             <objects>
                 <navigationController id="VzD-MS-YhP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="icon_events" id="V5S-hw-Myd"/>
+                    <tabBarItem key="tabBarItem" title="" image="circle_blue" id="V5S-hw-Myd"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="0uo-21-X8M">
@@ -593,7 +593,7 @@
         <scene sceneID="0bC-Ij-pSx">
             <objects>
                 <navigationController id="9li-jO-siO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" image="icon_members" id="heK-aW-Erj"/>
+                    <tabBarItem key="tabBarItem" image="circle_orange" id="heK-aW-Erj"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="p1b-vX-OUh">
@@ -762,9 +762,8 @@
         <!--Navigation Controller-->
         <scene sceneID="0Vz-XX-5WO">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="N8b-Ed-ywY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="VWA-vj-yFp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" image="icon_settings" id="bSG-wa-nna"/>
+                    <tabBarItem key="tabBarItem" image="circle_gray" id="bSG-wa-nna"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="cfb-SF-ASN">
@@ -775,15 +774,16 @@
                         <segue destination="e4f-rd-ck2" kind="relationship" relationship="rootViewController" id="Qci-DE-rNz"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N8b-Ed-ywY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="826" y="2545"/>
         </scene>
     </scenes>
     <resources>
+        <image name="circle_blue" width="30" height="30"/>
+        <image name="circle_gray" width="30" height="30"/>
+        <image name="circle_orange" width="30" height="30"/>
+        <image name="circle_red" width="30" height="30"/>
         <image name="haus" width="16" height="13"/>
-        <image name="icon_creators" width="30" height="30"/>
-        <image name="icon_events" width="27" height="30"/>
-        <image name="icon_members" width="37" height="25"/>
-        <image name="icon_settings" width="30" height="30"/>
     </resources>
 </document>
