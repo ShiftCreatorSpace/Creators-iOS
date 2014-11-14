@@ -159,41 +159,6 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Llg-tI-uCI" customClass="DescriptionTextView" customModule="creators" customModuleProvider="target">
-                                <rect key="frame" x="31" y="326" width="312" height="214"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
-                                </accessibility>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="312" id="1yF-UL-yx1"/>
-                                </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="10" y="176" width="298" height="128"/>
-                                </variation>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oCN-CS-zAh" customClass="RequestButton" customModule="creators" customModuleProvider="target">
-                                <rect key="frame" x="31" y="238" width="312" height="30"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="requestAction:" destination="XR2-qu-RZn" eventType="touchUpInside" id="2fj-Og-pdu"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a7E-wY-QPl" customClass="ShiftImageView" customModule="creators" customModuleProvider="target">
-                                <rect key="frame" x="107" y="83" width="160" height="160"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="160" id="PbH-AS-Yr1"/>
-                                    <constraint firstAttribute="width" constant="160" id="j7H-g7-Jwm"/>
-                                </constraints>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="-1" y="332" width="321" height="308"/>
-                                </variation>
-                            </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2a-hJ-pgM" customClass="TitleLabel" customModule="creators" customModuleProvider="target">
                                 <rect key="frame" x="52" y="291" width="271" height="21"/>
                                 <constraints>
@@ -206,14 +171,55 @@
                                     <rect key="frame" x="10" y="124" width="298" height="21"/>
                                 </variation>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Llg-tI-uCI" customClass="DescriptionTextView" customModule="creators" customModuleProvider="target">
+                                <rect key="frame" x="37" y="349" width="300" height="150"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="1yF-UL-yx1"/>
+                                    <constraint firstAttribute="height" constant="150" id="TIp-Pb-VzS"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="10" y="176" width="298" height="128"/>
+                                </variation>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a7E-wY-QPl" customClass="ShiftImageView" customModule="creators" customModuleProvider="target">
+                                <rect key="frame" x="107" y="83" width="160" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="PbH-AS-Yr1"/>
+                                    <constraint firstAttribute="width" constant="160" id="j7H-g7-Jwm"/>
+                                </constraints>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="-1" y="332" width="321" height="308"/>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oCN-CS-zAh" customClass="RequestButton" customModule="creators" customModuleProvider="target">
+                                <rect key="frame" x="103" y="247" width="168" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="168" id="iDi-FM-Whg"/>
+                                </constraints>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="requestAction:" destination="XR2-qu-RZn" eventType="touchUpInside" id="2fj-Og-pdu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerY" secondItem="Llg-tI-uCI" secondAttribute="centerY" constant="-122.5" id="6LX-2e-dpp"/>
                             <constraint firstAttribute="centerX" secondItem="p2a-hJ-pgM" secondAttribute="centerX" constant="0.5" id="JFD-3q-kJb"/>
-                            <constraint firstAttribute="centerY" secondItem="Llg-tI-uCI" secondAttribute="centerY" constant="-131.5" id="S2m-ht-5r0"/>
-                            <constraint firstAttribute="centerY" secondItem="p2a-hJ-pgM" secondAttribute="centerY" id="Zyu-f5-Qwx"/>
+                            <constraint firstAttribute="centerY" secondItem="p2a-hJ-pgM" secondAttribute="centerY" id="Rok-2S-1Yw"/>
+                            <constraint firstAttribute="centerX" secondItem="oCN-CS-zAh" secondAttribute="centerX" constant="0.5" id="X60-G5-Pl1"/>
                             <constraint firstAttribute="centerY" secondItem="a7E-wY-QPl" secondAttribute="centerY" constant="138.5" id="cMJ-LB-Jp1"/>
                             <constraint firstAttribute="centerX" secondItem="Llg-tI-uCI" secondAttribute="centerX" constant="0.5" id="mbR-uB-uwe"/>
+                            <constraint firstAttribute="centerY" secondItem="oCN-CS-zAh" secondAttribute="centerY" constant="39.5" id="rYT-59-LQ8"/>
                             <constraint firstAttribute="centerX" secondItem="a7E-wY-QPl" secondAttribute="centerX" constant="0.5" id="wnb-bb-GFH"/>
                         </constraints>
                     </view>
