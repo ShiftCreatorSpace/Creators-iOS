@@ -58,6 +58,7 @@ class AnnouncementViewController: UIViewController {
         
         // Do any additional setup after loading the view, typically from a nib.
         titleLabel!.text = String(announcement["title"] as NSString)
+        titleLabel!.numberOfLines = 3;
         details!.text = String(announcement["details"] as NSString)
         
         //println(details.frame)

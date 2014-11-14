@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		508557AB1A168C5C003BF446 /* gotham-rounded-book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 508557A11A168C5C003BF446 /* gotham-rounded-book.otf */; };
+		508557AC1A168C5C003BF446 /* gotham-rounded-light.css in Resources */ = {isa = PBXBuildFile; fileRef = 508557A31A168C5C003BF446 /* gotham-rounded-light.css */; };
+		508557AD1A168C5C003BF446 /* gotham-rounded-light.eot in Resources */ = {isa = PBXBuildFile; fileRef = 508557A41A168C5C003BF446 /* gotham-rounded-light.eot */; };
+		508557AE1A168C5C003BF446 /* gotham-rounded-light.svg in Resources */ = {isa = PBXBuildFile; fileRef = 508557A51A168C5C003BF446 /* gotham-rounded-light.svg */; };
+		508557AF1A168C5C003BF446 /* gotham-rounded-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 508557A61A168C5C003BF446 /* gotham-rounded-light.ttf */; };
+		508557B01A168C5C003BF446 /* gotham-rounded-light.woff in Resources */ = {isa = PBXBuildFile; fileRef = 508557A71A168C5C003BF446 /* gotham-rounded-light.woff */; };
+		508557B11A168C5C003BF446 /* gotham-rounded-light.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = 508557A81A168C5C003BF446 /* gotham-rounded-light.woff2 */; };
+		508557B21A168C5C003BF446 /* gotham-rounded-medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 508557AA1A168C5C003BF446 /* gotham-rounded-medium.otf */; };
+		508557BA1A168C64003BF446 /* canter-bold-3D.otf in Resources */ = {isa = PBXBuildFile; fileRef = 508557B41A168C64003BF446 /* canter-bold-3D.otf */; };
+		508557BB1A168C64003BF446 /* canter-bold-shadow.otf in Resources */ = {isa = PBXBuildFile; fileRef = 508557B51A168C64003BF446 /* canter-bold-shadow.otf */; };
+		508557BC1A168C64003BF446 /* canter-bold-strips.otf in Resources */ = {isa = PBXBuildFile; fileRef = 508557B61A168C64003BF446 /* canter-bold-strips.otf */; };
+		508557BD1A168C64003BF446 /* canter-bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 508557B71A168C64003BF446 /* canter-bold.otf */; };
+		508557BE1A168C64003BF446 /* canter-light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 508557B81A168C64003BF446 /* canter-light.otf */; };
+		508557BF1A168C64003BF446 /* canter-outline.otf in Resources */ = {isa = PBXBuildFile; fileRef = 508557B91A168C64003BF446 /* canter-outline.otf */; };
 		58AAFE8D3D2D4319B018E69B /* libPods-creators.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3636115FB641472D9F64AC3A /* libPods-creators.a */; };
 		ED0167C0197C8CB600E60F1E /* AnnouncementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0167BF197C8CB600E60F1E /* AnnouncementsViewController.swift */; };
 		ED0167C2197F97E200E60F1E /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0167C1197F97E200E60F1E /* EventsViewController.swift */; };
@@ -19,20 +33,6 @@
 		ED9E96B61983CA1F004BF827 /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9E96B51983CA1F004BF827 /* MemberViewController.swift */; };
 		EDACBF7A1988B6F200080FBB /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDACBF791988B6F100080FBB /* EventViewController.swift */; };
 		EDBAC00C19E08922005C2CD7 /* ShiftLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBAC00B19E08922005C2CD7 /* ShiftLabel.swift */; };
-		EDCE35B119DF34A300D3CD67 /* gotham-rounded-book.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDCE35A719DF34A300D3CD67 /* gotham-rounded-book.otf */; };
-		EDCE35B219DF34A300D3CD67 /* gotham-rounded-light.css in Resources */ = {isa = PBXBuildFile; fileRef = EDCE35A919DF34A300D3CD67 /* gotham-rounded-light.css */; };
-		EDCE35B319DF34A300D3CD67 /* gotham-rounded-light.eot in Resources */ = {isa = PBXBuildFile; fileRef = EDCE35AA19DF34A300D3CD67 /* gotham-rounded-light.eot */; };
-		EDCE35B419DF34A300D3CD67 /* gotham-rounded-light.svg in Resources */ = {isa = PBXBuildFile; fileRef = EDCE35AB19DF34A300D3CD67 /* gotham-rounded-light.svg */; };
-		EDCE35B519DF34A300D3CD67 /* gotham-rounded-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EDCE35AC19DF34A300D3CD67 /* gotham-rounded-light.ttf */; };
-		EDCE35B619DF34A300D3CD67 /* gotham-rounded-light.woff in Resources */ = {isa = PBXBuildFile; fileRef = EDCE35AD19DF34A300D3CD67 /* gotham-rounded-light.woff */; };
-		EDCE35B719DF34A300D3CD67 /* gotham-rounded-light.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = EDCE35AE19DF34A300D3CD67 /* gotham-rounded-light.woff2 */; };
-		EDCE35B819DF34A300D3CD67 /* gotham-rounded-medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDCE35B019DF34A300D3CD67 /* gotham-rounded-medium.otf */; };
-		EDCE35C019DF359C00D3CD67 /* canter-bold-3D.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDCE35BA19DF359C00D3CD67 /* canter-bold-3D.otf */; };
-		EDCE35C119DF359C00D3CD67 /* canter-bold-shadow.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDCE35BB19DF359C00D3CD67 /* canter-bold-shadow.otf */; };
-		EDCE35C219DF359C00D3CD67 /* canter-bold-strips.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDCE35BC19DF359C00D3CD67 /* canter-bold-strips.otf */; };
-		EDCE35C319DF359C00D3CD67 /* canter-bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDCE35BD19DF359C00D3CD67 /* canter-bold.otf */; };
-		EDCE35C419DF359C00D3CD67 /* canter-light.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDCE35BE19DF359C00D3CD67 /* canter-light.otf */; };
-		EDCE35C519DF359C00D3CD67 /* canter-outline.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDCE35BF19DF359C00D3CD67 /* canter-outline.otf */; };
 		EDE5D8DF196D021A007565A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE5D8DE196D021A007565A9 /* AppDelegate.swift */; };
 		EDE5D8E1196D021A007565A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE5D8E0196D021A007565A9 /* ViewController.swift */; };
 		EDE5D8E4196D021A007565A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDE5D8E2196D021A007565A9 /* Main.storyboard */; };
@@ -66,6 +66,20 @@
 /* Begin PBXFileReference section */
 		1FCE5297652C4BD78D8431A2 /* Pods-creators.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-creators.xcconfig"; path = "Pods/Pods-creators.xcconfig"; sourceTree = "<group>"; };
 		3636115FB641472D9F64AC3A /* libPods-creators.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-creators.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		508557A11A168C5C003BF446 /* gotham-rounded-book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gotham-rounded-book.otf"; sourceTree = "<group>"; };
+		508557A31A168C5C003BF446 /* gotham-rounded-light.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "gotham-rounded-light.css"; sourceTree = "<group>"; };
+		508557A41A168C5C003BF446 /* gotham-rounded-light.eot */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gotham-rounded-light.eot"; sourceTree = "<group>"; };
+		508557A51A168C5C003BF446 /* gotham-rounded-light.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "gotham-rounded-light.svg"; sourceTree = "<group>"; };
+		508557A61A168C5C003BF446 /* gotham-rounded-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gotham-rounded-light.ttf"; sourceTree = "<group>"; };
+		508557A71A168C5C003BF446 /* gotham-rounded-light.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gotham-rounded-light.woff"; sourceTree = "<group>"; };
+		508557A81A168C5C003BF446 /* gotham-rounded-light.woff2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gotham-rounded-light.woff2"; sourceTree = "<group>"; };
+		508557AA1A168C5C003BF446 /* gotham-rounded-medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gotham-rounded-medium.otf"; sourceTree = "<group>"; };
+		508557B41A168C64003BF446 /* canter-bold-3D.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "canter-bold-3D.otf"; sourceTree = "<group>"; };
+		508557B51A168C64003BF446 /* canter-bold-shadow.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "canter-bold-shadow.otf"; sourceTree = "<group>"; };
+		508557B61A168C64003BF446 /* canter-bold-strips.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "canter-bold-strips.otf"; sourceTree = "<group>"; };
+		508557B71A168C64003BF446 /* canter-bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "canter-bold.otf"; sourceTree = "<group>"; };
+		508557B81A168C64003BF446 /* canter-light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "canter-light.otf"; sourceTree = "<group>"; };
+		508557B91A168C64003BF446 /* canter-outline.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "canter-outline.otf"; sourceTree = "<group>"; };
 		ED0167BF197C8CB600E60F1E /* AnnouncementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementsViewController.swift; sourceTree = "<group>"; };
 		ED0167C1197F97E200E60F1E /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		ED26152F1983C52B008A310B /* AnnouncementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementViewController.swift; sourceTree = "<group>"; };
@@ -77,20 +91,6 @@
 		ED9E96B51983CA1F004BF827 /* MemberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
 		EDACBF791988B6F100080FBB /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		EDBAC00B19E08922005C2CD7 /* ShiftLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftLabel.swift; sourceTree = "<group>"; };
-		EDCE35A719DF34A300D3CD67 /* gotham-rounded-book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gotham-rounded-book.otf"; sourceTree = "<group>"; };
-		EDCE35A919DF34A300D3CD67 /* gotham-rounded-light.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "gotham-rounded-light.css"; sourceTree = "<group>"; };
-		EDCE35AA19DF34A300D3CD67 /* gotham-rounded-light.eot */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gotham-rounded-light.eot"; sourceTree = "<group>"; };
-		EDCE35AB19DF34A300D3CD67 /* gotham-rounded-light.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "gotham-rounded-light.svg"; sourceTree = "<group>"; };
-		EDCE35AC19DF34A300D3CD67 /* gotham-rounded-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gotham-rounded-light.ttf"; sourceTree = "<group>"; };
-		EDCE35AD19DF34A300D3CD67 /* gotham-rounded-light.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gotham-rounded-light.woff"; sourceTree = "<group>"; };
-		EDCE35AE19DF34A300D3CD67 /* gotham-rounded-light.woff2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gotham-rounded-light.woff2"; sourceTree = "<group>"; };
-		EDCE35B019DF34A300D3CD67 /* gotham-rounded-medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gotham-rounded-medium.otf"; sourceTree = "<group>"; };
-		EDCE35BA19DF359C00D3CD67 /* canter-bold-3D.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "canter-bold-3D.otf"; sourceTree = "<group>"; };
-		EDCE35BB19DF359C00D3CD67 /* canter-bold-shadow.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "canter-bold-shadow.otf"; sourceTree = "<group>"; };
-		EDCE35BC19DF359C00D3CD67 /* canter-bold-strips.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "canter-bold-strips.otf"; sourceTree = "<group>"; };
-		EDCE35BD19DF359C00D3CD67 /* canter-bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "canter-bold.otf"; sourceTree = "<group>"; };
-		EDCE35BE19DF359C00D3CD67 /* canter-light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "canter-light.otf"; sourceTree = "<group>"; };
-		EDCE35BF19DF359C00D3CD67 /* canter-outline.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "canter-outline.otf"; sourceTree = "<group>"; };
 		EDE5D8D9196D021A007565A9 /* creators.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = creators.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDE5D8DD196D021A007565A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDE5D8DE196D021A007565A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +149,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5085579F1A168C5C003BF446 /* gotham-rounded */ = {
+			isa = PBXGroup;
+			children = (
+				508557A01A168C5C003BF446 /* book */,
+				508557A21A168C5C003BF446 /* light */,
+				508557A91A168C5C003BF446 /* medium */,
+			);
+			name = "gotham-rounded";
+			path = "creatorsFonts/gotham-rounded";
+			sourceTree = SOURCE_ROOT;
+		};
+		508557A01A168C5C003BF446 /* book */ = {
+			isa = PBXGroup;
+			children = (
+				508557A11A168C5C003BF446 /* gotham-rounded-book.otf */,
+			);
+			path = book;
+			sourceTree = "<group>";
+		};
+		508557A21A168C5C003BF446 /* light */ = {
+			isa = PBXGroup;
+			children = (
+				508557A31A168C5C003BF446 /* gotham-rounded-light.css */,
+				508557A41A168C5C003BF446 /* gotham-rounded-light.eot */,
+				508557A51A168C5C003BF446 /* gotham-rounded-light.svg */,
+				508557A61A168C5C003BF446 /* gotham-rounded-light.ttf */,
+				508557A71A168C5C003BF446 /* gotham-rounded-light.woff */,
+				508557A81A168C5C003BF446 /* gotham-rounded-light.woff2 */,
+			);
+			path = light;
+			sourceTree = "<group>";
+		};
+		508557A91A168C5C003BF446 /* medium */ = {
+			isa = PBXGroup;
+			children = (
+				508557AA1A168C5C003BF446 /* gotham-rounded-medium.otf */,
+			);
+			path = medium;
+			sourceTree = "<group>";
+		};
+		508557B31A168C64003BF446 /* canter */ = {
+			isa = PBXGroup;
+			children = (
+				508557B41A168C64003BF446 /* canter-bold-3D.otf */,
+				508557B51A168C64003BF446 /* canter-bold-shadow.otf */,
+				508557B61A168C64003BF446 /* canter-bold-strips.otf */,
+				508557B71A168C64003BF446 /* canter-bold.otf */,
+				508557B81A168C64003BF446 /* canter-light.otf */,
+				508557B91A168C64003BF446 /* canter-outline.otf */,
+			);
+			name = canter;
+			path = creatorsFonts/canter;
+			sourceTree = SOURCE_ROOT;
+		};
 		793B6E8F9D844B069B9120C4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,64 +235,10 @@
 		EDCE358619DF341600D3CD67 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				EDCE35B919DF359C00D3CD67 /* canter */,
-				EDCE35A519DF34A300D3CD67 /* gotham-rounded */,
+				508557B31A168C64003BF446 /* canter */,
+				5085579F1A168C5C003BF446 /* gotham-rounded */,
 			);
 			name = Fonts;
-			sourceTree = "<group>";
-		};
-		EDCE35A519DF34A300D3CD67 /* gotham-rounded */ = {
-			isa = PBXGroup;
-			children = (
-				EDCE35A619DF34A300D3CD67 /* book */,
-				EDCE35A819DF34A300D3CD67 /* light */,
-				EDCE35AF19DF34A300D3CD67 /* medium */,
-			);
-			name = "gotham-rounded";
-			path = "../../../../fonts/gotham-rounded";
-			sourceTree = "<group>";
-		};
-		EDCE35A619DF34A300D3CD67 /* book */ = {
-			isa = PBXGroup;
-			children = (
-				EDCE35A719DF34A300D3CD67 /* gotham-rounded-book.otf */,
-			);
-			path = book;
-			sourceTree = "<group>";
-		};
-		EDCE35A819DF34A300D3CD67 /* light */ = {
-			isa = PBXGroup;
-			children = (
-				EDCE35A919DF34A300D3CD67 /* gotham-rounded-light.css */,
-				EDCE35AA19DF34A300D3CD67 /* gotham-rounded-light.eot */,
-				EDCE35AB19DF34A300D3CD67 /* gotham-rounded-light.svg */,
-				EDCE35AC19DF34A300D3CD67 /* gotham-rounded-light.ttf */,
-				EDCE35AD19DF34A300D3CD67 /* gotham-rounded-light.woff */,
-				EDCE35AE19DF34A300D3CD67 /* gotham-rounded-light.woff2 */,
-			);
-			path = light;
-			sourceTree = "<group>";
-		};
-		EDCE35AF19DF34A300D3CD67 /* medium */ = {
-			isa = PBXGroup;
-			children = (
-				EDCE35B019DF34A300D3CD67 /* gotham-rounded-medium.otf */,
-			);
-			path = medium;
-			sourceTree = "<group>";
-		};
-		EDCE35B919DF359C00D3CD67 /* canter */ = {
-			isa = PBXGroup;
-			children = (
-				EDCE35BA19DF359C00D3CD67 /* canter-bold-3D.otf */,
-				EDCE35BB19DF359C00D3CD67 /* canter-bold-shadow.otf */,
-				EDCE35BC19DF359C00D3CD67 /* canter-bold-strips.otf */,
-				EDCE35BD19DF359C00D3CD67 /* canter-bold.otf */,
-				EDCE35BE19DF359C00D3CD67 /* canter-light.otf */,
-				EDCE35BF19DF359C00D3CD67 /* canter-outline.otf */,
-			);
-			name = canter;
-			path = ../../../../fonts/canter;
 			sourceTree = "<group>";
 		};
 		EDE5D8D0196D021A007565A9 = {
@@ -394,22 +394,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDCE35B819DF34A300D3CD67 /* gotham-rounded-medium.otf in Resources */,
-				EDCE35B519DF34A300D3CD67 /* gotham-rounded-light.ttf in Resources */,
-				EDCE35B319DF34A300D3CD67 /* gotham-rounded-light.eot in Resources */,
-				EDCE35C519DF359C00D3CD67 /* canter-outline.otf in Resources */,
-				EDCE35B419DF34A300D3CD67 /* gotham-rounded-light.svg in Resources */,
-				EDCE35C019DF359C00D3CD67 /* canter-bold-3D.otf in Resources */,
-				EDCE35C419DF359C00D3CD67 /* canter-light.otf in Resources */,
-				EDCE35B219DF34A300D3CD67 /* gotham-rounded-light.css in Resources */,
-				EDCE35B119DF34A300D3CD67 /* gotham-rounded-book.otf in Resources */,
+				508557AD1A168C5C003BF446 /* gotham-rounded-light.eot in Resources */,
+				508557AE1A168C5C003BF446 /* gotham-rounded-light.svg in Resources */,
+				508557B11A168C5C003BF446 /* gotham-rounded-light.woff2 in Resources */,
+				508557BF1A168C64003BF446 /* canter-outline.otf in Resources */,
 				EDE5D8E4196D021A007565A9 /* Main.storyboard in Resources */,
+				508557BA1A168C64003BF446 /* canter-bold-3D.otf in Resources */,
+				508557BE1A168C64003BF446 /* canter-light.otf in Resources */,
+				508557B21A168C5C003BF446 /* gotham-rounded-medium.otf in Resources */,
+				508557AF1A168C5C003BF446 /* gotham-rounded-light.ttf in Resources */,
+				508557B01A168C5C003BF446 /* gotham-rounded-light.woff in Resources */,
+				508557AB1A168C5C003BF446 /* gotham-rounded-book.otf in Resources */,
+				508557AC1A168C5C003BF446 /* gotham-rounded-light.css in Resources */,
+				508557BC1A168C64003BF446 /* canter-bold-strips.otf in Resources */,
 				EDE5D8E6196D021A007565A9 /* Images.xcassets in Resources */,
-				EDCE35B619DF34A300D3CD67 /* gotham-rounded-light.woff in Resources */,
-				EDCE35C219DF359C00D3CD67 /* canter-bold-strips.otf in Resources */,
-				EDCE35B719DF34A300D3CD67 /* gotham-rounded-light.woff2 in Resources */,
-				EDCE35C119DF359C00D3CD67 /* canter-bold-shadow.otf in Resources */,
-				EDCE35C319DF359C00D3CD67 /* canter-bold.otf in Resources */,
+				508557BB1A168C64003BF446 /* canter-bold-shadow.otf in Resources */,
+				508557BD1A168C64003BF446 /* canter-bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
