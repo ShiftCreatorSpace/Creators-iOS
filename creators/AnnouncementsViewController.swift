@@ -94,12 +94,21 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Set up navbar title and font
         self.navigationController!.navigationBar.barTintColor = ShiftColor.Red.color()
         self.navigationItem.title = "Shift News"
         
         let font = UIFont(name: "GothamRounded-Book", size: 22)
         let titleDict: NSDictionary = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController!.navigationBar.titleTextAttributes = titleDict
+
+        
+        //Set up segmented control color and font
+        announcementsSegmentedControl.tintColor = ShiftColor.Red.color()
+        let segmentFont = UIFont(name: "GothamRounded-Book", size: 18)
+        announcementsSegmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName : UIColor.whiteColor()], forState: UIControlState.Normal)
+        announcementsSegmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName : UIColor.whiteColor(), NSFontAttributeName: segmentFont, NSUnderlineStyleAttributeName: 1], forState: UIControlState.Selected)
+        
         
 //        
 //        self.announcementsSegmentedControl!.autoresizingMask = UIViewAutoresizing.FlexibleRightMargin | UIViewAutoresizing.FlexibleWidth
