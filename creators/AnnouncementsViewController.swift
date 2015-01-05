@@ -95,6 +95,11 @@ class AnnouncementsViewController: UITableViewController, UITableViewDelegate, S
         super.viewDidLoad()
         
         self.navigationController!.navigationBar.barTintColor = ShiftColor.Red.color()
+        self.navigationItem.title = "Shift News"
+        
+        let font = UIFont(name: "GothamRounded-Book", size: 22)
+        let titleDict: NSDictionary = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController!.navigationBar.titleTextAttributes = titleDict
         
 //        
 //        self.announcementsSegmentedControl!.autoresizingMask = UIViewAutoresizing.FlexibleRightMargin | UIViewAutoresizing.FlexibleWidth

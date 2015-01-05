@@ -65,6 +65,12 @@ class EventsViewController: UITableViewController, UITableViewDelegate, SWTableV
         super.viewDidLoad()
         
         self.navigationController!.navigationBar.barTintColor = ShiftColor.Blue.color()
+        self.navigationItem.title = "Shift Events"
+        
+        let font = UIFont(name: "GothamRounded-Book", size: 22)
+        let titleDict: NSDictionary = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController!.navigationBar.titleTextAttributes = titleDict
+
         
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "EventsCell")
         

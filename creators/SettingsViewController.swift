@@ -70,7 +70,9 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.navigationController!.navigationBar.barTintColor = ShiftColor.Gray.color()
+        //self.navigationController!.navigationBar.barTintColor = ShiftColor.Orange.color()
+        self.navigationItem.title = "Shift Settings"
+
         
         let currentUser = PFUser.currentUser()
         name!.text = String(currentUser["firstName"] as NSString) + " " + String(currentUser["lastName"] as NSString)

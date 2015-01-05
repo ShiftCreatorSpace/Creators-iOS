@@ -64,6 +64,12 @@ class MembersViewController: UITableViewController, UISearchDisplayDelegate, UIS
         super.viewDidLoad()
         
         self.navigationController!.navigationBar.barTintColor = ShiftColor.Orange.color()
+        self.navigationItem.title = "Shift Members"
+        
+        let font = UIFont(name: "GothamRounded-Book", size: 22)
+        let titleDict: NSDictionary = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController!.navigationBar.titleTextAttributes = titleDict
+
         
         /* ---------------- NEW SEARCH CONTROLLER ----------------  */
         /*self.memberSearchController = ({
